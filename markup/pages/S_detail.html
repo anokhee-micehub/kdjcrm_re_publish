@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=1980">
+  <link rel="stylesheet" href="../css/normalize.css">
+  <link rel="stylesheet" href="../css/header.css">
+  <link rel="stylesheet" href="../css/footer.css">
+  <link rel="stylesheet" href="../css/common.css">
+  <link rel="stylesheet" href="../css/form.css">
+  <link rel="stylesheet" href="../css/card.css">
+  <link rel="stylesheet" href="../css/range.css">
+  <link rel="stylesheet" href="../css/search.css">
+  <link rel="stylesheet" href="../css/table.css">
+  <link rel="stylesheet" href="../css/popup.css">
+  <link rel="stylesheet" href="../assets/fontawesome/css/fontawesome.css">
+  <link rel="stylesheet" href="../assets/fontawesome/css/brands.css">
+  <link rel="stylesheet" href="../assets/fontawesome/css/solid.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js" integrity="sha512-STof4xm1wgkfm7heWqFJVn58Hm3EtS31XFaagaa8VMReCXAkQnJZ+jEy8PCC/iT18dFy95WcExNHFTqLyp72eQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://code.jquery.com/jquery-3.6.2.min.js" integrity="sha256-2krYZKh//PcchRtd+H+VyyQoZ/e3EcrkxhM8ycwASPA=" crossorigin="anonymous"></script>
+  <script src="https://momentjs.com/downloads/moment.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js" integrity="sha256-qXBd/EfAdjOA2FGrGAG+b3YBn2tn5A6bhz+LSgYD96k=" crossorigin="anonymous"></script>
+  <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js" defer=""></script>
+  <script src="../js/commonJs.js"></script>
+  <title>S_detail</title>
+</head>
+<body>
+  <div class="wrap">
+    <header class="header">
+      <h1 class="logo">
+        <a href="/dashboard"><img src="/assets/logo.png" alt="로고"></a>
+      </h1>
+      <ul class="gnb gnb_depth1">
+        <li>
+          <a href="/customers/leads" class="gnb-link gnb-link_depth1"><i class="fa-solid fa-user"></i> 고객</a>
+          <ul class="gnb gnb_depth2">
+            <li><a href="/customers/report?type=dashboard" class="gnb-link gnb-link_depth2">보고서</a></li>
+            <li><a href="/customers/leads" class="gnb-link gnb-link_depth2">잠재고객</a></li>
+            <li><a href="/customers" class="gnb-link gnb-link_depth2 isActive">유효고객</a></li>
+            <li><a href="/customers/attendees" class="gnb-link gnb-link_depth2">참관객</a></li>
+            <li><a href="/customers/chance/exhibition" class="gnb-link gnb-link_depth2">전시업무</a></li>
+            <li><a href="/customers/chance/space" class="gnb-link gnb-link_depth2">대관업무</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="/marketing/campaigns" class="gnb-link gnb-link_depth1"><i class="fa-solid fa-megaphone"></i> 마케팅</a>
+          <ul class="gnb gnb_depth2">
+            <li><a href="/marketing/report" class="gnb-link gnb-link_depth2">보고서</a></li>
+            <li><a href="/marketing/campaigns" class="gnb-link gnb-link_depth2">이메일/SMS</a></li>
+            <li><a href="/marketing/contact-list" class="gnb-link gnb-link_depth2">수신자그룹</a></li>
+            <li><a href="/marketing/talks" class="gnb-link gnb-link_depth2">대화</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="/homepage" class="gnb-link gnb-link_depth1"><i class="fa-solid fa-location-plus"></i> 홈페이지</a>
+          <ul class="gnb gnb_depth2">
+            <li><a href="/homepage/schedules" class="gnb-link gnb-link_depth2">행사일정</a></li>
+            <li><a href="/homepage/boards" class="gnb-link gnb-link_depth2">게시판</a></li>
+            <li><a href="/homepage/files" class="gnb-link gnb-link_depth2">서식 및 자료</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="/setting/members" class="gnb-link gnb-link_depth1 isActive"><i class="fa-solid fa-list-check"></i> 설정</a>
+          <ul class="gnb gnb_depth2">
+            <li><a href="/setting/members" class="gnb-link gnb-link_depth2">임직원</a></li>
+            <li><a href="/setting/categories" class="gnb-link gnb-link_depth2">분류코드</a></li>
+            <li><a href="/setting/spaces" class="gnb-link gnb-link_depth2">시설관리</a></li>
+            <li><a href="/setting/equipments" class="gnb-link gnb-link_depth2">비품관리</a></li>
+            <li><a href="/setting/business" class="gnb-link gnb-link_depth2">사업관리</a></li>
+          </ul>
+        </li>
+      </ul>
+      <div class="header-userInfo">
+        <span>안녕하세요! 홍길동님</span>
+        <button type="button" onclick="javascript : window.location.href='/logout'"><i class="fa-solid fa-arrow-right-from-bracket"></i></button>
+      </div>
+    </header>
+    <main class="main">
+      <section class="main-inner">
+        <article class="commonPageBox_ly">
+          <div class="detailBox flex_jc_ct">
+            <div class="detailBox-half detailBox-half_left maxWidth50">
+              <div class="box innerBox">
+                <form id="frmRegist">
+                  <div class="subTitleBox subTitleBox_bt sectionTitle">
+                    <h3 class="subTitleBox-subTitle">
+                      비품
+                    </h3>
+                    <div class="subTitleBox_st">
+                      <button type="button" class="btn btn_m btn_m_primary ck-save">수정</button>
+                      <button type="button" class="btn btn_m btn_m_primary ck-delete">삭제</button>
+                      <button type="button" class="btn btn_m btn_m_cancel" onclick="window.location.href ='/setting/equipments' ">취소</button>
+                    </div>
+                  </div>
+                  <div class="sectionBox">
+                    <div class="subTitleBox subTitleBox_st">
+                      <div class="subTitleBox-inner">
+                        <h3 class="subTitleBox-subTitle">
+                          기본정보
+                        </h3>
+                      </div>
+                    </div>
+                    <!-- disabled가 제거되면 인풋 활성화 -->
+                    <ul class="infoBox">
+                      <li class="infoBox-inner infoBox-inner_half">
+                        <strong class="infoBox-cate">관리번호</strong>
+                        <div class="infoBox-info infoBox-info_form">
+                          <div class="inputBox">
+                            <input type="hidden" name="idx" value="5">
+                            <input class="input_text input_text_formInput" type="text" value="005" disabled="">
+                          </div>
+                        </div>
+                      </li>
+                      <li class="infoBox-inner infoBox-inner_half">
+                        <strong class="infoBox-cate">순서</strong>
+                        <div class="infoBox-info infoBox-info_form">
+                          <div class="inputBox inputBox_input">
+                            <input class="input_text input_text_formInput" type="text" name="ord" value="37" disabled="">
+                          </div>
+                        </div>
+                      </li>
+                      <li class="infoBox-inner infoBox-inner_full">
+                        <strong class="infoBox-cate">비품분류</strong>
+                        <div class="infoBox-info infoBox-info_form">
+                          <div class="inputBox inputBox_select">
+                            <select class="select select_formSelect" name="equipmentCategoryIdx">
+                              <option value="">== 선택해주세요 ==</option>
+                              <option value="1">DVD/VCR</option>
+                              <option value="2" selected="selected">빔 프로젝터</option>
+                              <option value="3">Mic.</option>
+                              <option value="4">무선 Mic.</option>
+                              <option value="5">유선 Mic.</option>
+                              <option value="6">스크린</option>
+                              <option value="7">녹음</option>
+                              <option value="8">AMP</option>
+                              <option value="9">노트북</option>
+                              <option value="10">컴퓨터</option>
+                              <option value="11">책상</option>
+                              <option value="12">의자</option>
+                              <option value="13">이동식</option>
+                              <option value="14">전동식</option>
+                              <option value="15">기타</option>
+                              <option value="16">Delegate/Chairman unit	</option>
+                              <option value="17">고소작업대</option>
+                              <option value="18">통역수신기</option>
+                              <option value="19">동시통역장비</option>
+                              <option value="20">이동식무대</option>
+                              <option value="21">그랜드피아노</option>
+                              <option value="22">병풍</option>
+                              <option value="23">스탠드</option>
+                              <option value="24">화이트보드</option>
+                              <option value="25">이동식 화상장비</option>
+                              <option value="26">C310호 화상장비</option>
+                              <option value="27">C311호 화상장비</option>
+                              <option value="28">인터넷(유선)</option>
+                              <option value="29">비품분류신규</option>
+                              <option value="30">새로분류</option>
+                            </select>
+                          </div>
+                        </div>
+                      </li>
+                      <li class="infoBox-inner infoBox-inner_full">
+                        <strong class="infoBox-cate">비품명</strong>
+                        <div class="infoBox-info infoBox-info_form">
+                          <div class="inputBox inputBox_input" style="max-width:100%; display:inline-flex;">
+                            <input class="input_text input_text_formInput" type="text" value="빔 5,000" name="name" style="flex:1;">
+                          </div>
+                        </div>
+                      </li>
+                      <!-- 비품 -->
+                      <li class="infoBox-inner infoBox-inner_full">
+                        <strong class="infoBox-cate">임대료(비품)</strong>
+                        <div class="infoBox-info infoBox-info_form col gap10">
+                          <div class="flex flex_jc_ed full">
+                            <button type="button" class="btn btn_full ck-add-option">추가 + </button>
+                          </div>
+                          <div id="option-container" class="flex_col_st_sr gap10">
+                            <div class="searchBox searchBox_head inForm">
+                              <div class="inputGroup">
+                                <div class="inputGroup-line gridForm">
+                                  <div class="inputBox inputBox_calendar">
+                                    <label class="label" for="regDate">단위 :</label>
+                                    <div class="inputBox inputBox_select formSize">
+                                      <select class="select" name="" id="">
+                                        <option value="">전일</option>
+                                        <option value="value1">반일</option>
+                                        <option value="value2">추가시간당</option>
+                                      </select>
+                                    </div>
+                                  </div>
+                                  <div class="inputBox">
+                                    <label class="label" for="regDate">단위명 :</label>
+                                    <div class="inputBox inputBox_input">
+                                      <input class="input_text" type="text">
+                                    </div>
+                                  </div>
+                                  <div class="inputBox">
+                                    <label class="label" for="regDate">금액 :</label>
+                                    <div class="inputBox inputBox_input">
+                                      <input class="input_text" type="text">
+                                    </div>
+                                  </div>
+                                  <button type="button" class="btn btn_m btn_m_primary gridForm-btn ck-delete">삭제</button>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <!-- template / hide제거시 노출됩니다 -->
+                          <div id="dummy" class="flex_col_st_sr gap10 hide">
+                            <div class="searchBox searchBox_head inForm">
+                              <div class="inputGroup">
+                                <div class="inputGroup-line gridForm">
+                                  <div class="inputBox inputBox_calendar">
+                                    <label class="label" for="regDate">단위 :</label>
+                                    <div class="inputBox inputBox_select formSize">
+                                      <select class="select" name="" id="">
+                                        <option value="">전일</option>
+                                        <option value="value1">반일</option>
+                                        <option value="value2">추가시간당</option>
+                                      </select>
+                                    </div>
+                                  </div>
+                                  <div class="inputBox">
+                                    <label class="label" for="regDate">단위명 :</label>
+                                    <div class="inputBox inputBox_input">
+                                      <input class="input_text" type="text">
+                                    </div>
+                                  </div>
+                                  <div class="inputBox">
+                                    <label class="label" for="regDate">금액 :</label>
+                                    <div class="inputBox inputBox_input">
+                                      <input class="input_text" type="text">
+                                    </div>
+                                  </div>
+                                  <button type="button" class="btn btn_m btn_m_primary gridForm-btn ck-delete">삭제</button>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </li>
+                      <!-- 시설 -->
+                      <li class="infoBox-inner infoBox-inner_full">
+                        <strong class="infoBox-cate">임대료(시설)</strong>
+                        <div class="infoBox-info infoBox-info_form col gap10">
+                          <div class="flex flex_col_st_sr full gap5">
+                            <button type="button" class="btn btn_full ck-add-option">추가 + </button>
+                            <span class="descText red">30%할증 과 10%할인은 미입력(공란)시 기본금액에서 자동으로 계산된 금액(원단위 절사된 금액)으로 저장됩니다.</span>
+                          </div>
+                          <div id="option-container" class="flex_col_st_sr gap10">
+                            <div class="searchBox searchBox_head inForm">
+                              <div class="inputGroup">
+                                <div class="inputGroup-line gridForm">
+                                  <div class="inputBox inputBox_calendar">
+                                    <label class="label" for="regDate">단위 :</label>
+                                    <div class="inputBox inputBox_select formSize">
+                                      <select class="select" name="" id="">
+                                        <option value="">전일</option>
+                                        <option value="value1">반일</option>
+                                        <option value="value2">추가시간당</option>
+                                      </select>
+                                    </div>
+                                  </div>
+                                  <div class="inputBox">
+                                    <label class="label" for="regDate">기본금액 :</label>
+                                    <div class="inputBox inputBox_input">
+                                      <input class="input_text" type="text">
+                                    </div>
+                                  </div>
+                                  <div class="inputBox">
+                                    <label class="label" for="regDate">30%할증 :</label>
+                                    <div class="inputBox inputBox_input">
+                                      <input class="input_text" type="text">
+                                    </div>
+                                  </div>
+                                  <div class="inputBox">
+                                    <label class="label" for="regDate">10%할인 :</label>
+                                    <div class="inputBox inputBox_input">
+                                      <input class="input_text" type="text">
+                                    </div>
+                                  </div>
+                                  <button type="button" class="btn btn_m btn_m_primary gridForm-btn end ck-delete">삭제</button>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <!-- template / hide제거시 노출됩니다 -->
+                          <div id="dummy" class="flex_col_st_sr gap10 hide">
+                            <div class="searchBox searchBox_head inForm">
+                              <div class="inputGroup">
+                                <div class="inputGroup-line gridForm">
+                                  <div class="inputBox inputBox_calendar">
+                                    <label class="label" for="regDate">단위 :</label>
+                                    <div class="inputBox inputBox_select formSize">
+                                      <select class="select" name="" id="">
+                                        <option value="">전일</option>
+                                        <option value="value1">반일</option>
+                                        <option value="value2">추가시간당</option>
+                                      </select>
+                                    </div>
+                                  </div>
+                                  <div class="inputBox">
+                                    <label class="label" for="regDate">기본금액 :</label>
+                                    <div class="inputBox inputBox_input">
+                                      <input class="input_text" type="text">
+                                    </div>
+                                  </div>
+                                  <div class="inputBox">
+                                    <label class="label" for="regDate">30%할증 :</label>
+                                    <div class="inputBox inputBox_input">
+                                      <input class="input_text" type="text">
+                                    </div>
+                                  </div>
+                                  <div class="inputBox">
+                                    <label class="label" for="regDate">10%할인 :</label>
+                                    <div class="inputBox inputBox_input">
+                                      <input class="input_text" type="text">
+                                    </div>
+                                  </div>
+                                  <button type="button" class="btn btn_m btn_m_primary gridForm-btn end ck-delete">삭제</button>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+                  <!-- hidden 클래스가 생성되면 사라짐 -->
+                  <div class="subTitleBox_st mt40">
+                    <button type="button" class="btn btn_m btn_m_primary ck-save">수정</button>
+                    <button type="button" class="btn btn_m btn_m_primary ck-delete">삭제</button>
+                    <button type="button" class="btn btn_m btn_m_cancel" onclick="window.location.href ='/setting/equipments' ">취소</button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </article>
+      </section>
+    </main>
+    <footer class="footer">
+      <p>Copyright © <strong>2022 김대중컨벤션센터</strong> All rights reserved.</p>
+    </footer>
+  </div>
+</body>
+</html>

@@ -1,0 +1,745 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=1980">
+  <link rel="stylesheet" href="../css/normalize.css">
+  <link rel="stylesheet" href="../css/header.css">
+  <link rel="stylesheet" href="../css/footer.css">
+  <link rel="stylesheet" href="../css/common.css">
+  <link rel="stylesheet" href="../css/form.css">
+  <link rel="stylesheet" href="../css/search.css">
+  <link rel="stylesheet" href="../css/table.css">
+  <link rel="stylesheet" href="../css/signboard.css">
+  <link rel="stylesheet" href="../css/card.css">
+  <link rel="stylesheet" href="../css/range.css">
+  <link rel="stylesheet" href="../css/popup.css">
+  <link rel="stylesheet" href="../assets/fontawesome/css/fontawesome.css">
+  <link rel="stylesheet" href="../assets/fontawesome/css/brands.css">
+  <link rel="stylesheet" href="../assets/fontawesome/css/solid.css">
+  <!-- range slider start -->
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+  <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js" defer></script>
+  <!-- range slider end -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js" integrity="sha512-STof4xm1wgkfm7heWqFJVn58Hm3EtS31XFaagaa8VMReCXAkQnJZ+jEy8PCC/iT18dFy95WcExNHFTqLyp72eQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="../js/commonJs.js" defer></script>
+  <script src="../js/range.js" defer></script>
+  <title>CH_05</title>
+</head>
+<body>
+  <div class="wrap">
+    <header class="header">
+      <h1 class="logo">
+        <img src="../assets/logo.png" alt="로고">
+      </h1>
+      <ul class="gnb gnb_depth1">
+        <li>
+          <a href="#" class="gnb-link gnb-link_depth1 isActive"><i class="fa-solid fa-user"></i> 고객</a>
+          <ul class="gnb gnb_depth2">
+            <li><a href="#" class="gnb-link gnb-link_depth2 isActive">보고</a></li>
+            <li><a href="#" class="gnb-link gnb-link_depth2">잠재</a></li>
+            <li><a href="#" class="gnb-link gnb-link_depth2">고객</a></li>
+            <li><a href="#" class="gnb-link gnb-link_depth2">기회</a></li>
+            <li><a href="#" class="gnb-link gnb-link_depth2">참관객</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="#" class="gnb-link gnb-link_depth1"><i class="fa-solid fa-megaphone"></i> 마케팅</a>
+          <ul class="gnb gnb_depth2">
+            <li><a href="#" class="gnb-link gnb-link_depth2">보고</a></li>
+            <li><a href="#" class="gnb-link gnb-link_depth2">캠페인</a></li>
+            <li><a href="#" class="gnb-link gnb-link_depth2">메시지</a></li>
+            <li><a href="#" class="gnb-link gnb-link_depth2">대화</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="#" class="gnb-link gnb-link_depth1"><i class="fa-solid fa-location-plus"></i> 대관</a>
+          <ul class="gnb gnb_depth2">
+            <li><a href="#" class="gnb-link gnb-link_depth2">보고</a></li>
+            <li><a href="#" class="gnb-link gnb-link_depth2">전시장</a></li>
+            <li><a href="#" class="gnb-link gnb-link_depth2">행사장</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="#" class="gnb-link gnb-link_depth1"><i class="fa-solid fa-calendar-check"></i> 행사</a>
+          <ul class="gnb gnb_depth2">
+            <li><a href="#" class="gnb-link gnb-link_depth2">보고</a></li>
+            <li><a href="#" class="gnb-link gnb-link_depth2">전시등록</a></li>
+            <li><a href="#" class="gnb-link gnb-link_depth2">행사등록</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="#" class="gnb-link gnb-link_depth1"><i class="fa-solid fa-list-check"></i> 관리</a>
+          <ul class="gnb gnb_depth2">
+            <li><a href="#" class="gnb-link gnb-link_depth2">회원</a></li>
+            <li><a href="#" class="gnb-link gnb-link_depth2">분류</a></li>
+            <li><a href="#" class="gnb-link gnb-link_depth2">시설</a></li>
+            <li><a href="#" class="gnb-link gnb-link_depth2">기기</a></li>
+          </ul>
+        </li>
+      </ul>
+      <div class="header-userInfo">
+        <span>안녕하세요! 홍길동님</span>
+        <button type="button"><i class="fa-solid fa-arrow-right-from-bracket"></i></button>
+      </div>
+    </header>
+    <main class="main">
+      <section class="main-inner">
+        <article class="commonPageBox_ly">
+          <div class="lnb">
+            <div class="lnb-side">
+              <a class="lnb-link">홈</a>
+              <a class="lnb-link">고객 관리</a>
+              <a class="lnb-link isActive">전시업무</a>
+            </div>
+            <button type="button" class="btn btn_m btn_m_view"><i class="fa-regular fa-calendar-day"></i> 현황 보기</button>
+          </div>
+          <div class="searchBox_extension">
+            <div class="selectlocationBox-tabBtns">
+              <button type="button" data-val="tab1" class="btn isActive">전시실 대관</button>
+              <button type="button" data-val="tab2" class="btn">회의실 대관</button>
+            </div>
+            <!-- 전시실 -->
+            <div class="selectlocationBox tab1 isActive">
+              <ul class="selectlocationBox-section">
+                <li class="sectionTitle">기타</li>
+                <li class="chksWrap">
+                  <div class="fullChks">
+                    <input type="checkbox" id="chk1000">
+                    <label for="chk1000">
+                      로비-A구역
+                    </label>
+                  </div>
+                  <div class="fullChks">
+                    <input type="checkbox" id="chk1001">
+                    <label for="chk1001">
+                      로비-A구역
+                    </label>
+                  </div>
+                  <div class="fullChks">
+                    <input type="checkbox" id="chk1002">
+                    <label for="chk1002">
+                      로비-A구역
+                    </label>
+                  </div>
+                </li>
+              </ul>
+              <ul class="selectlocationBox-section">
+                <li class="sectionTitle">4층</li>
+                <li class="chksWrap">
+                  <div class="fullChks">
+                    <input type="checkbox" id="chk1003">
+                    <label for="chk1003">
+                      로비-A구역
+                    </label>
+                  </div>
+                  <div class="fullChks">
+                    <input type="checkbox" id="chk1004">
+                    <label for="chk1004">
+                      로비-A구역
+                    </label>
+                  </div>
+                  <div class="fullChks">
+                    <input type="checkbox" id="chk1005">
+                    <label for="chk1005">
+                      로비-A구역
+                    </label>
+                  </div>
+                </li>
+              </ul>
+              <ul class="selectlocationBox-section">
+                <li class="sectionTitle">1센터 2층</li>
+                <li class="chksWrap">
+                  <div class="fullChks">
+                    <input type="checkbox" id="chk1003">
+                    <label for="chk1003">
+                      로비-A구역
+                    </label>
+                  </div>
+                  <div class="fullChks">
+                    <input type="checkbox" id="chk1004">
+                    <label for="chk1004">
+                      로비-A구역
+                    </label>
+                  </div>
+                  <div class="fullChks">
+                    <input type="checkbox" id="chk1005">
+                    <label for="chk1005">
+                      로비-A구역
+                    </label>
+                  </div>
+                </li>
+              </ul>
+              <ul class="selectlocationBox-section">
+                <li class="sectionTitle">2센터 2층</li>
+                <li class="chksWrap">
+                  <div class="fullChks">
+                    <input type="checkbox" id="chk1003">
+                    <label for="chk1003">
+                      로비-A구역
+                    </label>
+                  </div>
+                  <div class="fullChks">
+                    <input type="checkbox" id="chk1004">
+                    <label for="chk1004">
+                      로비-A구역
+                    </label>
+                  </div>
+                </li>
+              </ul>
+              <ul class="selectlocationBox-section">
+                <li class="sectionTitle">2센터 3층</li>
+                <li class="chksWrap">
+                  <div class="fullChks">
+                    <input type="checkbox" id="chk1003">
+                    <label for="chk1003">
+                      로비-A구역
+                    </label>
+                  </div>
+                  <div class="fullChks">
+                    <input type="checkbox" id="chk1004">
+                    <label for="chk1004">
+                      로비-A구역
+                    </label>
+                  </div>
+                  <div class="fullChks">
+                    <input type="checkbox" id="chk1005">
+                    <label for="chk1005">
+                      로비-A구역
+                    </label>
+                  </div>
+                </li>
+              </ul>
+              <ul class="selectlocationBox-section">
+                <li class="sectionTitle">컨벤션동 3층</li>
+                <li class="chksWrap">
+                  <div class="fullChks">
+                    <input type="checkbox" id="chk1003">
+                    <label for="chk1003">
+                      로비-A구역
+                    </label>
+                  </div>
+                  <div class="fullChks">
+                    <input type="checkbox" id="chk1004">
+                    <label for="chk1004">
+                      로비-A구역
+                    </label>
+                  </div>
+                  <div class="fullChks">
+                    <input type="checkbox" id="chk1005">
+                    <label for="chk1005">
+                      로비-A구역
+                    </label>
+                  </div>
+                </li>
+              </ul>
+              <div class="searchBox searchBox_head">
+                <div class="inputGroup">
+                  <div class="inputGroup-line">
+                    <div class="inputBox inputBox_select">
+                      <select class="select" name="" id="">
+                        <option value="">사업 코드</option>
+                        <option value="value1">value1</option>
+                        <option value="value2">value2</option>
+                      </select>
+                    </div>
+                    <div class="inputBox inputBox_select">
+                      <select class="select" name="" id="">
+                        <option value="">기회 단계</option>
+                        <option value="value1">value1</option>
+                        <option value="value2">value2</option>
+                      </select>
+                    </div>
+                    <div class="inputBox inputBox_select">
+                      <select class="select" name="" id="">
+                        <option value="">신규 여부</option>
+                        <option value="value1">value1</option>
+                        <option value="value2">value2</option>
+                      </select>
+                    </div>
+                    <div class="inputBox inputBox_customRange">
+                      <label class="label" for="">기회 성공률 : </label>
+                      <input type="text" class="input input_text">
+                      ~
+                      <input type="text" class="input input_text">
+                      <button class="btn rangeTabOpen">
+                        <i class="fa-solid fa-sliders"></i>
+                      </button>
+                      <div class="rangeSlideTabBox">
+                        <div class="subTitleBox subTitleBox_bt">
+                          <h5 class="titleText">기회 성공률</h5>
+                          <button class="btn closeFilterBox"><i class="fa-regular fa-xmark"></i></button>
+                        </div>
+                        <div class="slider-range" id="slider-range1"></div>
+                        <div class="amounts">
+                          <input type="text" readonly class="range-input amount-min">
+                          <span>~</span>
+                          <input type="text" readonly class="range-input amount-max">
+                        </div>
+                        <button class="btn btn_m_primary closeFilterBox">필터 적용</button>
+                      </div>
+                    </div>
+                    <div class="inputBox inputBox_calendar">
+                      <label class="label" for="regDate">기회 마감일</label>
+                      <input class="input_date" type="date" value="2023-01-10"> ~
+                      <input class="input_date" type="date" value="2023-01-10">
+                    </div>
+                    <div class="inputBox inputBox_customRange">
+                      <label class="label" for="">목표 금액 : </label>
+                      <input type="text" class="input input_text">
+                      ~
+                      <input type="text" class="input input_text">
+                      <button class="btn rangeTabOpen rangeTabOpen">
+                        <i class="fa-solid fa-sliders"></i>
+                      </button>
+                      <div class="rangeSlideTabBox">
+                        <div class="subTitleBox subTitleBox_bt">
+                          <h5 class="titleText">목표 금액</h5>
+                          <button class="btn closeFilterBox"><i class="fa-regular fa-xmark"></i></button>
+                        </div>
+                        <div class="slider-range" id="slider-range2"></div>
+                        <div class="amounts">
+                          <input type="text" readonly class="range-input amount-min">
+                          <span>~</span>
+                          <input type="text" readonly class="range-input amount-max">
+                        </div>
+                        <button class="btn btn_m_primary closeFilterBox">필터 적용</button>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="inputGroup-line">
+                    <div class="inputBox inputBox_select">
+                      <select class="select" name="" id="">
+                        <option value="">전시종류</option>
+                        <option value="value1">value1</option>
+                        <option value="value2">value2</option>
+                      </select>
+                    </div>
+                    <div class="inputBox inputBox_select">
+                      <select class="select" name="" id="">
+                        <option value="">유치성격</option>
+                        <option value="value1">value1</option>
+                        <option value="value2">value2</option>
+                      </select>
+                    </div>
+                    <div class="inputBox inputBox_select">
+                      <select class="select" name="" id="">
+                        <option value="">행사성격</option>
+                        <option value="value1">value1</option>
+                        <option value="value2">value2</option>
+                      </select>
+                    </div>
+                    <div class="inputBox inputBox_calendar">
+                      <label class="label" for="regDate">임대 일자</label>
+                      <input class="input_date" type="date" value="2023-01-10"> ~
+                      <input class="input_date" type="date" value="2023-01-10">
+                    </div>
+                    <div class="inputBox inputBox_calendar">
+                      <label class="label" for="regDate">등록 일자</label>
+                      <input class="input_date" type="date" value="2023-01-10"> ~
+                      <input class="input_date" type="date" value="2023-01-10">
+                    </div>
+                  </div>
+                  <div class="inputGroup-line">
+                    <div class="inputBox inputBox_select">
+                      <select class="select" name="" id="">
+                        <option value="">행사명</option>
+                        <option value="value1">value1</option>
+                        <option value="value2">value2</option>
+                      </select>
+                    </div>
+                    <div class="inputBox inputBox_input">
+                      <input class="input_text" type="text">
+                      <button type="button" class="btn btn_m btn_m_search">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                        검색
+                      </button>
+                      <button type="button" class="btn btn_m btn_m_secondary">
+                        초기화
+                      </button>
+                    </div>
+                  </div>
+                </div>
+                <div class="buttonGroup">
+                  <button type="button" class="btn btn_m btn_m_primary"><i class="fa-light fa-plus"></i> 대관 등록</button>
+                  <button type="button" class="btn btn_m btn_m_excel"><i class="fa-regular fa-file-excel"></i></button>
+                </div>
+              </div>
+            </div>
+            <!-- 회의실 -->
+            <div class="selectlocationBox tab2">
+              <ul class="selectlocationBox-section">
+                <li class="sectionTitle">기타</li>
+                <li class="chksWrap">
+                  <div class="fullChks">
+                    <input type="checkbox" id="chk1000">
+                    <label for="chk1000">
+                      로비-A구역
+                    </label>
+                  </div>
+                </li>
+              </ul>
+              <ul class="selectlocationBox-section">
+                <li class="sectionTitle">4층</li>
+                <li class="chksWrap">
+                  <div class="fullChks">
+                    <input type="checkbox" id="chk1003">
+                    <label for="chk1003">
+                      로비-A구역
+                    </label>
+                  </div>
+                  <div class="fullChks">
+                    <input type="checkbox" id="chk1004">
+                    <label for="chk1004">
+                      로비-A구역
+                    </label>
+                  </div>
+                  <div class="fullChks">
+                    <input type="checkbox" id="chk1005">
+                    <label for="chk1005">
+                      로비-A구역
+                    </label>
+                  </div>
+                </li>
+              </ul>
+              <ul class="selectlocationBox-section">
+                <li class="sectionTitle">1센터 2층</li>
+                <li class="chksWrap">
+                  <div class="fullChks">
+                    <input type="checkbox" id="chk1003">
+                    <label for="chk1003">
+                      로비-A구역
+                    </label>
+                  </div>
+                  <div class="fullChks">
+                    <input type="checkbox" id="chk1004">
+                    <label for="chk1004">
+                      로비-A구역
+                    </label>
+                  </div>
+                </li>
+              </ul>
+              <ul class="selectlocationBox-section">
+                <li class="sectionTitle">2센터 2층</li>
+                <li class="chksWrap">
+                  <div class="fullChks">
+                    <input type="checkbox" id="chk1003">
+                    <label for="chk1003">
+                      로비-A구역
+                    </label>
+                  </div>
+                  <div class="fullChks">
+                    <input type="checkbox" id="chk1004">
+                    <label for="chk1004">
+                      로비-A구역
+                    </label>
+                  </div>
+                  <div class="fullChks">
+                    <input type="checkbox" id="chk1005">
+                    <label for="chk1005">
+                      로비-A구역
+                    </label>
+                  </div>
+                </li>
+              </ul>
+              <ul class="selectlocationBox-section">
+                <li class="sectionTitle">2센터 3층</li>
+                <li class="chksWrap">
+                  <div class="fullChks">
+                    <input type="checkbox" id="chk1003">
+                    <label for="chk1003">
+                      로비-A구역
+                    </label>
+                  </div>
+                  <div class="fullChks">
+                    <input type="checkbox" id="chk1004">
+                    <label for="chk1004">
+                      로비-A구역
+                    </label>
+                  </div>
+                  <div class="fullChks">
+                    <input type="checkbox" id="chk1005">
+                    <label for="chk1005">
+                      로비-A구역
+                    </label>
+                  </div>
+                </li>
+              </ul>
+              <ul class="selectlocationBox-section">
+                <li class="sectionTitle">컨벤션동 3층</li>
+                <li class="chksWrap">
+                  <div class="fullChks">
+                    <input type="checkbox" id="chk1003">
+                    <label for="chk1003">
+                      로비-A구역
+                    </label>
+                  </div>
+                  <div class="fullChks">
+                    <input type="checkbox" id="chk1004">
+                    <label for="chk1004">
+                      로비-A구역
+                    </label>
+                  </div>
+                  <div class="fullChks">
+                    <input type="checkbox" id="chk1005">
+                    <label for="chk1005">
+                      로비-A구역
+                    </label>
+                  </div>
+                </li>
+              </ul>
+              <div class="searchBox searchBox_head">
+                <div class="inputGroup">
+                  <div class="inputGroup-line">
+                    <div class="inputBox inputBox_select">
+                      <select class="select" name="" id="">
+                        <option value="">사업 코드</option>
+                        <option value="value1">value1</option>
+                        <option value="value2">value2</option>
+                      </select>
+                    </div>
+                    <div class="inputBox inputBox_select">
+                      <select class="select" name="" id="">
+                        <option value="">기회 단계</option>
+                        <option value="value1">value1</option>
+                        <option value="value2">value2</option>
+                      </select>
+                    </div>
+                    <div class="inputBox inputBox_select">
+                      <select class="select" name="" id="">
+                        <option value="">신규 여부</option>
+                        <option value="value1">value1</option>
+                        <option value="value2">value2</option>
+                      </select>
+                    </div>
+                    <div class="inputBox inputBox_customRange">
+                      <label class="label" for="">기회 성공률 : </label>
+                      <input type="text" class="input input_text">
+                      ~
+                      <input type="text" class="input input_text">
+                      <button class="btn rangeTabOpen">
+                        <i class="fa-solid fa-sliders"></i>
+                      </button>
+                      <div class="rangeSlideTabBox">
+                        <div class="subTitleBox subTitleBox_bt">
+                          <h5 class="titleText">기회 성공률</h5>
+                          <button class="btn closeFilterBox"><i class="fa-regular fa-xmark"></i></button>
+                        </div>
+                        <div class="slider-range" id="slider-range3"></div>
+                        <div class="amounts">
+                          <input type="text" readonly class="range-input amount-min">
+                          <span>~</span>
+                          <input type="text" readonly class="range-input amount-max">
+                        </div>
+                        <button class="btn btn_m_primary closeFilterBox">필터 적용</button>
+                      </div>
+                    </div>
+                    <div class="inputBox inputBox_calendar">
+                      <label class="label" for="regDate">기회 마감일</label>
+                      <input class="input_date" type="date" value="2023-01-10"> ~
+                      <input class="input_date" type="date" value="2023-01-10">
+                    </div>
+                    <div class="inputBox inputBox_customRange">
+                      <label class="label" for="">목표 금액 : </label>
+                      <input type="text" class="input input_text">
+                      ~
+                      <input type="text" class="input input_text">
+                      <button class="btn rangeTabOpen">
+                        <i class="fa-solid fa-sliders"></i>
+                      </button>
+                      <div class="rangeSlideTabBox">
+                        <div class="subTitleBox subTitleBox_bt">
+                          <h5 class="titleText">기회 성공률</h5>
+                          <button class="btn closeFilterBox"><i class="fa-regular fa-xmark"></i></button>
+                        </div>
+                        <div class="slider-range" id="slider-range4"></div>
+                        <div class="amounts">
+                          <input type="text" readonly class="range-input amount-min">
+                          <span>~</span>
+                          <input type="text" readonly class="range-input amount-max">
+                        </div>
+                        <button class="btn btn_m_primary closeFilterBox">필터 적용</button>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="inputGroup-line">
+                    <div class="inputBox inputBox_select">
+                      <select class="select" name="" id="">
+                        <option value="">1분류</option>
+                        <option value="value1">value1</option>
+                        <option value="value2">value2</option>
+                      </select>
+                    </div>
+                    <div class="inputBox inputBox_select">
+                      <select class="select" name="" id="">
+                        <option value="">2분류</option>
+                        <option value="value1">value1</option>
+                        <option value="value2">value2</option>
+                      </select>
+                    </div>
+                    <div class="inputBox inputBox_select">
+                      <select class="select" name="" id="">
+                        <option value="">행사 일자</option>
+                        <option value="value1">value1</option>
+                        <option value="value2">value2</option>
+                      </select>
+                    </div>
+                    <div class="inputBox inputBox_calendar">
+                      <label class="label" for="regDate">임대 일자</label>
+                      <input class="input_date" type="date" value="2023-01-10"> ~
+                      <input class="input_date" type="date" value="2023-01-10">
+                    </div>
+                    <div class="inputBox inputBox_calendar">
+                      <label class="label" for="regDate">등록 일자</label>
+                      <input class="input_date" type="date" value="2023-01-10"> ~
+                      <input class="input_date" type="date" value="2023-01-10">
+                    </div>
+                  </div>
+                  <div class="inputGroup-line">
+                    <div class="inputBox inputBox_select">
+                      <select class="select" name="" id="">
+                        <option value="">등록일자</option>
+                        <option value="value1">value1</option>
+                        <option value="value2">value2</option>
+                      </select>
+                    </div>
+                    <div class="inputBox inputBox_input">
+                      <input class="input_text" type="text">
+                      <button type="button" class="btn btn_m btn_m_search">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                        검색
+                      </button>
+                      <button type="button" class="btn btn_m btn_m_secondary">
+                        초기화
+                      </button>
+                    </div>
+                  </div>
+                </div>
+                <div class="buttonGroup">
+                  <button type="button" class="btn btn_m btn_m_primary"><i class="fa-light fa-plus"></i> 대관 등록</button>
+                  <button type="button" class="btn btn_m btn_m_excel"><i class="fa-regular fa-file-excel"></i></button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="contentsBox_ly">
+            <div class="tableBox_ly">
+              <div class="searchBox searchBox_body">
+                <div class="searchBox_body-inner searchBox_body-inner_left">
+                  <label class="label">검색 결과 <strong>1-15 / 500</strong>개</label>
+                </div>
+                <div class="searchBox_body-inner searchBox_body-inner_right">
+                  <button class="btn btn_m btn_m_align isActive"><i class="fa-solid fa-list"></i></button>
+                  <button class="btn btn_m btn_m_align"><i class="fa-solid fa-grid-2"></i></button>
+                  <div class="inputBox inputBox_select">
+                    <select class="select" name="" id="">
+                      <option value="">- 정렬순서 -</option>
+                      <option value="value1">value1</option>
+                      <option value="value2">value2</option>
+                    </select>
+                  </div>
+                  <div class="inputBox inputBox_select">
+                    <select class="select" name="" id="">
+                      <option value="">- 15개씩 보기 -</option>
+                      <option value="value1">value1</option>
+                      <option value="value2">value2</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+              <div class="tableWrapBox box">
+                <table class="table">
+                  <thead>
+                    <tr>
+                      <th></th>
+                      <th>#</th>
+                      <th>종류</th>
+                      <th>행사명</th>
+                      <th>행사기간</th>
+                      <th>주최</th>
+                      <th>담당자</th>
+                      <th>등록자</th>
+                      <th>등록일자</th>
+                      <th>최종수정자</th>
+                      <th>최종수정일시</th>
+                      <th>상태</th>
+                      <th>일반전화</th>
+                      <th>휴대전화</th>
+                      <th>관리</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><input type="checkbox"></td>
+                      <td>515</td>
+                      <td>기업회의</td>
+                      <td>1차 ㅇㅇㅇ회의</td>
+                      <td>2022-12-13 ~ 2022-12-13</td>
+                      <td>주식회사 마이스허브</td>
+                      <td>홍길동 사원</td>
+                      <td>홍길동</td>
+                      <td>2023-03-31</td>
+                      <td>홍길동</td>
+                      <td>2022-12-07 15:51</td>
+                      <td>가계약</td>
+                      <td>02-0000-0000</td>
+                      <td>010-0000-0000</td>
+                      <td>
+                        <button type="button" class="btn btn_xxs" title="수정"><i class="fa-solid fa-pen"></i></button>
+                        <button type="button" class="btn btn_xxs" title="이력"><i class="fa-solid fa-clock-rotate-left"></i></button>
+                        <button type="button" class="btn btn_xxs" title="삭제"><i class="fa-solid fa-trash"></i></button>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td><input type="checkbox"></td>
+                      <td>515</td>
+                      <td>기업회의</td>
+                      <td>1차 ㅇㅇㅇ회의</td>
+                      <td>2022-12-13 ~ 2022-12-13</td>
+                      <td>주식회사 마이스허브</td>
+                      <td>홍길동 사원</td>
+                      <td>홍길동</td>
+                      <td>2023-03-31</td>
+                      <td>홍길동</td>
+                      <td>2022-12-07 15:51</td>
+                      <td>가계약</td>
+                      <td>02-0000-0000</td>
+                      <td>010-0000-0000</td>
+                      <td>
+                        <button type="button" class="btn btn_xxs" title="수정"><i class="fa-solid fa-pen"></i></button>
+                        <button type="button" class="btn btn_xxs" title="이력"><i class="fa-solid fa-clock-rotate-left"></i></button>
+                        <button type="button" class="btn btn_xxs" title="삭제"><i class="fa-solid fa-trash"></i></button>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+                <div class="pageBox">
+                  <a class="btn btn_arrow prev"><i class="fa-solid fa-chevron-left"></i></a>
+                  <a class="btn btn_num isActive">1</a>
+                  <a class="btn btn_num">2</a>
+                  <a class="btn btn_num">3</a>
+                  <a class="btn btn_num">4</a>
+                  <a class="btn btn_num">5</a>
+                  <a class="btn btn_num">6</a>
+                  <a class="btn btn_num">7</a>
+                  <a class="btn btn_num">8</a>
+                  <a class="btn btn_num">9</a>
+                  <a class="btn btn_num">10</a>
+                  <a class="btn btn_arrow next"><i class="fa-solid fa-chevron-right"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+      </section>
+    </main>
+    <footer class="footer">
+      <p>Copyright © <strong>2022 김대중컨벤션센터</strong> All rights reserved.</p>
+    </footer>
+  </div>
+  <script>
+    
+  </script>
+</body>
+</html>

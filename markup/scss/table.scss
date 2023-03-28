@@ -1,0 +1,62 @@
+@import "mixin.scss";
+@import "functions.scss";
+@import "variables.scss";
+
+/* 
+@ table 내용만 담고있습니다.
+@ 모든 크기 단위는 고정적인 px을 사용했습니다. 
+@ 해당 범위에서만 사용되는 변수는 이곳에 따로 지정해도됩니다.
+*/
+
+$tableWrap-padding: 35px 31px 31px;
+$cell-height: 50px;
+$table-border-color: #e2e2e2;
+$th-background-color: #666666;
+
+
+
+/************************ table ************************/
+.tableWrapBox {
+  padding: $tableWrap-padding;
+}
+.table {
+  width: 100%;
+  margin-bottom: 30px;
+  tr {
+    border-bottom: 1px solid $table-border-color;
+    &.disable {
+      background-color: $disable;
+    }
+  }
+  th,
+  td {
+    height: $cell-height;
+    text-align: center;
+    box-sizing: border-box;
+  }
+  th {
+    font-size: $t-body-s;
+    font-weight: $light;
+    background-color: $th-background-color;
+    color: $white;
+  }
+  td {
+    font-size: $t-body-ms;
+  }
+}
+/********************************************************/
+
+/************************ paging ************************/
+.pageBox {
+  @include flex-box{
+    gap: 13px;
+  }
+  .btn_num {
+    font-size: $t-body-s;
+    color: $th-background-color;
+    &.isActive {
+      color: $main;
+    }
+  }
+}
+/********************************************************/

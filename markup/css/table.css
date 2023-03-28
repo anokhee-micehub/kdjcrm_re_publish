@@ -1,0 +1,61 @@
+@charset "UTF-8";
+/* 
+@ table 내용만 담고있습니다.
+@ 모든 크기 단위는 고정적인 px을 사용했습니다. 
+@ 해당 범위에서만 사용되는 변수는 이곳에 따로 지정해도됩니다.
+*/
+/************************ table ************************/
+.tableWrapBox {
+  padding: 35px 31px 31px;
+}
+
+.table {
+  width: 100%;
+  margin-bottom: 30px;
+}
+.table tr {
+  border-bottom: 1px solid #e2e2e2;
+}
+.table tr.disable {
+  background-color: #f4f4f4;
+}
+.table th,
+.table td {
+  height: 50px;
+  text-align: center;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+.table th {
+  font-size: 14px;
+  font-weight: 300;
+  background-color: #666666;
+  color: #fff;
+}
+.table td {
+  font-size: 13px;
+}
+
+/********************************************************/
+/************************ paging ************************/
+.pageBox {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 13px;
+}
+.pageBox .btn_num {
+  font-size: 14px;
+  color: #666666;
+}
+.pageBox .btn_num.isActive {
+  color: #FF6202;
+}
+
+/********************************************************/

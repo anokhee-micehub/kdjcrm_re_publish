@@ -1,0 +1,144 @@
+@charset "UTF-8";
+/* 
+@ header의 내용만 담고있습니다.
+@ 모든 크기 단위는 고정적인 px을 사용했습니다. 
+@ 해당 범위에서만 사용되는 변수는 이곳에 따로 지정해도됩니다.
+*/
+.header {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 65px;
+  padding: 0 18px 0 34px;
+  -webkit-box-shadow: 0 3px 4px rgba(0, 0, 0, 0.19);
+          box-shadow: 0 3px 4px rgba(0, 0, 0, 0.19);
+}
+
+/************************ GNB ************************/
+.gnb {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.gnb .gnb-link {
+  font-weight: 600;
+}
+
+.gnb_depth1 {
+  gap: 120px;
+}
+.gnb_depth1 .gnb-link_depth1 {
+  position: relative;
+  font-size: 18px;
+  color: #4B4B4B;
+}
+.gnb_depth1 .gnb-link_depth1.isActive {
+  color: #FF6202;
+}
+.gnb_depth1 .gnb-link_depth1.isActive::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  bottom: calc(-100% - 2px);
+  width: 100%;
+  height: 3px;
+  background-color: #FF6202;
+}
+.gnb_depth1 .gnb-link_depth1.isActive + .gnb_depth2 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.gnb_depth2 {
+  position: absolute;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  bottom: -91px;
+  width: auto;
+  border-radius: 20px;
+  background-color: #fff;
+  -webkit-box-shadow: 2px 2px 4px 1px rgba(0, 0, 0, 0.19);
+          box-shadow: 2px 2px 4px 1px rgba(0, 0, 0, 0.19);
+  overflow: hidden;
+  display: none;
+}
+.gnb_depth2 > li {
+  text-align: center;
+  min-width: 172px;
+}
+.gnb_depth2 .gnb-link_depth2 {
+  display: inline-block;
+  width: 100%;
+  height: 40px;
+  line-height: 40px;
+  font-size: 16px;
+  color: #555555;
+}
+.gnb_depth2 .gnb-link_depth2.isActive {
+  border-radius: 20px;
+  background-color: #FF6202;
+  color: #fff;
+}
+
+.header-userInfo {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 10px;
+}
+.header-userInfo .btn {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  color: #fff;
+  background-color: #B4B4B4;
+}
+
+/********************************************************/
+/************************ LNB ************************/
+.lnb {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.lnb .lnb-link {
+  font-size: 20px;
+}
+.lnb .lnb-link:not(:last-child)::after {
+  content: ">";
+  padding-left: 10px;
+}
+.lnb .lnb-link.isActive {
+  padding-left: 5px;
+  color: #FF6202;
+}
+
+/********************************************************/

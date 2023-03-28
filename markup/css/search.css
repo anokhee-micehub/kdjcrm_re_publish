@@ -1,0 +1,160 @@
+@charset "UTF-8";
+/* 
+@ searchBox 내용만 담고있습니다.
+@ 모든 크기 단위는 고정적인 px을 사용했습니다. 
+@ 해당 범위에서만 사용되는 변수는 이곳에 따로 지정해도됩니다.
+*/
+/************************ Layout ************************/
+.searchBox_head {
+  position: relative;
+  padding: 20px 25px;
+  border-radius: 3px;
+  background-color: #DFDFDF;
+}
+.searchBox_head .inputGroup {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 8px;
+}
+.searchBox_head .inputGroup .inputGroup-line {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 10px;
+}
+.searchBox_head .buttonGroup {
+  position: absolute;
+  bottom: 20px;
+  right: 25px;
+}
+
+.searchBox_body {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.searchBox_body .searchBox_body-inner_left .label {
+  margin-right: 8px;
+  vertical-align: middle;
+  font-size: 16px;
+}
+.searchBox_body .searchBox_body-inner_left .label strong {
+  font-size: 20px;
+}
+.searchBox_body .searchBox_body-inner_right {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 8px;
+}
+
+/********************************************************/
+/************************ ui요소 ************************/
+.inputBox_input {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 8px;
+}
+.inputBox_input .input_text {
+  border: none;
+  outline: none;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 7px 10px;
+  border-radius: 3px;
+  font-size: 13px;
+}
+
+.inputBox_select {
+  position: relative;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  background-color: #fff;
+  border-radius: 3px;
+  overflow: hidden;
+}
+.inputBox_select::after {
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  right: 10px;
+  content: "\f078";
+  font-family: "Font Awesome 6 Pro";
+}
+.inputBox_select .select {
+  width: auto;
+  min-width: 140px;
+  padding: 7px 10px;
+  padding-right: 52px;
+  border: none;
+  outline: none;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  font-size: 13px;
+}
+
+.inputBox_calendar .label {
+  margin-right: 16px;
+  font-size: 13px;
+  font-weight: bold;
+}
+.inputBox_calendar .input_date {
+  border: none;
+  outline: none;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  border-radius: 3px;
+  overflow: hidden;
+  width: 145px;
+  padding: 7px 10px;
+  font-size: 13px;
+}
+.inputBox_calendar .input_date:nth-of-type(1) {
+  margin-right: 8px;
+}
+.inputBox_calendar .input_date:nth-of-type(2) {
+  margin-left: 8px;
+}
+
+/********************************************************/

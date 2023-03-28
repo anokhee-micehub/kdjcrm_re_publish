@@ -1,0 +1,124 @@
+@import "mixin.scss";
+@import "functions.scss";
+@import "variables.scss";
+
+/* 
+@ 전 페이지에 공통으로 사용되고 노출되는 요소들을 담고 있습니다.
+@ 모든 크기 단위는 고정적인 px을 사용했습니다. 
+@ 해당 범위에서만 사용되는 변수는 이곳에 따로 지정해도됩니다.
+*/
+
+$page-layout-gap: 31px;
+$content-layout-gap: 21px;
+$button-padding: 0 15px;
+$button-search-width: 150px;
+$button-m-height: 30px;
+$button-xxs-width: 23px;
+$button-xxs-height: 23px;
+$button-primary-color: #24b898;
+$button-secondary-color: #24b898;
+$button-xxs-default-color: #edeff1;
+$button-excel-color: #107c41;
+$button-search-color: #e83e0b;
+$button-back-color: #999999;
+$box-border-radius: 10px;
+
+/************************ Layout ************************/
+
+body {
+  @include responsive(1880) {
+    min-width: 1880px;
+  }
+}
+
+.main {
+  min-height: calc(100vh - 214px);
+  padding-top: 74px;
+  background-color: $main-background;
+  .main-inner {
+    width: 1820px;
+    margin: 0 auto;
+  }
+}
+
+.commonPageBox_ly {
+  @include flex-box($fd:column, $ai: stretch) {
+    gap: $page-layout-gap;
+  }
+}
+
+.tableBox_ly {
+  @include flex-box($fd:column, $ai: stretch) {
+    gap: $content-layout-gap;
+  }
+}
+
+
+/********************************************************/
+
+
+
+
+/************************ ui요소 ************************/
+
+// 기본 box 클래스 갖고있는 요소들
+.box {
+  border-radius: $box-border-radius;
+  background-color: $white;
+}
+
+// button, a
+.btn {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  border-radius: 3px;
+  color: $white;
+  &_m {
+    height: $button-m-height;
+    padding: $button-padding;
+    box-sizing: border-box;
+    font-size: $t-body-ms;
+    &_primary {
+      background-color: $button-primary-color;
+    }
+    &_secondary {
+      background-color: $button-secondary-color;
+    }
+    &_search {
+      min-width: $button-search-width;
+      background-color: $button-search-color;
+    }
+    &_excel {
+      background-color: $button-excel-color;
+    }
+    &_align {
+      padding: 0 3px;
+      font-size: $t-body-m;
+      color: $btn3;
+      &.isActive {
+        color: $main;
+      }
+    }
+    &_back {
+      background-color: $button-back-color;
+    }
+  }
+  &_xxs {
+    @include wh($button-xxs-width, $button-xxs-height);
+    background-color: $button-xxs-default-color;
+    color: $black;
+    border-radius: 3px;
+  }
+  &_arrow {
+    @include wh(15px, 15px);
+    font-size: 10px;
+    line-height: 15px;
+    text-align: center;
+    background-color: #edeff1;
+    color: #666666;
+  }
+}
+
+/********************************************************/

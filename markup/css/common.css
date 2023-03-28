@@ -1,0 +1,121 @@
+@charset "UTF-8";
+/* 
+@ 전 페이지에 공통으로 사용되고 노출되는 요소들을 담고 있습니다.
+@ 모든 크기 단위는 고정적인 px을 사용했습니다. 
+@ 해당 범위에서만 사용되는 변수는 이곳에 따로 지정해도됩니다.
+*/
+/************************ Layout ************************/
+@media only screen and (max-width: 1880px) {
+  body {
+    min-width: 1880px;
+  }
+}
+
+.main {
+  min-height: calc(100vh - 214px);
+  padding-top: 74px;
+  background-color: #F5F5F5;
+}
+.main .main-inner {
+  width: 1820px;
+  margin: 0 auto;
+}
+
+.commonPageBox_ly {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: stretch;
+      -ms-flex-align: stretch;
+          align-items: stretch;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 31px;
+}
+
+.tableBox_ly {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: stretch;
+      -ms-flex-align: stretch;
+          align-items: stretch;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 21px;
+}
+
+/********************************************************/
+/************************ ui요소 ************************/
+.box {
+  border-radius: 10px;
+  background-color: #fff;
+}
+
+.btn {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  border-radius: 3px;
+  color: #fff;
+}
+.btn_m {
+  height: 30px;
+  padding: 0 15px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-size: 13px;
+}
+.btn_m_primary {
+  background-color: #24b898;
+}
+.btn_m_secondary {
+  background-color: #24b898;
+}
+.btn_m_search {
+  min-width: 150px;
+  background-color: #e83e0b;
+}
+.btn_m_excel {
+  background-color: #107c41;
+}
+.btn_m_align {
+  padding: 0 3px;
+  font-size: 16px;
+  color: #969495;
+}
+.btn_m_align.isActive {
+  color: #FF6202;
+}
+.btn_m_back {
+  background-color: #999999;
+}
+.btn_xxs {
+  width: 23px;
+  height: 23px;
+  background-color: #edeff1;
+  color: #000;
+  border-radius: 3px;
+}
+.btn_arrow {
+  width: 15px;
+  height: 15px;
+  font-size: 10px;
+  line-height: 15px;
+  text-align: center;
+  background-color: #edeff1;
+  color: #666666;
+}
+
+/********************************************************/
