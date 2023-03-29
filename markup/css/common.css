@@ -13,7 +13,7 @@
 
 .main {
   min-height: calc(100vh - 214px);
-  padding-top: 74px;
+  padding-top: 94px;
   background-color: #F5F5F5;
 }
 .main .main-inner {
@@ -142,6 +142,40 @@
   text-align: center;
   background-color: #edeff1;
   color: #666666;
+}
+
+.inputLabelGroupBox label {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 5px;
+}
+.inputLabelGroupBox label .input_checkbox {
+  display: none;
+}
+.inputLabelGroupBox label .input_checkbox:checked + .checkboxChk::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  width: 6px;
+  height: 6px;
+  background-color: #FF6202;
+}
+.inputLabelGroupBox label .checkboxChk {
+  position: relative;
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border: 1px solid #D2D2D2;
 }
 
 .subTitleBox-subTitle {

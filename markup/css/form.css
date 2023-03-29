@@ -215,6 +215,9 @@
   font-size: 14px;
   font-weight: 400;
 }
+.infoBox .infoBox-inner .infoBox-cate_search .innerSearchBox .customSelectBox2 .customSelectBox-options .inputLabelGroupBox ~ .inputLabelGroupBox {
+  margin-top: 8px;
+}
 .infoBox .infoBox-inner .infoBox-cate_search .innerSearchBox .customSelectBox3.active + .openSelectBox3 {
   display: block;
 }

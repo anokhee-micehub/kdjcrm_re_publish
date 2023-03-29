@@ -27,7 +27,7 @@ body {
 
 .main {
   min-height: calc(100vh - 214px);
-  padding-top: 74px;
+  padding-top: 94px;
   background-color: $main-background;
   .main-inner {
     width: 1820px;
@@ -125,6 +125,35 @@ body {
   }
 }
 
+// 커스텀체크박스
+.inputLabelGroupBox {
+  label {
+    @include flex-box($jc:start) {
+      gap: 5px;
+    }
+    .input_checkbox {
+      display: none;
+      &:checked {
+        & + .checkboxChk {
+          &::after {
+            content: '';
+            @include position-center;
+            @include wh(6px, 6px);
+            background-color: $main;
+          }
+        }
+      }
+    }
+    .checkboxChk {
+      position: relative;
+      display: inline-block;
+      @include wh(10px, 10px);
+      border: 1px solid $btn2;
+    }
+  }
+}
+
+// 서브타이틀
 .subTitleBox-subTitle {
   font-size: $t-body-l;
 }
