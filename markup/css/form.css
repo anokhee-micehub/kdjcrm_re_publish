@@ -4,3 +4,641 @@
 @ 모든 크기 단위는 고정적인 px을 사용했습니다. 
 @ 해당 범위에서만 사용되는 변수는 이곳에 따로 지정해도됩니다.
 */
+.detailBox {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  gap: 18px;
+}
+
+.detailBox-half {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: stretch;
+      -ms-flex-align: stretch;
+          align-items: stretch;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 18px;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  max-width: 900px;
+}
+
+.box.innerBox {
+  -webkit-box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.1);
+          box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.1);
+  padding: 29px 32px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+.box.innerBox > .subTitleBox {
+  margin-bottom: 20px;
+}
+
+.sectionBox ~ .sectionBox {
+  margin-top: 25px;
+}
+.sectionBox .subTitleBox {
+  margin-bottom: 15px;
+}
+.sectionBox .subTitleBox .subTitleBox-subTitle {
+  font-size: 16px;
+}
+
+.infoBox {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  border-top: 1px solid #D2D2D2;
+}
+.infoBox .infoBox-inner {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-bottom: 1px solid #D2D2D2;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+.infoBox .infoBox-inner_full {
+  grid-column: 1/span 2;
+}
+.infoBox .infoBox-inner_full_col {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 10px;
+  border-bottom: none;
+}
+.infoBox .infoBox-inner .infoBox-cate {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 125px;
+  height: 48px;
+  min-height: 100%;
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+  font-size: 16px;
+  color: #727272;
+  background-color: #f4f4f4;
+}
+.infoBox .infoBox-inner .infoBox-cate_search {
+  width: 100%;
+  height: auto;
+  min-height: auto;
+  margin-top: 8px;
+  background-color: transparent;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+.infoBox .infoBox-inner .infoBox-cate_search .innerSearchBox {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 5px;
+}
+.infoBox .infoBox-inner .infoBox-cate_search .innerSearchBox .inputWrapBox {
+  height: 30px;
+  padding: 3px 5px;
+  border: 1px solid #D2D2D2;
+  border-radius: 3px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+.infoBox .infoBox-inner .infoBox-cate_search .innerSearchBox .inputWrapBox .input_text {
+  border: none;
+  outline: none;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  height: 100%;
+  font-size: 14px;
+}
+.infoBox .infoBox-inner .infoBox-cate_search .innerSearchBox .inputWrapBox .btn {
+  color: #4B4B4B;
+}
+.infoBox .infoBox-inner .infoBox-cate_search .innerSearchBox .customSelectBox {
+  position: relative;
+}
+.infoBox .infoBox-inner .infoBox-cate_search .innerSearchBox .customSelectBox .customSelectBox-btn {
+  width: 30px;
+  height: 30px;
+  border: 1px solid #D2D2D2;
+  border-radius: 3px;
+  color: #4B4B4B;
+}
+.infoBox .infoBox-inner .infoBox-cate_search .innerSearchBox .customSelectBox .customSelectBox-btn.active + .customSelectBox-options {
+  display: block;
+}
+.infoBox .infoBox-inner .infoBox-cate_search .innerSearchBox .customSelectBox .customSelectBox-options {
+  position: absolute;
+  top: 35px;
+  padding: 19px 24px;
+  border: 1px solid #D2D2D2;
+  border-radius: 3px;
+  background-color: #fff;
+}
+.infoBox .infoBox-inner .infoBox-cate_search .innerSearchBox .customSelectBox .customSelectBox-options .filterChkListBox {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  gap: 0 20px;
+}
+.infoBox .infoBox-inner .infoBox-cate_search .innerSearchBox .customSelectBox .customSelectBox-options .filterChkListBox-title {
+  margin-bottom: 10px;
+  font-size: 14px;
+  color: #000;
+}
+.infoBox .infoBox-inner .infoBox-cate_search .innerSearchBox .customSelectBox .customSelectBox-options .btn {
+  width: 100%;
+  margin-top: 15px;
+}
+.infoBox .infoBox-inner .infoBox-cate_search .innerSearchBox .customSelectBox2 .customSelectBox-options {
+  min-width: 239px;
+  display: none;
+}
+.infoBox .infoBox-inner .infoBox-cate_search .innerSearchBox .customSelectBox2 .customSelectBox-options .filterChkListBox .filterChkListBox-inner {
+  width: calc(50% - 11px);
+}
+.infoBox .infoBox-inner .infoBox-cate_search .innerSearchBox .customSelectBox2 .customSelectBox-options .filterChkListBox .filterChkListBox-inner:nth-child(1) {
+  border-right: 1px solid #D2D2D2;
+}
+.infoBox .infoBox-inner .infoBox-cate_search .innerSearchBox .customSelectBox2 .customSelectBox-options .inputLabelGroupBox label {
+  font-size: 14px;
+  font-weight: 400;
+}
+.infoBox .infoBox-inner .infoBox-cate_search .innerSearchBox .customSelectBox3.active + .openSelectBox3 {
+  display: block;
+}
+.infoBox .infoBox-inner .infoBox-cate_search .innerSearchBox .customSelectBox3 .customSelectBox-options {
+  min-width: 320px;
+  display: none;
+}
+.infoBox .infoBox-inner .infoBox-cate_search .innerSearchBox .customSelectBox3 .customSelectBox-options .inputBox_calendar {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 10px;
+}
+.infoBox .infoBox-inner .infoBox-cate_search .innerSearchBox .customSelectBox3 .customSelectBox-options .inputBox_calendar .input_date {
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  height: 30px;
+  padding: 0 10px;
+  border: none;
+  outline: none;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  border-radius: 3px;
+  border: 1px solid #D2D2D2;
+  font-size: 13px;
+  font-weight: 700;
+}
+.infoBox .infoBox-inner .infoBox-cate_search .innerSearchBox .customSelectBox3 .customSelectBox-options .btnsBox {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 8px;
+}
+.infoBox .infoBox-inner .infoBox-cate_search .innerSearchBox .customSelectBox3 .customSelectBox-options .btnsBox .btn {
+  margin-top: 10px;
+  padding: 8px 0;
+  border: 1px solid #D2D2D2;
+  color: #4B4B4B;
+}
+.infoBox .infoBox-inner .infoBox-cate_search .innerSearchBox .customSelectBox3 .customSelectBox-options .btnsBox .btn.active {
+  border-color: #24b898;
+  color: #24b898;
+  background-color: rgba(36, 184, 152, 0.1);
+}
+.infoBox .infoBox-inner .infoBox-cate_search .stickersBox {
+  width: 100%;
+  padding-top: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 7px;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+.infoBox .infoBox-inner .infoBox-cate_search .stickersBox .sticker {
+  padding: 7px 14px;
+  border: 1px solid #24b898;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: 400;
+  color: #000;
+}
+.infoBox .infoBox-inner .infoBox-cate_search .stickersBox .sticker .btn {
+  vertical-align: baseline;
+  color: #000;
+}
+.infoBox .infoBox-inner .infoBox-info_desc {
+  width: 100%;
+  padding: 16px 14px !important;
+  background-color: #f4f4f4;
+  border: 1px solid #D2D2D2;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+.infoBox .infoBox-inner .infoBox-info_desc .timelineBox .timelineBox-title {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 4px 23px;
+  margin-bottom: 15px;
+  border-radius: 30px;
+  border: 1px solid #d7d7d7;
+  font-size: 12px;
+  font-weight: 700;
+  color: #727272;
+}
+.infoBox .infoBox-inner .infoBox-info_desc .timelineBox .timelineBox-desc {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 8px;
+}
+.infoBox .infoBox-inner .infoBox-info_desc .timelineBox .timelineBox-desc .timelineBox-desc_icon {
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+  padding: 5px;
+  border-radius: 50%;
+  font-size: 10px;
+  color: #fff;
+}
+.infoBox .infoBox-inner .infoBox-info_desc .timelineBox .timelineBox-desc .timelineBox-desc_icon.blue {
+  background-color: #387BC9;
+}
+.infoBox .infoBox-inner .infoBox-info_desc .timelineBox .timelineBox-desc .timelineBox-desc_icon.yellow {
+  background-color: #F9C541;
+}
+.infoBox .infoBox-inner .infoBox-info_desc .timelineBox .timelineBox-desc .timelineBox-desc_icon.gray {
+  background-color: #8C8C8C;
+}
+.infoBox .infoBox-inner .infoBox-info_desc .timelineBox .timelineBox-desc .timelineBox-desc_icon.red {
+  background-color: red;
+}
+.infoBox .infoBox-inner .infoBox-info_desc .timelineBox .timelineBox-desc .timelineBox-desc_time {
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+  font-size: 12px;
+  font-weight: 700;
+}
+.infoBox .infoBox-inner .infoBox-info_desc .timelineBox .timelineBox-desc .timelineBox-desc_cate {
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 2px 10px;
+  border: 1px solid #d7d7d7;
+  border-radius: 5px;
+  font-size: 12px;
+  color: #727272;
+}
+.infoBox .infoBox-inner .infoBox-info_desc .timelineBox .timelineBox-desc .timelineBox-desc_text {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 12px;
+}
+.infoBox .infoBox-inner .infoBox-info_desc .timelineBox .timelineBox-desc .flex_shrink {
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+}
+.infoBox .infoBox-inner .infoBox-info_desc .timelineBox .timelineBox-desc ~ .timelineBox-desc {
+  margin-top: 13px;
+}
+.infoBox .infoBox-inner .infoBox-info_desc .timelineBox .timelineBox-desc ~ .timelineBox-title {
+  margin-top: 15px;
+}
+.infoBox .infoBox-inner .infoBox-info {
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  padding: 5px 8px 5px 8px;
+}
+.infoBox .infoBox-inner .infoBox-info .inputBox .input_text,
+.infoBox .infoBox-inner .infoBox-info .inputBox .select {
+  border: none;
+  outline: none;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  width: 100%;
+  max-width: 256px;
+  height: 36px;
+  padding-left: 10px;
+  border: 1px solid #D2D2D2;
+  border-radius: 3px;
+  overflow: hidden;
+  box-sizing: border-box;
+  font-size: 14px;
+  color: #727272;
+}
+.infoBox .infoBox-inner .infoBox-info .inputBox .input_text:disabled,
+.infoBox .infoBox-inner .infoBox-info .inputBox .select:disabled {
+  border: none;
+  background-color: transparent;
+}
+.infoBox .infoBox-inner .infoBox-info .inputBox .input_textarea {
+  border: none;
+  outline: none;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  width: calc(100% - 6px);
+  height: 100px;
+  padding: 10px;
+  resize: none;
+  border: 1px solid #D2D2D2;
+  border-radius: 3px;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+.infoBox .infoBox-inner .infoBox-info .inputBox .input_textarea:disabled {
+  border: none;
+  background-color: transparent;
+}
+.infoBox .infoBox-inner .infoBox-info .inputBox_select {
+  position: relative;
+}
+.infoBox .infoBox-inner .infoBox-info .inputBox_select::after {
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  right: 30px;
+  content: "\f078";
+  font-family: "Font Awesome 6 Pro";
+}
+.infoBox .infoBox-inner .infoBox-info .inputBox_select:has(.select:disabled)::after {
+  font-size: 0;
+}
+.infoBox .infoBox-inner .infoBox-info .inputBox_select .select {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+}
+.infoBox .infoBox-inner .infoBox-info_bt {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-flex: 0;
+      -ms-flex-positive: 0;
+          flex-grow: 0;
+  width: calc(100% - 140px);
+}
+.infoBox .infoBox-inner .infoBox-info_bt .customSelectBox_wrap {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 25px;
+}
+.infoBox .infoBox-inner .infoBox-info_bt .customSelectBox {
+  position: relative;
+  width: 57px;
+  height: 30px;
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+}
+.infoBox .infoBox-inner .infoBox-info_bt .customSelectBox .customSelectBox-btn_value {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border: 1px solid #D2D2D2;
+}
+.infoBox .infoBox-inner .infoBox-info_bt .customSelectBox .customSelectBox-btn_value::after {
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  right: 5px;
+  content: "\f078";
+  color: #BCBCBC;
+  font-family: "Font Awesome 6 Pro";
+  font-size: 10px;
+  font-weight: 600;
+}
+.infoBox .infoBox-inner .infoBox-info_bt .customSelectBox .customSelectBox-btn_value + .customSelectBox-options {
+  display: none;
+}
+.infoBox .infoBox-inner .infoBox-info_bt .customSelectBox .customSelectBox-btn_value.active + .customSelectBox-options {
+  position: absolute;
+  display: block;
+  top: 39px;
+  padding: 10px;
+  border: 1px solid #D2D2D2;
+  border-radius: 3px;
+  background-color: #fff;
+}
+.infoBox .infoBox-inner .infoBox-info_bt .customSelectBox .customSelectBox-btn_value.active + .customSelectBox-options .customSelectBox-btn_option ~ .customSelectBox-btn_option {
+  margin-top: 5px;
+}
+.infoBox .infoBox-inner .infoBox-info_bt .customSelectBox .customSelectBox-btn_value .fa-solid {
+  padding-right: 13px;
+}
+.infoBox .infoBox-inner .infoBox-info_bt .customSelectBox .customSelectBox-btn .fa-solid {
+  font-size: 20px;
+}
+.infoBox .infoBox-inner .infoBox-info_bt .customSelectBox .customSelectBox-btn .fa-solid.fa-face-smile {
+  color: #0084e9;
+}
+.infoBox .infoBox-inner .infoBox-info_bt .customSelectBox .customSelectBox-btn .fa-solid.fa-face-meh {
+  color: #ffcc00;
+}
+.infoBox .infoBox-inner .infoBox-info_bt .customSelectBox .customSelectBox-btn .fa-solid.fa-face-frown {
+  color: #ff4734;
+}
+.infoBox .infoBox-inner .infoBox-info_bt .customSelectBox .customSelectBox-btn .fa-solid.fa-circle-xmark {
+  color: #959595;
+}
+.infoBox .infoBox-inner .infoBox-info_bt.offInput .customSelectBox_wrap {
+  width: calc(100% - 22px);
+}
+.infoBox .infoBox-inner .infoBox-info_bt.offInput .inputBox {
+  display: none;
+}
+.infoBox .infoBox-inner .infoBox-info_bt.offInput .customSelectBox-textVal {
+  width: calc(100% - 135px);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 14px;
+}
+.infoBox .infoBox-inner .infoBox-info_bt.offInput .subTitleBox_st {
+  display: none;
+}
+.infoBox .infoBox-inner .infoBox-info_bt.onInput .customSelectBox_wrap {
+  width: calc(100% - 130px);
+}
+.infoBox .infoBox-inner .infoBox-info_bt.onInput .inputBox {
+  width: 100%;
+}
+.infoBox .infoBox-inner .infoBox-info_bt.onInput .inputBox .input_text {
+  width: 100%;
+  max-width: unset;
+}
+.infoBox .infoBox-inner .infoBox-info_bt.onInput .customSelectBox-textVal {
+  display: none;
+}
+.infoBox .infoBox-inner .infoBox-info_bt.onInput .editContents {
+  display: none;
+}
+.infoBox .infoBox-inner .infoBox-info_bt.onInput .subTitleBox_st {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 3px;
+}
+
+.cardWrap {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 23px;
+}
+.cardWrap .cardBox {
+  position: relative;
+  width: 100%;
+  padding: 20px;
+  border: 1px solid #D2D2D2;
+  border-radius: 3px;
+}
+.cardWrap .cardBox.isActive {
+  border-color: #24b898;
+}
+.cardWrap .cardBox .cardBox-inner_left .cardBox-title {
+  margin-bottom: 15px;
+  color: #24b898;
+}
+.cardWrap .cardBox .cardBox-inner_left .cardBox-list {
+  margin-bottom: 15px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 10px;
+}
+.cardWrap .cardBox .cardBox-inner_right {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}

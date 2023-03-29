@@ -55,6 +55,29 @@
   gap: 21px;
 }
 
+.subTitleBox {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.subTitleBox_bt {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
 /********************************************************/
 /************************ ui요소 ************************/
 .box {
@@ -101,6 +124,9 @@
 .btn_m_back {
   background-color: #999999;
 }
+.btn_m_cancel {
+  background-color: #666666;
+}
 .btn_xxs {
   width: 23px;
   height: 23px;
@@ -116,6 +142,10 @@
   text-align: center;
   background-color: #edeff1;
   color: #666666;
+}
+
+.subTitleBox-subTitle {
+  font-size: 20px;
 }
 
 /********************************************************/

@@ -15,12 +15,6 @@ $button-search-width: 150px;
 $button-m-height: 30px;
 $button-xxs-width: 23px;
 $button-xxs-height: 23px;
-$button-primary-color: #24b898;
-$button-secondary-color: #24b898;
-$button-xxs-default-color: #edeff1;
-$button-excel-color: #107c41;
-$button-search-color: #e83e0b;
-$button-back-color: #999999;
 $box-border-radius: 10px;
 
 /************************ Layout ************************/
@@ -50,6 +44,13 @@ body {
 .tableBox_ly {
   @include flex-box($fd:column, $ai: stretch) {
     gap: $content-layout-gap;
+  }
+}
+
+.subTitleBox {
+  @include flex-box($jc:start);
+  &_bt {
+    @include flex-box($jc:between);
   }
 }
 
@@ -104,6 +105,9 @@ body {
     &_back {
       background-color: $button-back-color;
     }
+    &_cancel {
+      background-color: $button-cancel-color
+    }
   }
   &_xxs {
     @include wh($button-xxs-width, $button-xxs-height);
@@ -119,6 +123,10 @@ body {
     background-color: #edeff1;
     color: #666666;
   }
+}
+
+.subTitleBox-subTitle {
+  font-size: $t-body-l;
 }
 
 /********************************************************/

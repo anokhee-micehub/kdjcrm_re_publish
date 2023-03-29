@@ -8,8 +8,515 @@
 @ 해당 범위에서만 사용되는 변수는 이곳에 따로 지정해도됩니다.
 */
 
+$box-gap: 18px;
+$box-padding: 29px 32px;
+$box-subTitle-margin-bottom: 20px;
+$sectionBox-subTitle-margin-bottom: 15px;
+$sectionBox-gap: 25px;
+$infoBox-cate-width: 125px;
+$infoBox-cate-height: 48px;
+$inputs-height: 36px;
+$inputs-padding: 10px;
+$textarea-height: 100px;
+$customSelect-box-height : 30px;
+$card-contents-gap: 15px;
+
+.detailBox {
+  @include flex-box($jc:between, $ai:start) {
+    gap: $box-gap;
+  }
+}
+
+.detailBox-half {
+  @include flex-box($fd:column, $ai: stretch) {
+    gap: $box-gap;
+  }
+  flex: 1;
+  max-width: 900px;
+}
+
 .box {
-  .innerBox {
-    
+  &.innerBox {
+    box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.1);
+    padding: $box-padding;
+    box-sizing: border-box;
+    & > .subTitleBox {
+      margin-bottom: $box-subTitle-margin-bottom;
+    }
+  }
+}
+
+.sectionBox {
+  & ~ & {
+    margin-top: $sectionBox-gap;
+  }
+  .subTitleBox {
+    margin-bottom: $sectionBox-subTitle-margin-bottom;
+    .subTitleBox-subTitle {
+      font-size: $t-body-m;
+    }
+  }
+}
+
+.infoBox {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  border-top: 1px solid #D2D2D2;
+  .infoBox-inner {
+    @include flex-box($jc:start);
+    border-bottom: 1px solid #D2D2D2;
+    box-sizing: border-box;
+    &_full { // 폼이 1줄을 전부 차지할 때
+      grid-column: 1 / span 2;
+    }
+    &_full_col { // 폼 세로정렬
+      flex-direction: column;
+      gap: 10px;
+      border-bottom: none;
+    }
+    // 폼 카테고리 제목
+    .infoBox-cate {
+      @include inline-flex;
+      @include wh($infoBox-cate-width, $infoBox-cate-height);
+      min-height: 100%;
+      flex-shrink: 0;
+      font-size: $t-body-m;
+      color: $formText;
+      background-color: $disable;
+    }
+    // 폼 세로정렬 - 검색/필터 영역
+    .infoBox-cate_search {
+      width: 100%;
+      height: auto;
+      min-height: auto;
+      margin-top: 8px;
+      background-color: transparent;
+      @include flex-box($jc:between) {
+        flex-wrap: wrap;
+      }
+      .innerSearchBox {
+        @include flex-box($jc:start) {
+          gap: 5px;
+        }
+        .inputWrapBox {
+          height: $customSelect-box-height;
+          padding: 3px 5px;
+          border: 1px solid $btn2;
+          border-radius: $inputs-border-radius;
+          box-sizing: border-box;
+          .input_text {
+            @include inputsReset;
+            height: 100%;
+            font-size: $t-body-s;
+          }
+          .btn {
+            color: $btn1;
+          }
+        }
+        .customSelectBox {
+          position: relative;
+          .customSelectBox-btn {
+            width: $customSelect-box-height;
+            height: $customSelect-box-height;
+            border: 1px solid $btn2;
+            border-radius: $inputs-border-radius;
+            color: $btn1;
+            &.active {
+              & + .customSelectBox-options {
+                display: block;
+              }
+            }
+          }
+          // 필터, 날짜 선택 공통
+          .customSelectBox-options {
+            position: absolute;
+            top: calc($customSelect-box-height + 5px);
+            padding: 19px 24px;
+            border: 1px solid $btn2;
+            border-radius: $inputs-border-radius;
+            background-color: #fff;
+            .filterChkListBox {
+              @include flex-box {
+                flex-wrap: wrap;
+                gap: 0 20px;
+              }
+            }
+            .filterChkListBox-title {
+              margin-bottom: 10px;
+              font-size: $t-body-s;
+              color: $black;
+            }
+            .btn {
+              width: 100%;
+              margin-top: 15px;
+            }
+          }
+          // 필터 선택 박스 단독
+          &2 {
+            .customSelectBox-options {
+              min-width: 239px;
+              display: none;
+              .filterChkListBox {
+                .filterChkListBox-inner {
+                  width: calc(50% - 11px);
+                  &:nth-child(1) {
+                    border-right: 1px solid $btn2;
+                  }
+                }
+              }
+              .inputLabelGroupBox {
+                label {
+                  font-size: $t-body-s;
+                  font-weight: $medium;
+                }
+              }
+            }
+          }
+          // 날짜 선택 박스 단독
+          &3 {
+            &.active {
+              & + .openSelectBox3 {
+                display: block;
+              }
+            }
+            .customSelectBox-options {
+              min-width: 320px;
+              display: none;
+              .inputBox_calendar {
+                @include flex-box($jc: between) {
+                  gap: 10px;
+                }
+                .input_date {
+                  flex-grow: 1;
+                  height: $customSelect-box-height;
+                  padding: 0 10px;
+                  @include inputsReset;
+                  border-radius: $inputs-border-radius;
+                  border: 1px solid $btn2;
+                  font-size: $t-body-ms;
+                  font-weight: $bold
+                }
+              }
+              .btnsBox {
+                @include flex-box($jc:between) {
+                  gap: 8px;
+                }
+                .btn {
+                  margin-top: 10px;
+                  padding: 8px 0;
+                  border: 1px solid $btn2;
+                  color: $btn1;
+                  &.active {
+                    border-color: $button-primary-color;
+                    color: $button-primary-color;
+                    background-color: rgba($button-primary-color, 0.1);
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+      .stickersBox {
+        width: 100%;
+        padding-top: 10px;
+        @include flex-box($jc:start) {
+          gap: 7px;
+          flex-wrap: wrap;
+        }
+        .sticker {
+          padding: 7px 14px;
+          border: 1px solid $button-primary-color;
+          border-radius: 20px;
+          font-size: $t-body-s;
+          font-weight: $medium;
+          color: $black;
+          .btn {
+            vertical-align: baseline;
+            color: $black;
+
+          }
+        }
+      }
+    }
+    // 폼 세로정렬 - 이력 리스트
+    .infoBox-info_desc {
+      width: 100%;
+      padding: 16px 14px !important;
+      background-color: $disable;
+      border: 1px solid $btn2;
+      box-sizing: border-box;
+      .timelineBox {
+        .timelineBox-title {
+          @include inline-flex;
+          padding: 4px 23px;
+          margin-bottom: 15px;
+          border-radius: 30px;
+          border: 1px solid #d7d7d7;
+          font-size: $t-body-xs;
+          font-weight: $bold;
+          color: $formText;
+        }
+        .timelineBox-desc {
+          @include flex-box($jc:start) {
+            gap: 8px;
+          }
+          .timelineBox-desc_icon {
+            flex-shrink: 0;
+            padding: 5px;
+            border-radius: 50%;
+            font-size: $t-body-xxs;
+            color: #fff;
+            &.blue {
+              background-color: #387BC9;
+            }
+            &.yellow {
+              background-color: #F9C541;
+            }
+            &.gray {
+              background-color: #8C8C8C;
+            }
+            &.red {
+              background-color: red;
+            }
+          }
+          .timelineBox-desc_time {
+            flex-shrink: 0;
+            font-size: $t-body-xs;
+            font-weight: $bold;
+          }
+          .timelineBox-desc_cate {
+            flex-shrink: 0;
+            @include inline-flex;
+            padding: 2px 10px;
+            border: 1px solid #d7d7d7;
+            border-radius: 5px;
+            font-size: $t-body-xs;
+            color: $formText;
+          }
+          .timelineBox-desc_text {
+            @include ellipsis;
+            font-size: $t-body-xs;
+          }
+          .flex_shrink {
+            flex-shrink: 0;
+          }
+        }
+        // 이력끼리의 간격
+        .timelineBox-desc ~ .timelineBox-desc {
+          margin-top: 13px;
+        }
+        // 날짜와 이력의 간격
+        .timelineBox-desc ~ .timelineBox-title {
+          margin-top: 15px;
+        }
+      }
+    }
+    // 폼 입력영역 - 기본
+    .infoBox-info {
+      flex-grow: 1;
+      padding: 5px 8px 5px 8px;
+      // 인풋요소들 공통 wrap
+      .inputBox {
+        .input_text,
+        .select  {
+          @include inputsReset;
+          width: 100%;
+          max-width: 256px;
+          height: $inputs-height;
+          padding-left: $inputs-padding;
+          border: 1px solid $btn2;
+          @include inputsBorderRadius();
+          box-sizing: border-box;
+          font-size: $t-body-s;
+          color: $formText;
+          &:disabled {
+            border: none;
+            background-color: transparent;
+          }
+        }
+        .input_textarea {
+          @include inputsReset;
+          width: calc(100% - 6px);
+          height: $textarea-height;
+          padding: $inputs-padding;
+          resize: none;
+          border: 1px solid $btn2;
+          @include inputsBorderRadius();
+          box-sizing: border-box;
+          &:disabled {
+            border: none;
+            background-color: transparent;
+          }
+        }
+      }
+      // 셀렉트박스 단독 wrap
+      .inputBox_select {
+        position: relative;
+        &::after {
+          position: absolute;
+          top: 50%;
+          transform: translateY(-50%);
+          right: 30px;
+          content: '\f078';
+          font-family: 'Font Awesome 6 Pro';
+        }
+        &:has(.select:disabled) {
+          &::after {
+            font-size: 0;
+          }
+        }
+        .select {
+          appearance: none;
+        }
+      }
+    }
+    // 폼 입력영역 - 레이아웃 확장
+    .infoBox-info_bt {
+      @include flex-box($jc:between);
+      flex-grow: 0;
+      width: calc(100% - 140px);
+      .customSelectBox_wrap {
+        @include flex-box($jc:start) {
+          gap: 25px;
+        }
+      }
+      // 고정 셀렉트박스
+      .customSelectBox {
+        position: relative;
+        width: 57px;
+        height: $customSelect-box-height;
+        flex-shrink: 0;
+        .customSelectBox-btn_value {
+          position: relative;
+          width: 100%;
+          height: 100%;
+          border: 1px solid $btn2;
+          &::after {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            right: 5px;
+            content: "\f078";
+            color: #BCBCBC;
+            font-family: "Font Awesome 6 Pro";
+            font-size: 10px;
+            font-weight: 600;
+          }
+          & + .customSelectBox-options {
+            display: none;
+          }
+          &.active + .customSelectBox-options {
+            position: absolute;
+            display: block;
+            top: 39px;
+            padding: 10px;
+            border: 1px solid $btn2;
+            border-radius: $inputs-border-radius;
+            background-color: $white;
+            .customSelectBox-btn_option ~ .customSelectBox-btn_option {
+              margin-top: 5px;
+            }
+          }
+          .fa-solid {
+            padding-right: 13px;
+          }
+        }
+        .customSelectBox-btn {
+          .fa-solid {
+            font-size: 20px;
+            &.fa-face-smile {
+              color: #0084e9;
+            }
+            &.fa-face-meh {
+              color: #ffcc00;
+            }
+            &.fa-face-frown {
+              color: #ff4734;
+            }
+            &.fa-circle-xmark {
+              color: #959595;
+            }
+          }
+        }
+      }
+      // 인풋 수정창이 닫혔을 때
+      &.offInput {
+        .customSelectBox_wrap {
+          width: calc(100% - 22px);
+        }
+        .inputBox {
+          display: none;
+        }
+        .customSelectBox-textVal {
+          width: calc(100% - 135px);
+          @include ellipsis;
+          font-size: $t-body-s;
+        }
+        // 저장,취소버튼을 담고있음
+        .subTitleBox_st {
+          display: none;
+        }
+      }
+      // 인풋 수정창이 열렸을 때
+      &.onInput {
+        .customSelectBox_wrap {
+          width: calc(100% - 130px);
+        }
+        .inputBox {
+          width: 100%;
+          .input_text {
+            width: 100%;
+            max-width: unset;
+          }
+        }
+        .customSelectBox-textVal {
+          display: none;
+        }
+        .editContents {
+          display: none;
+        }
+        // 저장,취소버튼을 담고있음
+        .subTitleBox_st {
+          @include flex-box($jc:start) {
+            gap: 3px;
+          }
+        }
+      }
+      
+    }
+  }
+}
+
+.cardWrap {
+  @include flex-box($jc:between) {
+    gap: 23px;
+  }
+  .cardBox {
+    position: relative;
+    width: 100%;
+    padding: 20px;
+    border: 1px solid $btn2;
+    border-radius: $inputs-border-radius;
+    &.isActive {
+      border-color: $button-primary-color;
+    }
+    .cardBox-inner_left {
+      .cardBox-title {
+        margin-bottom: $card-contents-gap;
+        color: $button-primary-color;
+      }
+      .cardBox-list {
+        margin-bottom: $card-contents-gap;
+        @include flex-box($fd:column, $ai: start) {
+          gap: 10px;
+        }
+      }
+    }
+    .cardBox-inner_right {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+    }
   }
 }
