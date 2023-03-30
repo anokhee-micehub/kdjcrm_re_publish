@@ -1,0 +1,127 @@
+@import "mixin.scss";
+@import "functions.scss";
+@import "variables.scss";
+
+/* 
+@ signboard(칸반 스크롤화면) 내용만 담고있습니다.
+@ 모든 크기 단위는 고정적인 px을 사용했습니다. 
+@ 해당 범위에서만 사용되는 변수는 이곳에 따로 지정해도됩니다.
+*/
+
+$title-height: 50px;
+
+// 전체 wrap 가로스크롤
+.signboardWrapBox {
+  padding-bottom: 10px;
+  overflow-x: scroll;
+  &::-webkit-scrollbar {
+    height: 10px;
+  }
+  &::-webkit-scrollbar-thumb {
+    background-color: $main;
+    border-radius: 5px;
+  }
+  &::-webkit-scrollbar-track {
+    background-color: #fff;
+  }
+}
+
+// 토글, 드래그앤드롭 컨텐츠
+$colors: (#F7B401, #F7B402, #F89E00, #F89E01, #FF9000, #FF9001, #FF6201, #FF6202, #E83E0B, #727272);
+.stepBarBox {
+  display: flex;
+  gap: rem(20px);
+  @each $color in $colors {
+    $idx : index($colors, $color);
+    & > &-item:nth-child(#{$idx}) {
+      .stepBarBox-item_title {
+        background-color: $color;
+        box-shadow: 0px 2px 4px 0px rgba(0,0,0,0.1);
+      }
+    }
+  }
+  .stepBarBox-item {
+    width: 355px;
+    flex-shrink: 0;
+    &:first-child:nth-last-child(3),
+    &:first-child:nth-last-child(3) ~ & {
+      .stepBarBox-item_title {
+        clip-path: polygon(0% 0%, 97% 0%, 100% 50%, 97% 100%, 0% 100%);
+      }
+    }
+    &:first-child:nth-last-child(4),
+    &:first-child:nth-last-child(4) ~ & {
+      .stepBarBox-item_title {
+        clip-path: polygon(0% 0%, 97% 0%, 100% 50%, 97% 100%, 0% 100%);
+      }
+    }
+    &:first-child:nth-last-child(5),
+    &:first-child:nth-last-child(5) ~ & {
+      .stepBarBox-item_title {
+        clip-path: polygon(0% 0%, 95% 0%, 100% 50%, 95% 100%, 0% 100%);
+      }
+    }
+    &:first-child:nth-last-child(6),
+    &:first-child:nth-last-child(6) ~ & {
+      .stepBarBox-item_title {
+        clip-path: polygon(0% 0%, 95% 0%, 100% 50%, 95% 100%, 0% 100%);
+      }
+    }
+    &:first-child:nth-last-child(7),
+    &:first-child:nth-last-child(7) ~ & {
+      .stepBarBox-item_title {
+        clip-path: polygon(0% 0%, 95% 0%, 100% 50%, 95% 100%, 0% 100%);
+      }
+    }
+    &:first-child:nth-last-child(8),
+    &:first-child:nth-last-child(8) ~ & {
+      .stepBarBox-item_title {
+        clip-path: polygon(0% 0%, 95% 0%, 100% 50%, 95% 100%, 0% 100%);
+      }
+    }
+    &:first-child:nth-last-child(9),
+    &:first-child:nth-last-child(9) ~ & {
+      .stepBarBox-item_title {
+        clip-path: polygon(0% 0%, 95% 0%, 100% 50%, 95% 100%, 0% 100%);
+      }
+    }
+    &:first-child:nth-last-child(10),
+    &:first-child:nth-last-child(10) ~ & {
+      .stepBarBox-item_title {
+        clip-path: polygon(0% 0%, 93% 0%, 100% 50%, 93% 100%, 0% 100%);
+      }
+    }
+    &:nth-last-child(-n+2) {
+      .stepBarBox-item_title {
+        border-radius: 5px !important;
+        clip-path: polygon(0% 0%, 100% 0%, 100% 50%, 100% 100%, 0% 100%) !important;
+      }
+    }
+    .stepBarBox-item_title {
+      @include flex-box($jc: start){
+        gap: 9px;
+      }
+      height: $title-height;
+      position: relative;
+      padding: rem(10px);
+      font-size: rem(16px);
+      font-weight: 600;
+      color: #fff;
+      border-radius: 5px 0 0 5px;
+      clip-path: polygon(0% 0%, 93% 0%, 100% 50%, 93% 100%, 0% 100%);
+      box-sizing: border-box;
+      &.disable {
+        color: #666;
+        background-color: $disable !important;
+      }
+      .sizeControl {
+        @include inline-flex;
+        @include wh(14px, 14px);
+        line-height: 14px;
+        color: #fff;
+        font-size: rem(14px);
+        border: 1px solid #fff;
+      }
+    }
+  }
+}

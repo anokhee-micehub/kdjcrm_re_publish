@@ -173,9 +173,49 @@
 .inputLabelGroupBox label .checkboxChk {
   position: relative;
   display: inline-block;
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
   width: 10px;
   height: 10px;
   border: 1px solid #D2D2D2;
+}
+
+.radioBox label {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 5px;
+}
+.radioBox label .input_radio {
+  display: none;
+}
+.radioBox label .input_radio:checked + .radioChk::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: #FF6202;
+}
+.radioBox label .radioChk {
+  position: relative;
+  display: inline-block;
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+  width: 10px;
+  height: 10px;
+  border: 1px solid #D2D2D2;
+  border-radius: 50%;
 }
 
 .subTitleBox-subTitle {

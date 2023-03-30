@@ -147,8 +147,40 @@ body {
     .checkboxChk {
       position: relative;
       display: inline-block;
+      flex-shrink: 0;
       @include wh(10px, 10px);
       border: 1px solid $btn2;
+    }
+  }
+}
+
+// 커스텀라디오
+.radioBox {
+  label {
+    @include flex-box($jc:start) {
+      gap: 5px;
+    }
+    .input_radio {
+      display: none;
+      &:checked {
+        & + .radioChk {
+          &::after {
+            content: '';
+            @include position-center;
+            @include wh(6px, 6px);
+            border-radius: 50%;
+            background-color: $main;
+          }
+        }
+      }
+    }
+    .radioChk {
+      position: relative;
+      display: inline-block;
+      flex-shrink: 0;
+      @include wh(10px, 10px);
+      border: 1px solid $btn2;
+      border-radius: 50%;
     }
   }
 }

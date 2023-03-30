@@ -48,6 +48,10 @@
 .box.innerBox > .subTitleBox {
   margin-bottom: 20px;
 }
+.box.innerBox > .subTitleBox.sectionTitle {
+  padding-bottom: 10px;
+  border-bottom: 1px dashed #ddd;
+}
 
 .sectionBox ~ .sectionBox {
   margin-top: 25px;
@@ -57,6 +61,30 @@
 }
 .sectionBox .subTitleBox .subTitleBox-subTitle {
   font-size: 16px;
+}
+
+.codeListBox {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  gap: 7px;
+  padding: 16px;
+  margin-bottom: 16px;
+  border-radius: 3px;
+  font-size: 14px;
+  background-color: #F3F7FD;
+}
+
+.infoBox ~ .infoBox {
+  margin-top: 15px;
 }
 
 .infoBox {
@@ -104,7 +132,8 @@
   min-height: 100%;
   -ms-flex-negative: 0;
       flex-shrink: 0;
-  font-size: 16px;
+  font-size: 14px;
+  text-align: center;
   color: #727272;
   background-color: #f4f4f4;
 }
@@ -407,7 +436,20 @@
           flex-grow: 1;
   padding: 5px 8px 5px 8px;
 }
+.infoBox .infoBox-inner .infoBox-info .inputBox {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 8px;
+}
 .infoBox .infoBox-inner .infoBox-info .inputBox .input_text,
+.infoBox .infoBox-inner .infoBox-info .inputBox .input_date,
 .infoBox .infoBox-inner .infoBox-info .inputBox .select {
   border: none;
   outline: none;
@@ -425,9 +467,20 @@
   color: #727272;
 }
 .infoBox .infoBox-inner .infoBox-info .inputBox .input_text:disabled,
+.infoBox .infoBox-inner .infoBox-info .inputBox .input_date:disabled,
 .infoBox .infoBox-inner .infoBox-info .inputBox .select:disabled {
   border: none;
   background-color: transparent;
+}
+.infoBox .infoBox-inner .infoBox-info .inputBox .input_text.noInput {
+  pointer-events: none;
+  background-color: #D2D2D2;
+}
+.infoBox .infoBox-inner .infoBox-info .inputBox .input_text.noInput:disabled {
+  background-color: transparent;
+}
+.infoBox .infoBox-inner .infoBox-info .inputBox .input_date {
+  padding-right: 10px;
 }
 .infoBox .infoBox-inner .infoBox-info .inputBox .input_textarea {
   border: none;
@@ -446,6 +499,13 @@
 .infoBox .infoBox-inner .infoBox-info .inputBox .input_textarea:disabled {
   border: none;
   background-color: transparent;
+}
+.infoBox .infoBox-inner .infoBox-info .inputBox .radioBox {
+  font-size: 14px;
+  color: #727272;
+}
+.infoBox .infoBox-inner .infoBox-info .inputBox .radioBox:nth-child(1) {
+  padding-left: 8px;
 }
 .infoBox .infoBox-inner .infoBox-info .inputBox_select {
   position: relative;

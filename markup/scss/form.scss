@@ -37,11 +37,15 @@ $card-contents-gap: 15px;
 
 .box {
   &.innerBox {
-    box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.1);
+    box-shadow: $common-box-shadow;
     padding: $box-padding;
     box-sizing: border-box;
     & > .subTitleBox {
       margin-bottom: $box-subTitle-margin-bottom;
+      &.sectionTitle {
+        padding-bottom: 10px;
+        border-bottom: 1px dashed #ddd;
+      }
     }
   }
 }
@@ -56,6 +60,22 @@ $card-contents-gap: 15px;
       font-size: $t-body-m;
     }
   }
+}
+
+.codeListBox {
+  @include flex-box($jc:start) {
+    flex-wrap: wrap;
+    gap: 7px;
+  }
+  padding: 16px;
+  margin-bottom: 16px;
+  border-radius: $inputs-border-radius;
+  font-size: $t-body-s;
+  background-color: #F3F7FD;
+}
+
+.infoBox ~ .infoBox {
+  margin-top: $card-contents-gap;
 }
 
 .infoBox {
@@ -80,7 +100,8 @@ $card-contents-gap: 15px;
       @include wh($infoBox-cate-width, $infoBox-cate-height);
       min-height: 100%;
       flex-shrink: 0;
-      font-size: $t-body-m;
+      font-size: $t-body-s;
+      text-align: center;
       color: $formText;
       background-color: $disable;
     }
@@ -322,8 +343,13 @@ $card-contents-gap: 15px;
       padding: 5px 8px 5px 8px;
       // 인풋요소들 공통 wrap
       .inputBox {
+        @include flex-box($jc:start) {
+          gap: 8px;
+        }
+        // 공통요소
         .input_text,
-        .select  {
+        .input_date,
+        .select {
           @include inputsReset;
           width: 100%;
           max-width: 256px;
@@ -339,6 +365,19 @@ $card-contents-gap: 15px;
             background-color: transparent;
           }
         }
+        // 개별요소
+        .input_text {
+          &.noInput {
+            pointer-events: none;
+            background-color: $btn2;
+            &:disabled {
+              background-color: transparent;
+            }
+          }
+        }
+        .input_date {
+          padding-right: $inputs-padding;
+        }
         .input_textarea {
           @include inputsReset;
           width: calc(100% - 6px);
@@ -351,6 +390,13 @@ $card-contents-gap: 15px;
           &:disabled {
             border: none;
             background-color: transparent;
+          }
+        }
+        .radioBox {
+          font-size: $t-body-s;
+          color: $formText;
+          &:nth-child(1) {
+            padding-left: 8px;
           }
         }
       }
