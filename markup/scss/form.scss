@@ -602,7 +602,7 @@ $arrowBtnsColors: (#F7B401, #F7B402, #F89E00, #F89E01, #FF9000, #FF9001, #FF6201
           &.active + .customSelectBox-options {
             position: absolute;
             display: block;
-            top: 39px;
+            top: 33px;
             padding: 10px;
             border: 1px solid $btn2;
             border-radius: $inputs-border-radius;
@@ -691,6 +691,7 @@ $arrowBtnsColors: (#F7B401, #F7B402, #F89E00, #F89E01, #FF9000, #FF9001, #FF6201
     padding: 20px;
     border: 1px solid $btn2;
     border-radius: $inputs-border-radius;
+    box-shadow: unset;
     &.isActive {
       border-color: $button-primary-color;
     }
@@ -703,6 +704,12 @@ $arrowBtnsColors: (#F7B401, #F7B402, #F89E00, #F89E01, #FF9000, #FF9001, #FF6201
         margin-bottom: $card-contents-gap;
         @include flex-box($fd:column, $ai: start) {
           gap: 10px;
+        }
+        .cardBox-listItem {
+          font-size: $t-body-s;
+          i {
+            margin-right: 5px;
+          }
         }
       }
     }

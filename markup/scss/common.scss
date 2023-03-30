@@ -50,7 +50,9 @@ body {
 .subTitleBox {
   @include flex-box($jc:start);
   &_st {
-    @include flex-box($jc:start);
+    @include flex-box($jc:start) {
+      gap: 5px;
+    }
   }
   &_bt {
     @include flex-box($jc:between);

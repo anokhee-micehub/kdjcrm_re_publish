@@ -843,7 +843,7 @@
 .infoBox .infoBox-inner .infoBox-info_bt .customSelectBox .customSelectBox-btn_value.active + .customSelectBox-options {
   position: absolute;
   display: block;
-  top: 39px;
+  top: 33px;
   padding: 10px;
   border: 1px solid #D2D2D2;
   border-radius: 3px;
@@ -933,6 +933,8 @@
   padding: 20px;
   border: 1px solid #D2D2D2;
   border-radius: 3px;
+  -webkit-box-shadow: unset;
+          box-shadow: unset;
 }
 .cardWrap .cardBox.isActive {
   border-color: #24b898;
@@ -957,6 +959,12 @@
       -ms-flex-direction: column;
           flex-direction: column;
   gap: 10px;
+}
+.cardWrap .cardBox .cardBox-inner_left .cardBox-list .cardBox-listItem {
+  font-size: 14px;
+}
+.cardWrap .cardBox .cardBox-inner_left .cardBox-list .cardBox-listItem i {
+  margin-right: 5px;
 }
 .cardWrap .cardBox .cardBox-inner_right {
   position: absolute;
