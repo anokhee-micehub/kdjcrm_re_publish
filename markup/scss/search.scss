@@ -12,15 +12,17 @@ $background: #DFDFDF;
 $select-min-width: 140px;
 $date-min-width: 145px;
 $inputs-padding: 7px 10px;
+$inputs-height: 30px;
 $input-gap: 8px;
 $inputGroup-gap: 10px;
-$label-right-margin: 16px;
+$label-right-margin: 10px;
+$searchBox-padding: 20px 25px;
 
 
 /************************ Layout ************************/
 .searchBox_head{
   position: relative;
-  padding: 20px 25px;
+  padding: $searchBox-padding;
   border-radius: 3px;
   background-color: $background ;
   .inputGroup {
@@ -58,6 +60,42 @@ $label-right-margin: 16px;
   }
 }
 
+// 대관영역 검색박스
+.selectlocationBox {
+  padding: $searchBox-padding;
+  border-radius: 10px;
+  background-color: $background;
+  .selectlocationBox-section {
+    @include flex-box($jc: start);
+    .sectionTitle {
+      width: 110px;
+      flex-shrink: 0;
+      font-size: $t-body-m;
+      font-weight: $bold;
+    }
+    .chksWrap {
+      flex-grow: 1;
+      @include flex-box($jc:start) {
+        gap: 8px;
+        flex-wrap: wrap;
+      }
+    }
+  }
+  .selectlocationBox-section ~ .selectlocationBox-section {
+    margin-top: 10px;
+  }
+  .searchBox_head {
+    padding: 0;
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid $white;
+    .buttonGroup {
+      right: 0;
+      bottom: 0;
+    }
+  }
+}
+
 /********************************************************/
 
 /************************ ui요소 ************************/
@@ -68,6 +106,7 @@ $label-right-margin: 16px;
   }
   .input_text {
     @include inputsReset;
+    height: $inputs-height;
     padding: $inputs-padding;
     border-radius: $inputs-border-radius;
     font-size: $t-body-ms;
@@ -91,6 +130,7 @@ $label-right-margin: 16px;
   .select {
     width: auto;
     min-width: $select-min-width;
+    height: $inputs-height;
     padding: $inputs-padding;
     padding-right: 52px;
     @include inputsReset;
@@ -120,4 +160,54 @@ $label-right-margin: 16px;
     }
   }
 }
+
+// range 인풋박스
+.inputBox_customRange {
+  position: relative;
+  @include flex-box($jc: start);
+  height: $inputs-height;
+  padding: $inputs-padding;
+  border-radius: $inputs-border-radius;
+  box-sizing: border-box;
+  background-color: $white;
+  .label {
+    font-size: $t-body-s;
+    font-weight: $medium;
+  }
+  .input_text {
+    width: 100px;
+    padding-left: 8px;
+    @include inputsReset;
+  }
+  .rangeTabOpen {
+    color: $black;
+  }
+}
+
+
+// 대관업무 체크박스
+.fullChks {
+  input[type="checkbox"] {
+    display: none;
+    &:checked {
+      & + label {
+        color: $white;
+        background-color: $main;
+        &::before {
+          content: '\f00c';
+          font-family: 'Font Awesome 6 Pro';
+        }
+      }
+    }
+  }
+  label {
+    display: inline-block;
+    padding: 5px 13px;
+    font-size: $t-body-s;
+    border-radius: 30px;
+    background-color: $disable;
+    cursor: pointer;
+  }
+}
+
 /********************************************************/

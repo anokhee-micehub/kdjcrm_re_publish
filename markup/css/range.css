@@ -1,0 +1,66 @@
+@charset "UTF-8";
+/* 
+@ Range 팝업박스 내용만 담고있습니다.
+@ 모든 크기 단위는 고정적인 px을 사용했습니다. 
+@ 해당 범위에서만 사용되는 변수는 이곳에 따로 지정해도됩니다.
+*/
+.rangeTabOpen.isActive + .rangeSlideTabBox {
+  position: absolute;
+  top: 33px;
+  left: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: stretch;
+      -ms-flex-align: stretch;
+          align-items: stretch;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 10px;
+  width: 400px;
+  z-index: 99;
+}
+
+.rangeSlideTabBox {
+  padding: 20px;
+  border-radius: 3px;
+  border: 1px solid #D2D2D2;
+  background-color: #fff;
+  display: none;
+}
+.rangeSlideTabBox .subTitleBox .titleText {
+  font-size: 16px;
+}
+.rangeSlideTabBox .subTitleBox .closeFilterBox {
+  height: auto;
+  color: #000;
+}
+.rangeSlideTabBox .amounts {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.rangeSlideTabBox .amounts .range-input {
+  border: none;
+  outline: none;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  height: 30px;
+  padding: 8px;
+  background-color: #D2D2D2;
+  box-sizing: border-box;
+}
+.rangeSlideTabBox .closeFilterBox {
+  height: 30px;
+}

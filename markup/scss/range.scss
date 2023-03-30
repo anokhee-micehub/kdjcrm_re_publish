@@ -1,0 +1,56 @@
+@import "mixin.scss";
+@import "functions.scss";
+@import "variables.scss";
+
+/* 
+@ Range 팝업박스 내용만 담고있습니다.
+@ 모든 크기 단위는 고정적인 px을 사용했습니다. 
+@ 해당 범위에서만 사용되는 변수는 이곳에 따로 지정해도됩니다.
+*/
+
+// 필터 열기 버튼
+.rangeTabOpen {
+  &.isActive {
+    & + .rangeSlideTabBox {
+      position: absolute;
+      top: 33px;
+      left: 0;
+      @include flex-box($fd: column, $ai: stretch) {
+        gap: 10px;
+      }
+      width: 400px;
+      z-index: 99;
+    }
+  }
+}
+
+// 필터창
+.rangeSlideTabBox {
+  padding: 20px;
+  border-radius: $inputs-border-radius;
+  border: 1px solid $btn2;
+  background-color: $white;
+  display: none;
+  .subTitleBox {
+    .titleText {
+      font-size: $t-body-m;
+    }
+    .closeFilterBox {
+      height: auto;
+      color: #000;
+    }
+  }
+  .amounts {
+    @include flex-box($jc:between);
+    .range-input {
+      @include inputsReset;
+      height: 30px;
+      padding: 8px;
+      background-color: $btn2;
+      box-sizing: border-box;
+    }
+  }
+  .closeFilterBox {
+    height: 30px;
+  }
+}

@@ -77,6 +77,60 @@
   gap: 8px;
 }
 
+.selectlocationBox {
+  padding: 20px 25px;
+  border-radius: 10px;
+  background-color: #DFDFDF;
+}
+.selectlocationBox .selectlocationBox-section {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.selectlocationBox .selectlocationBox-section .sectionTitle {
+  width: 110px;
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+  font-size: 16px;
+  font-weight: 700;
+}
+.selectlocationBox .selectlocationBox-section .chksWrap {
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 8px;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+.selectlocationBox .selectlocationBox-section ~ .selectlocationBox-section {
+  margin-top: 10px;
+}
+.selectlocationBox .searchBox_head {
+  padding: 0;
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px solid #fff;
+}
+.selectlocationBox .searchBox_head .buttonGroup {
+  right: 0;
+  bottom: 0;
+}
+
 /********************************************************/
 /************************ ui요소 ************************/
 .inputBox_input {
@@ -96,6 +150,7 @@
   outline: none;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
+  height: 30px;
   padding: 7px 10px;
   border-radius: 3px;
   font-size: 13px;
@@ -122,6 +177,7 @@
 .inputBox_select .select {
   width: auto;
   min-width: 140px;
+  height: 30px;
   padding: 7px 10px;
   padding-right: 52px;
   border: none;
@@ -135,7 +191,7 @@
 }
 
 .inputBox_calendar .label {
-  margin-right: 16px;
+  margin-right: 10px;
   font-size: 13px;
   font-weight: bold;
 }
@@ -155,6 +211,60 @@
 }
 .inputBox_calendar .input_date:nth-of-type(2) {
   margin-left: 8px;
+}
+
+.inputBox_customRange {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 30px;
+  padding: 7px 10px;
+  border-radius: 3px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  background-color: #fff;
+}
+.inputBox_customRange .label {
+  font-size: 14px;
+  font-weight: 400;
+}
+.inputBox_customRange .input_text {
+  width: 100px;
+  padding-left: 8px;
+  border: none;
+  outline: none;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+.inputBox_customRange .rangeTabOpen {
+  color: #000;
+}
+
+.fullChks input[type=checkbox] {
+  display: none;
+}
+.fullChks input[type=checkbox]:checked + label {
+  color: #fff;
+  background-color: #FF6202;
+}
+.fullChks input[type=checkbox]:checked + label::before {
+  content: "\f00c";
+  font-family: "Font Awesome 6 Pro";
+}
+.fullChks label {
+  display: inline-block;
+  padding: 5px 13px;
+  font-size: 14px;
+  border-radius: 30px;
+  background-color: #f4f4f4;
+  cursor: pointer;
 }
 
 /********************************************************/

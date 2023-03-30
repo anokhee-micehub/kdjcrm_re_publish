@@ -18,8 +18,17 @@ $infoBox-cate-height: 48px;
 $inputs-height: 36px;
 $inputs-padding: 10px;
 $textarea-height: 100px;
+$select-max-width: 276px;
 $customSelect-box-height : 30px;
 $card-contents-gap: 15px;
+$arrowBtns-height: 40px;
+$arrowBtnsColors: (#F7B401, #F7B402, #F89E00, #F89E01, #FF9000, #FF9001, #FF6201, #FF6202, #E83E0B, #727272);
+
+.contentsBox_ly {
+  @include flex-box($fd: column, $ai: stretch) {
+    gap: $box-gap;
+  }
+}
 
 .detailBox {
   @include flex-box($jc:between, $ai:start) {
@@ -36,8 +45,8 @@ $card-contents-gap: 15px;
 }
 
 .box {
+  box-shadow: $common-box-shadow;
   &.innerBox {
-    box-shadow: $common-box-shadow;
     padding: $box-padding;
     box-sizing: border-box;
     & > .subTitleBox {
@@ -45,6 +54,137 @@ $card-contents-gap: 15px;
       &.sectionTitle {
         padding-bottom: 10px;
         border-bottom: 1px dashed #ddd;
+      }
+    }
+  }
+}
+
+// 고객정보 + 잠재 고객 상태 wrap
+.profileTabs {
+  @include flex-box($jc:start, $ai: stretch) {
+    gap: $box-gap;
+  }
+}
+// 고객정보
+.profileBox {
+  position: relative;
+  @include flex-box($fd: column);
+  width: 300px;
+  padding: 20px;
+  box-sizing: border-box;
+  .subTitleBox_bt {
+    width: 100%;
+    margin-bottom: 20px;
+    .subTitleBox-subTitle {
+      font-size: $t-body-m;
+    }
+    .btn {
+      color: $black;
+    }
+  }
+  .imgBox {
+    @include wh(120px, 120px);
+    margin-bottom: 10px;
+    border-radius: 50%;
+    @include reset-bg;
+  }
+  .userInfoText {
+    text-align: center;
+    .lightText {
+      margin-bottom: 15px;
+      font-size: $t-body-m;
+    }
+    .boldText {
+      font-size: $t-body-l;
+      font-weight: $bold;
+    }
+  }
+}
+// 잠재 고객 상태
+.tabBtnsBox {
+  @include flex-box($fd:column, $ai:stretch, $jc: start) {
+    gap: 10px;
+  }
+  flex-grow: 1;
+  padding: 30px;
+  box-sizing: border-box;
+  .subTitleBox-inner_left {
+    @include flex-box($fd: column, $ai: stretch) {
+      gap: 5px;
+    }
+    .subTitleBox-descText {
+      font-size: $t-body-s;
+      color: $formText;
+    }
+  }
+  .tabWrapBox {
+    @include flex-box($jc: start) {
+      gap: 5px;
+    }
+    // 뒤 버튼 2개는 쉐입이 달라짐
+    &.lastIssue {
+      .arrowBtns {
+        &:nth-last-child(-n+2) {
+          border-radius: 3px !important;
+          clip-path: polygon(0% 0%, 100% 0%, 100% 50%, 100% 100%, 0% 100%) !important;
+        } 
+      }
+    }
+    // 뒤 버튼 3개는 쉐입이 달라짐
+    &.lastIssue3 {
+      .arrowBtns {
+        &:nth-last-child(-n+3) {
+          border-radius: 3px !important;
+          clip-path: polygon(0% 0%, 100% 0%, 100% 50%, 100% 100%, 0% 100%) !important;
+        } 
+      }
+    }
+    .arrowBtns {
+      flex: 1;
+      height: $arrowBtns-height;
+      box-sizing: border-box;
+      font-size: $t-body-s;
+      font-weight: bold;
+      color: $white;
+      clip-path: polygon(90% 0%, 100% 50%, 90% 100%, 0% 100%, 0 51%, 0% 0%);
+      // 버튼 컬러 각각 배경색 지정반복문
+      @each $color in $arrowBtnsColors {
+        $idx : index($arrowBtnsColors, $color);
+        &:nth-child(#{$idx}) {
+          color: #fff;
+          background-color: $color;
+        }
+      }
+      &.disable {
+        color: $formText;
+        background-color: #ececec;
+      }
+      &:first-child:nth-last-child(3),
+      &:first-child:nth-last-child(3) ~ .arrowBtns {
+        clip-path: polygon(0% 0%, 98% 0%, 100% 50%, 98% 100%, 0% 100%);
+      }
+    }
+  }
+  .textBox {
+    @include flex-box($fd: column, $ai: start) {
+      gap: 3px;
+    }
+    .textBox-title {
+      margin-bottom: 3px;
+      font-size: $t-body-m;
+      font-weight: $bold;
+      i {
+        color: $btn3;
+      }
+    }
+    .textBox-desc {
+      padding-left: 20px;
+      font-size: $t-body-m;
+      &_dot {
+        &::before {
+          content: '-';
+          padding-right: 5px;
+        }
       }
     }
   }
@@ -244,7 +384,9 @@ $card-contents-gap: 15px;
       // 검색조건키워드단어
       .stickersBox {
         width: 100%;
-        padding-top: 10px;
+        &:has(.sticker) {
+          padding-top: 10px;
+        }
         @include flex-box($jc:start) {
           gap: 7px;
           flex-wrap: wrap;
@@ -272,20 +414,24 @@ $card-contents-gap: 15px;
       border: 1px solid $btn2;
       box-sizing: border-box;
       .timelineBox {
+        @include flex-box($fd:column, $ai: start) {
+          gap: 7px;
+        }
         .timelineBox-title {
           @include inline-flex;
           padding: 4px 23px;
-          margin-bottom: 15px;
+          margin-bottom: 6px;
           border-radius: 30px;
-          border: 1px solid #d7d7d7;
           font-size: $t-body-xs;
           font-weight: $bold;
-          color: $formText;
+          color: $black;
+          background-color: #d7d7d7;
         }
         .timelineBox-desc {
           @include flex-box($jc:start) {
             gap: 8px;
           }
+          width: 100%;
           .timelineBox-desc_icon {
             flex-shrink: 0;
             padding: 5px;
@@ -327,11 +473,7 @@ $card-contents-gap: 15px;
             flex-shrink: 0;
           }
         }
-        // 이력끼리의 간격
-        .timelineBox-desc ~ .timelineBox-desc {
-          margin-top: 13px;
-        }
-        // 날짜와 이력의 간격
+        // 날짜와 이력 구간이 달라질 때
         .timelineBox-desc ~ .timelineBox-title {
           margin-top: 15px;
         }
@@ -403,6 +545,7 @@ $card-contents-gap: 15px;
       // 셀렉트박스 단독 wrap
       .inputBox_select {
         position: relative;
+        max-width: $select-max-width;
         &::after {
           position: absolute;
           top: 50%;

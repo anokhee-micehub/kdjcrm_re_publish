@@ -4,6 +4,23 @@
 @ 모든 크기 단위는 고정적인 px을 사용했습니다. 
 @ 해당 범위에서만 사용되는 변수는 이곳에 따로 지정해도됩니다.
 */
+.contentsBox_ly {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: stretch;
+      -ms-flex-align: stretch;
+          align-items: stretch;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 18px;
+}
+
 .detailBox {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -38,9 +55,11 @@
   max-width: 900px;
 }
 
-.box.innerBox {
+.box {
   -webkit-box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.1);
           box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.1);
+}
+.box.innerBox {
   padding: 29px 32px;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
@@ -51,6 +70,228 @@
 .box.innerBox > .subTitleBox.sectionTitle {
   padding-bottom: 10px;
   border-bottom: 1px dashed #ddd;
+}
+
+.profileTabs {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: stretch;
+      -ms-flex-align: stretch;
+          align-items: stretch;
+  gap: 18px;
+}
+
+.profileBox {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 300px;
+  padding: 20px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+.profileBox .subTitleBox_bt {
+  width: 100%;
+  margin-bottom: 20px;
+}
+.profileBox .subTitleBox_bt .subTitleBox-subTitle {
+  font-size: 16px;
+}
+.profileBox .subTitleBox_bt .btn {
+  color: #000;
+}
+.profileBox .imgBox {
+  width: 120px;
+  height: 120px;
+  margin-bottom: 10px;
+  border-radius: 50%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+.profileBox .userInfoText {
+  text-align: center;
+}
+.profileBox .userInfoText .lightText {
+  margin-bottom: 15px;
+  font-size: 16px;
+}
+.profileBox .userInfoText .boldText {
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.tabBtnsBox {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: stretch;
+      -ms-flex-align: stretch;
+          align-items: stretch;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 10px;
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  padding: 30px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+.tabBtnsBox .subTitleBox-inner_left {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: stretch;
+      -ms-flex-align: stretch;
+          align-items: stretch;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 5px;
+}
+.tabBtnsBox .subTitleBox-inner_left .subTitleBox-descText {
+  font-size: 14px;
+  color: #727272;
+}
+.tabBtnsBox .tabWrapBox {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 5px;
+}
+.tabBtnsBox .tabWrapBox.lastIssue .arrowBtns:nth-last-child(-n+2) {
+  border-radius: 3px !important;
+  -webkit-clip-path: polygon(0% 0%, 100% 0%, 100% 50%, 100% 100%, 0% 100%) !important;
+          clip-path: polygon(0% 0%, 100% 0%, 100% 50%, 100% 100%, 0% 100%) !important;
+}
+.tabBtnsBox .tabWrapBox.lastIssue3 .arrowBtns:nth-last-child(-n+3) {
+  border-radius: 3px !important;
+  -webkit-clip-path: polygon(0% 0%, 100% 0%, 100% 50%, 100% 100%, 0% 100%) !important;
+          clip-path: polygon(0% 0%, 100% 0%, 100% 50%, 100% 100%, 0% 100%) !important;
+}
+.tabBtnsBox .tabWrapBox .arrowBtns {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  height: 40px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-size: 14px;
+  font-weight: bold;
+  color: #fff;
+  -webkit-clip-path: polygon(90% 0%, 100% 50%, 90% 100%, 0% 100%, 0 51%, 0% 0%);
+          clip-path: polygon(90% 0%, 100% 50%, 90% 100%, 0% 100%, 0 51%, 0% 0%);
+}
+.tabBtnsBox .tabWrapBox .arrowBtns:nth-child(1) {
+  color: #fff;
+  background-color: #F7B401;
+}
+.tabBtnsBox .tabWrapBox .arrowBtns:nth-child(2) {
+  color: #fff;
+  background-color: #F7B402;
+}
+.tabBtnsBox .tabWrapBox .arrowBtns:nth-child(3) {
+  color: #fff;
+  background-color: #F89E00;
+}
+.tabBtnsBox .tabWrapBox .arrowBtns:nth-child(4) {
+  color: #fff;
+  background-color: #F89E01;
+}
+.tabBtnsBox .tabWrapBox .arrowBtns:nth-child(5) {
+  color: #fff;
+  background-color: #FF9000;
+}
+.tabBtnsBox .tabWrapBox .arrowBtns:nth-child(6) {
+  color: #fff;
+  background-color: #FF9001;
+}
+.tabBtnsBox .tabWrapBox .arrowBtns:nth-child(7) {
+  color: #fff;
+  background-color: #FF6201;
+}
+.tabBtnsBox .tabWrapBox .arrowBtns:nth-child(8) {
+  color: #fff;
+  background-color: #FF6202;
+}
+.tabBtnsBox .tabWrapBox .arrowBtns:nth-child(9) {
+  color: #fff;
+  background-color: #E83E0B;
+}
+.tabBtnsBox .tabWrapBox .arrowBtns:nth-child(10) {
+  color: #fff;
+  background-color: #727272;
+}
+.tabBtnsBox .tabWrapBox .arrowBtns.disable {
+  color: #727272;
+  background-color: #ececec;
+}
+.tabBtnsBox .tabWrapBox .arrowBtns:first-child:nth-last-child(3), .tabBtnsBox .tabWrapBox .arrowBtns:first-child:nth-last-child(3) ~ .arrowBtns {
+  -webkit-clip-path: polygon(0% 0%, 98% 0%, 100% 50%, 98% 100%, 0% 100%);
+          clip-path: polygon(0% 0%, 98% 0%, 100% 50%, 98% 100%, 0% 100%);
+}
+.tabBtnsBox .textBox {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 3px;
+}
+.tabBtnsBox .textBox .textBox-title {
+  margin-bottom: 3px;
+  font-size: 16px;
+  font-weight: 700;
+}
+.tabBtnsBox .textBox .textBox-title i {
+  color: #969495;
+}
+.tabBtnsBox .textBox .textBox-desc {
+  padding-left: 20px;
+  font-size: 16px;
+}
+.tabBtnsBox .textBox .textBox-desc_dot::before {
+  content: "-";
+  padding-right: 5px;
 }
 
 .sectionBox ~ .sectionBox {
@@ -306,7 +547,6 @@
 }
 .infoBox .infoBox-inner .infoBox-cate_search .stickersBox {
   width: 100%;
-  padding-top: 10px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -319,6 +559,9 @@
   gap: 7px;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
+}
+.infoBox .infoBox-inner .infoBox-cate_search .stickersBox:has(.sticker) {
+  padding-top: 10px;
 }
 .infoBox .infoBox-inner .infoBox-cate_search .stickersBox .sticker {
   padding: 7px 14px;
@@ -340,6 +583,22 @@
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
 }
+.infoBox .infoBox-inner .infoBox-info_desc .timelineBox {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 7px;
+}
 .infoBox .infoBox-inner .infoBox-info_desc .timelineBox .timelineBox-title {
   display: -webkit-inline-box;
   display: -ms-inline-flexbox;
@@ -351,12 +610,12 @@
       -ms-flex-align: center;
           align-items: center;
   padding: 4px 23px;
-  margin-bottom: 15px;
+  margin-bottom: 6px;
   border-radius: 30px;
-  border: 1px solid #d7d7d7;
   font-size: 12px;
   font-weight: 700;
-  color: #727272;
+  color: #000;
+  background-color: #d7d7d7;
 }
 .infoBox .infoBox-inner .infoBox-info_desc .timelineBox .timelineBox-desc {
   display: -webkit-box;
@@ -369,6 +628,7 @@
       -ms-flex-align: center;
           align-items: center;
   gap: 8px;
+  width: 100%;
 }
 .infoBox .infoBox-inner .infoBox-info_desc .timelineBox .timelineBox-desc .timelineBox-desc_icon {
   -ms-flex-negative: 0;
@@ -423,9 +683,6 @@
 .infoBox .infoBox-inner .infoBox-info_desc .timelineBox .timelineBox-desc .flex_shrink {
   -ms-flex-negative: 0;
       flex-shrink: 0;
-}
-.infoBox .infoBox-inner .infoBox-info_desc .timelineBox .timelineBox-desc ~ .timelineBox-desc {
-  margin-top: 13px;
 }
 .infoBox .infoBox-inner .infoBox-info_desc .timelineBox .timelineBox-desc ~ .timelineBox-title {
   margin-top: 15px;
@@ -509,6 +766,7 @@
 }
 .infoBox .infoBox-inner .infoBox-info .inputBox_select {
   position: relative;
+  max-width: 276px;
 }
 .infoBox .infoBox-inner .infoBox-info .inputBox_select::after {
   position: absolute;
