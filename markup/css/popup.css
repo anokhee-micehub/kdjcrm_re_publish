@@ -5,5 +5,61 @@
 @ 해당 범위에서만 사용되는 변수는 이곳에 따로 지정해도됩니다.
 */
 .popupBox {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.2);
+  z-index: 10;
   display: none;
+}
+.popupBox.open {
+  display: block;
+}
+
+.popupBox-contents {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  width: 100%;
+  height: auto;
+  max-width: 930px;
+  max-height: calc(100vh - 100px);
+  padding: 42px 58px;
+  border-radius: 24px;
+  background-color: #fff;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.popupBox-contents_m {
+  max-width: 740px;
+}
+
+.popupBox-contents_xl {
+  min-height: calc(100% - 50px);
+  z-index: 1;
+  min-width: 1852px;
+  max-width: 1852px;
+  max-height: calc(100% - 50px);
+}
+@media only screen and (max-width: 1669px) {
+  .popupBox-contents_xl {
+    min-width: calc(100% - 100px);
+    max-width: calc(100% - 100px);
+  }
+}
+.popupBox-contents_xl .tableWrapBox {
+  min-width: 1724px;
+  padding: 0;
+  overflow-y: hidden;
+  overflow-x: hidden;
+}
+@media only screen and (max-width: 1669px) {
+  .popupBox-contents_xl .tableWrapBox {
+    overflow-x: auto;
+  }
 }

@@ -4,6 +4,7 @@
 @ 모든 크기 단위는 고정적인 px을 사용했습니다. 
 @ 해당 범위에서만 사용되는 변수는 이곳에 따로 지정해도됩니다.
 */
+/***************** 레이아웃 *****************/
 .contentsBox_ly {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -55,6 +56,8 @@
   max-width: 900px;
 }
 
+/*********************************************/
+/***************** 공통박스 *****************/
 .box {
   -webkit-box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.1);
           box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.1);
@@ -75,6 +78,8 @@
   gap: 5px;
 }
 
+/*********************************************/
+/***************** 고객정보 + 잠재 고객 상태 wrap *****************/
 .profileTabs {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -88,6 +93,8 @@
   gap: 18px;
 }
 
+/*********************************************/
+/***************** 고객정보 *****************/
 .profileBox {
   position: relative;
   display: -webkit-box;
@@ -139,6 +146,8 @@
   font-weight: 700;
 }
 
+/*********************************************/
+/***************** 잠재 고객 상태 *****************/
 .tabBtnsBox {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -297,6 +306,8 @@
   padding-right: 5px;
 }
 
+/*********************************************/
+/***************** 각 폼 섹션 *****************/
 .sectionBox ~ .sectionBox {
   margin-top: 25px;
 }
@@ -307,6 +318,8 @@
   font-size: 16px;
 }
 
+/*********************************************/
+/***************** 행사명 단어들 wrap *****************/
 .codeListBox {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -327,6 +340,8 @@
   background-color: #F3F7FD;
 }
 
+/*********************************************/
+/***************** 폼 각 입력칸 wrap *****************/
 .infoBox ~ .infoBox {
   margin-top: 15px;
 }
@@ -820,6 +835,9 @@
           appearance: none;
 }
 .infoBox .infoBox-inner .infoBox-info.dayChk .inputBox_input {
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   width: 140px;
   height: 36px;
   padding-right: 8px;
@@ -830,7 +848,30 @@
   font-size: 14px;
 }
 .infoBox .infoBox-inner .infoBox-info.dayChk .inputBox_input .input_text {
+  width: calc(100% - 35px);
   background-color: transparent;
+}
+.infoBox .infoBox-inner .infoBox-info.ly_grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: auto auto;
+  gap: 5px;
+}
+.infoBox .infoBox-inner .infoBox-info.ly_grid .inputBox,
+.infoBox .infoBox-inner .infoBox-info.ly_grid .btn {
+  width: 100%;
+  height: 100%;
+  max-width: unset;
+  gap: unset;
+}
+.infoBox .infoBox-inner .infoBox-info.ly_grid .inputBox:nth-child(3) {
+  grid-column: 1/3;
+}
+.infoBox .infoBox-inner .infoBox-info.ly_grid .inputBox:nth-child(4) {
+  grid-column: 3/-1;
+}
+.infoBox .infoBox-inner .infoBox-info.ly_grid .inputBox .input_text {
+  max-width: unset;
 }
 .infoBox .infoBox-inner .infoBox-info_bt {
   display: -webkit-box;
@@ -970,6 +1011,8 @@
   width: 140px !important;
 }
 
+/*********************************************/
+/***************** 유효고객정보 카드 *****************/
 .cardWrap {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1026,3 +1069,120 @@
   top: 20px;
   right: 20px;
 }
+
+/*********************************************/
+/***************** 폼 내부 탭버튼과 테이블의 간격 *****************/
+.popup-tabBox ~ .sectionBox {
+  margin-top: 18px;
+}
+
+/*********************************************/
+/***************** 폼 내부 탭버튼 *****************/
+.popup-tabBox {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 10px;
+}
+.popup-tabBox .btn {
+  position: relative;
+  padding: unset;
+  padding-bottom: 10px;
+  font-size: 16px;
+  font-weight: 700;
+  color: #9D9D9D;
+}
+.popup-tabBox .btn.isActive {
+  color: #FF6202;
+}
+.popup-tabBox .btn.isActive::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 3px;
+  background-color: #FF6202;
+}
+
+/*********************************************/
+/***************** 폼 내부 테이블 *****************/
+.infosTabBox-inner {
+  display: none;
+}
+.infosTabBox-inner.isActive {
+  display: block;
+}
+.infosTabBox-inner .tableWrapBox ~ .tableWrapBox {
+  margin-top: 18px;
+}
+.infosTabBox-inner .tableWrapBox {
+  padding: unset;
+}
+.infosTabBox-inner .tableWrapBox.scrollBox-x {
+  overflow-x: auto;
+}
+.infosTabBox-inner .tableWrapBox.scrollBox-x .table_form {
+  width: 1100px;
+}
+.infosTabBox-inner .tableWrapBox.scrollBox-x.large .table_form {
+  width: 1600px;
+}
+.infosTabBox-inner .tableWrapBox .table_form {
+  margin-bottom: 0;
+}
+.infosTabBox-inner .tableWrapBox .table_form th,
+.infosTabBox-inner .tableWrapBox .table_form td {
+  border: 1px solid #D2D2D2;
+}
+.infosTabBox-inner .tableWrapBox .table_form th label,
+.infosTabBox-inner .tableWrapBox .table_form td label {
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+.infosTabBox-inner .tableWrapBox .table_form th {
+  background-color: #f4f4f4;
+  color: #727272;
+  font-weight: 700;
+}
+.infosTabBox-inner .tableWrapBox .table_form td {
+  color: #727272;
+}
+.infosTabBox-inner .tableWrapBox .table_form td.ta_r {
+  padding-right: 10px;
+  text-align: right;
+}
+.infosTabBox-inner .tableWrapBox .table_form td.ta_r:has(.input_text) {
+  text-align: center;
+}
+.infosTabBox-inner .tableWrapBox .table_form td.ta_r .input_text {
+  padding-right: 10px;
+  text-align: right;
+  color: #727272;
+}
+.infosTabBox-inner .tableWrapBox .table_form td .input_text {
+  border: none;
+  outline: none;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  width: 110px;
+  height: 30px;
+  border: 1px solid #D2D2D2;
+  border-radius: 3px;
+}
+.infosTabBox-inner .tableWrapBox .table_form .totalBox {
+  font-weight: 700;
+  background-color: #D2D2D2;
+}
+.infosTabBox-inner .tableWrapBox .table_form .totalBox td {
+  color: #000;
+}
+
+/*********************************************/

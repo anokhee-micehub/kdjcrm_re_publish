@@ -24,8 +24,10 @@ $select-max-width: 276px;
 $customSelect-box-height : 30px;
 $card-contents-gap: 15px;
 $arrowBtns-height: 40px;
+$form-title-background: #f4f4f4;
 $arrowBtnsColors: (#F7B401, #F7B402, #F89E00, #F89E01, #FF9000, #FF9001, #FF6201, #FF6202, #E83E0B, #727272);
 
+/***************** 레이아웃 *****************/
 .contentsBox_ly {
   @include flex-box($fd: column, $ai: stretch) {
     gap: $box-gap;
@@ -45,7 +47,9 @@ $arrowBtnsColors: (#F7B401, #F7B402, #F89E00, #F89E01, #FF9000, #FF9001, #FF6201
   flex: 1;
   max-width: 900px;
 }
+/*********************************************/
 
+/***************** 공통박스 *****************/
 .box {
   box-shadow: $common-box-shadow;
   &.innerBox {
@@ -63,14 +67,18 @@ $arrowBtnsColors: (#F7B401, #F7B402, #F89E00, #F89E01, #FF9000, #FF9001, #FF6201
     }
   }
 }
+/*********************************************/
 
-// 고객정보 + 잠재 고객 상태 wrap
+/***************** 고객정보 + 잠재 고객 상태 wrap *****************/
 .profileTabs {
   @include flex-box($jc:start, $ai: stretch) {
     gap: $box-gap;
   }
 }
-// 고객정보
+/*********************************************/
+
+
+/***************** 고객정보 *****************/
 .profileBox {
   position: relative;
   @include flex-box($fd: column);
@@ -105,7 +113,9 @@ $arrowBtnsColors: (#F7B401, #F7B402, #F89E00, #F89E01, #FF9000, #FF9001, #FF6201
     }
   }
 }
-// 잠재 고객 상태
+/*********************************************/
+
+/***************** 잠재 고객 상태 *****************/
 .tabBtnsBox {
   @include flex-box($fd:column, $ai:stretch, $jc: start) {
     gap: 10px;
@@ -194,7 +204,9 @@ $arrowBtnsColors: (#F7B401, #F7B402, #F89E00, #F89E01, #FF9000, #FF9001, #FF6201
     }
   }
 }
+/*********************************************/
 
+/***************** 각 폼 섹션 *****************/
 .sectionBox {
   & ~ & {
     margin-top: $sectionBox-gap;
@@ -206,7 +218,9 @@ $arrowBtnsColors: (#F7B401, #F7B402, #F89E00, #F89E01, #FF9000, #FF9001, #FF6201
     }
   }
 }
+/*********************************************/
 
+/***************** 행사명 단어들 wrap *****************/
 .codeListBox {
   @include flex-box($jc:start) {
     flex-wrap: wrap;
@@ -218,7 +232,9 @@ $arrowBtnsColors: (#F7B401, #F7B402, #F89E00, #F89E01, #FF9000, #FF9001, #FF6201
   font-size: $t-body-s;
   background-color: #F3F7FD;
 }
+/*********************************************/
 
+/***************** 폼 각 입력칸 wrap *****************/
 .infoBox ~ .infoBox {
   margin-top: $card-contents-gap;
 }
@@ -249,7 +265,7 @@ $arrowBtnsColors: (#F7B401, #F7B402, #F89E00, #F89E01, #FF9000, #FF9001, #FF6201
       font-size: $t-body-s;
       text-align: center;
       color: $formText;
-      background-color: $disable;
+      background-color: $form-title-background;
     }
     // 폼 세로정렬 - 검색/필터 영역
     .infoBox-cate_search {
@@ -407,7 +423,6 @@ $arrowBtnsColors: (#F7B401, #F7B402, #F89E00, #F89E01, #FF9000, #FF9001, #FF6201
           .btn {
             vertical-align: baseline;
             color: $black;
-
           }
         }
       }
@@ -416,7 +431,7 @@ $arrowBtnsColors: (#F7B401, #F7B402, #F89E00, #F89E01, #FF9000, #FF9001, #FF6201
     .infoBox-info_desc {
       width: 100%;
       padding: 16px 14px !important;
-      background-color: $disable;
+      background-color: $form-title-background;
       border: 1px solid $btn2;
       box-sizing: border-box;
       .timelineBox {
@@ -599,7 +614,8 @@ $arrowBtnsColors: (#F7B401, #F7B402, #F89E00, #F89E01, #FF9000, #FF9001, #FF6201
     // 인풋과 텍스트가 함께묶인 박스
     .infoBox-info.dayChk {
       .inputBox_input {
-        width:  $day-inputs-width;
+        justify-content: space-between;
+        width: $day-inputs-width;
         height: $inputs-height;
         padding-right: 8px;
         border: $inputs-border;
@@ -607,7 +623,35 @@ $arrowBtnsColors: (#F7B401, #F7B402, #F89E00, #F89E01, #FF9000, #FF9001, #FF6201
         box-sizing: border-box;
         font-size: $t-body-s;
         .input_text {
+          width: calc(100% - 35px);
           background-color: transparent;
+        }
+      }
+    }
+    // 주소입력 박스 레이아웃
+    .infoBox-info.ly_grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      grid-template-rows: auto auto;
+      // justify-content: unset;
+      // align-items: unset;
+      gap: 5px;
+      .inputBox,
+      .btn {
+        width: 100%;
+        height: 100%;
+        max-width: unset;
+        gap: unset;
+      }
+      .inputBox {
+        &:nth-child(3) {
+          grid-column: 1 / 3;
+        }
+        &:nth-child(4) {
+          grid-column: 3 / -1;
+        }
+        .input_text {
+          max-width: unset;
         }
       }
     }
@@ -736,7 +780,9 @@ $arrowBtnsColors: (#F7B401, #F7B402, #F89E00, #F89E01, #FF9000, #FF9001, #FF6201
     }
   }
 }
+/*********************************************/
 
+/***************** 유효고객정보 카드 *****************/
 .cardWrap {
   @include flex-box($jc:between) {
     gap: 23px;
@@ -776,3 +822,108 @@ $arrowBtnsColors: (#F7B401, #F7B402, #F89E00, #F89E01, #FF9000, #FF9001, #FF6201
     }
   }
 }
+/*********************************************/
+
+/***************** 폼 내부 탭버튼과 테이블의 간격 *****************/
+.popup-tabBox ~ .sectionBox  {
+  margin-top: $box-gap;
+}
+/*********************************************/
+
+/***************** 폼 내부 탭버튼 *****************/
+.popup-tabBox {
+  @include flex-box($jc:start) {
+    gap: 10px;
+  }
+  .btn {
+    position: relative;
+    padding: unset;
+    padding-bottom: 10px;
+    font-size: $t-body-m;
+    font-weight: $bold;
+    color: #9D9D9D;
+    &.isActive {
+      color: $main;
+      &::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        @include wh(100%, 3px);
+        background-color: $main;
+      }
+    }
+  }
+}
+/*********************************************/
+
+/***************** 폼 내부 테이블 *****************/
+.infosTabBox-inner {
+  display: none;
+  &.isActive {
+    display: block;
+  }
+  .tableWrapBox ~ .tableWrapBox {
+    margin-top: $box-gap;
+  }
+  .tableWrapBox {
+    padding: unset;
+    // 속성확장-가로스크롤(내부테이블 1100)
+    &.scrollBox-x {
+      overflow-x: auto;
+      .table_form {
+        width: 1100px;
+      }
+    }
+    // 속성확장-가로스크롤(내부테이블 1600)
+    &.scrollBox-x.large {
+      .table_form {
+        width: 1600px;
+      }
+    }
+    .table_form {
+      margin-bottom: 0;
+      th,
+      td {
+        border: 1px solid $btn2;
+        label {
+          justify-content: center;
+        }
+      }
+      th {
+        background-color: $form-title-background;
+        color: $formText;
+        font-weight: 700;
+      }
+      td {
+        color: $formText;
+        &.ta_r {
+          padding-right: 10px;
+          text-align: right;
+          &:has(.input_text) {
+            text-align: center;
+          }
+          .input_text {
+            padding-right: 10px;
+            text-align: right;
+            color: $formText;
+          }
+        }
+        .input_text {
+          @include inputsReset;
+          @include wh(110px, 30px);
+          border: $inputs-border;
+          border-radius: $common-inputs-border-radius;
+        }
+      }
+      .totalBox {
+        font-weight: $bold;
+        background-color: $btn2;
+        td {
+          color: $black;
+        }
+      }
+    }
+  }
+}
+/*********************************************/

@@ -1,0 +1,295 @@
+@import "mixin.scss";
+@import "functions.scss";
+@import "variables.scss";
+
+/* 
+@ calendar 내용만 담고있습니다.
+@ 모든 크기 단위는 고정적인 px을 사용했습니다.
+@ 해당 범위에서만 사용되는 변수는 이곳에 따로 지정해도됩니다.
+*/
+
+.tableWrapBox {
+  * {
+    box-sizing: border-box;
+  }
+  overflow-x: hidden;
+  // 회의실 폰트컬러 단독지정
+  &.tab2 {
+    .eventBox-desc, 
+    .eventBox-date {
+      color: #000;
+    }
+  }
+}
+
+.calScrollArea {
+  overflow-y: scroll;
+  overflow-x: hidden;
+  height: calc(100vh - 387px);
+  padding-right: 2px;
+  &::-webkit-scrollbar {
+    width: 10px;
+  }
+  &::-webkit-scrollbar-thumb {
+    background-color: $main;
+    border-radius: 5px;
+  }
+  &::-webkit-scrollbar-track {
+    background-color: #fff;
+  }
+}
+
+.popupBox-contents_xl {
+  min-height: calc(100% - 50px);
+  .popup-detail {
+    max-height: calc(100vh - 220px);
+  }
+}
+
+.captionBox {
+  @include flex-box($jc: end) {
+    gap: 10px;
+  }
+}
+// 전시장
+$ex_ye: #FFD748; // 홍보
+$ex_pk: #FF6DCE; // 문의
+$ex_bl: #0088D6; // 가예약
+$ex_gn: #22B896; // 계약진행
+$ex_rd: #ED4859; // 계약완료
+$ex_gy: #656565; // 계약취소
+
+// 회의실
+$me_ln: #B1F9B1; // 기업회의
+$me_pk: #FFCCFF; // 학술회의
+$me_sk: #FFCC99; // 주관회의
+$me_gn: #99CC00; // 연회
+
+$disabled : #ededed;
+
+$colorChips_ex : ($ex_ye, $ex_pk, $ex_bl, $ex_gn, $ex_rd, $ex_gy);
+@each $color in $colorChips_ex {
+  $idx : index($colorChips_ex, $color);
+  .colorChipBox:nth-child(#{$idx}) {
+    .colorChip.ex {
+      background-color: $color;
+    }
+  }
+}
+$colorChips_me : ($me_ln, $me_pk, $me_sk, $me_gn);
+@each $color in $colorChips_me {
+  $idx : index($colorChips_me, $color);
+  .colorChipBox:nth-child(#{$idx}) {
+    .colorChip.me {
+      background-color: $color;
+    }
+  }
+}
+
+.colorChipBox {
+  @include inline-flex;
+  gap: 5px;
+}
+
+.colorChip {
+  display: inline-block;
+  @include wh(15px, 15px);
+  border-radius: 50%;
+}
+
+.commonGrid {
+  position: relative;
+  border-top: 1px solid #EBEBEB;
+  border-bottom: 1px solid #EBEBEB;
+  display: inline-flex;
+  width: 100%;
+  // 하루 행사가 1개일 때
+  &.line1 {
+    height: 50px;
+  }
+  // 하루 행사가 2개일 때
+  &.line2 {
+    height: 100px;
+  }
+  // 하루 행사가 3개일 때
+  &.line3 {
+    height: 150px;
+  }
+}
+
+.commonWidth {
+  width: 100px;
+}
+
+.cal {
+  &-text {
+    padding: 5px 0;
+    text-align: center;
+    font-weight: 600;
+    color: #B3B3B3;
+    border-right: 1px solid #B3B3B3;
+    &.sun {
+      color: #EE6F6C;
+    }
+    &.sat {
+      color: #61A4F2;
+    }
+  }
+  &-title {
+    font-size: rem(15px);
+  }
+  &-num {
+    font-size: rem(14px);
+    flex: 1;
+    &.disable {
+      // background-color: $disabled;
+    }
+  }
+}
+
+.area {
+  &-common {
+    min-height: 50px;
+    // min-height: 150px;
+    @include flex-box($ai: start, $fd:column);
+    border-right: 1px solid #B3B3B3;
+  }
+  &-title {
+    font-size: rem(12px);
+  }
+  &-content {
+    flex: 1;
+    max-width: 52.96px;
+    cursor: pointer;
+    &.disable {
+      cursor: unset;
+      // background-color: $disabled;
+    }
+  }
+}
+
+.eventBox {
+  position: absolute;
+  padding: 8px 5px;
+  height: 50px;
+  border-radius: 5px;
+  box-sizing: border-box;
+  cursor: pointer;
+  &-desc,
+  &-date {
+    font-size: rem(11px);
+    line-height: 1;
+    color: #fff;
+  }
+  &-desc {
+    @include ellipsis(3);
+  }
+  &-date {
+    display: inline-block;
+    margin-top: 5px;
+    font-weight: 300;
+    @include ellipsis;
+  }
+  &.ex_ye {
+    background-color: $ex_ye;
+    &:hover {
+      background-color: lighten($ex_ye, 5%);
+    }
+  }
+  &.ex_pk {
+    background-color: $ex_pk;
+    &:hover {
+      background-color: lighten($ex_pk, 5%);
+    }
+  }
+  &.ex_bl {
+    background-color: $ex_bl;
+    &:hover {
+      background-color: lighten($ex_bl, 5%);
+    }
+  }
+  &.ex_gn {
+    background-color: $ex_gn;
+    &:hover {
+      background-color: lighten($ex_gn, 5%);
+    }
+  }
+  &.ex_rd {
+    background-color: $ex_rd;
+    &:hover {
+      background-color: lighten($ex_rd, 5%);
+    }
+  }
+  &.ex_gy {
+    background-color: $ex_gy;
+    &:hover {
+      background-color: lighten($ex_gy, 5%);
+    }
+  }
+  &.me_ln {
+    background-color: $me_ln;
+    &:hover {
+      background-color: lighten($me_ln, 5%);
+    }
+  }
+  &.me_pk {
+    background-color: $me_pk;
+    &:hover {
+      background-color: lighten($me_pk, 5%);
+    }
+  }
+  &.me_sk {
+    background-color: $me_sk;
+    &:hover {
+      background-color: lighten($me_sk, 5%);
+    }
+  }
+  &.me_gn {
+    background-color: $me_gn;
+    &:hover {
+      background-color: lighten($me_gn, 5%);
+    }
+  }
+
+  // 시작일자 위치 값
+  $cellWidth : 52.96px;
+  @for $i from 1 through 18 {
+    &.d#{$i} {
+      left: calc(($cellWidth * (#{$i} + 1)) - (#{$i}px + 6px));
+    }
+  }
+  @for $i from 19 through 31 {
+    &.d#{$i} {
+      left: calc(($cellWidth * (#{$i} + 1)) - (#{$i}px + 5px));
+    }
+  }
+
+  // 토탈 행사일수별 너비
+  &.t1 {
+    width: $cellWidth;
+  }
+  @for $i from 2 through 19 {
+    &.t#{$i} {
+      width: calc(($cellWidth * (#{$i})) - (#{$i}px - 1px));
+    }
+  }
+  @for $i from 20 through 31 {
+    &.t#{$i} {
+      width: calc(($cellWidth * (#{$i})) - (#{$i}px - 2px));
+    }
+  }
+
+  // y축 위치
+  &.y1 {
+    top: 0;
+    &.full {
+      height: 100%;
+    }
+  }
+  &.y2 {
+    top: 50px;
+  }
+  &.y3 {
+    top: 100px;
+  }
+}

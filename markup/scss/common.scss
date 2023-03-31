@@ -61,9 +61,38 @@ body {
 /********************************************************/
 
 
+/************************ 간격 ************************/
+// margin-top: n
+@for $i from 1 through 90 {
+  .mt#{$i} {
+    margin-top: #{$i}px;
+  }
+}
+
+// margin-bottom: n
+@for $i from 1 through 90 {
+  .mb#{$i} {
+    margin-bottom: #{$i}px;
+  }
+}
+
+// margin-right: n
+@for $i from 1 through 90 {
+  .mr#{$i} {
+    margin-right: #{$i}px;
+  }
+}
+
+// padding-top: n
+@for $i from 1 through 90 {
+  .pt#{$i} {
+    padding-top: #{$i}px;
+  }
+}
+/********************************************************/
 
 
-/************************ ui요소 ************************/
+/************************ ui, text요소 ************************/
 
 // 기본 box 클래스 갖고있는 요소들
 .box {
@@ -111,6 +140,9 @@ body {
     &_cancel {
       background-color: $button-cancel-color
     }
+    &_view {
+      background-color: $button-search-color;
+    }
   }
   &_xxs {
     @include wh($button-xxs-width, $button-xxs-height);
@@ -129,11 +161,12 @@ body {
 }
 
 // 커스텀체크박스
-.inputLabelGroupBox {
-  label {
+label {
+  &:has(.input_checkbox) {
     @include flex-box($jc:start) {
       gap: 5px;
     }
+    font-size: $t-body-s;
     .input_checkbox {
       display: none;
       &:checked {
@@ -215,6 +248,24 @@ body {
 // 서브타이틀
 .subTitleBox-subTitle {
   font-size: $t-body-l;
+}
+
+// 테이블캡션
+.tableCaption {
+  font-size: $t-body-xs;
+  margin-bottom: 5px;
+}
+
+// 설명텍스트
+.descText {
+  font-size: $t-body-xs;
+}
+
+// 테이블 강조텍스트
+.tableEm {
+  .em {
+    color: $main;
+  }
 }
 
 /********************************************************/
