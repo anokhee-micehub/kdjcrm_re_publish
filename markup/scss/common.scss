@@ -50,9 +50,7 @@ body {
 .subTitleBox {
   @include flex-box($jc:start);
   &_st {
-    @include flex-box($jc:start) {
-      gap: 5px;
-    }
+    @include flex-box($jc:start);
   }
   &_bt {
     @include flex-box($jc:between);
@@ -187,6 +185,30 @@ body {
       border: 1px solid $btn2;
       border-radius: 50%;
     }
+  }
+}
+
+// 커스텀툴팁
+.customToolTip {
+  position: relative;
+  font-size: $t-body-s;
+  color: $formText;
+  &:hover .customToolTip-inner {
+    display: block;
+  }
+  .customToolTip-inner {
+    position: absolute;
+    top: 23px;
+    left: 50%;
+    transform: translateX(-50%);
+    @include wh(180px, auto);
+    padding: 10px 15px;
+    border-radius: 5px;
+    font-size: $t-body-xs;
+    box-sizing: border-box;
+    box-shadow: $common-box-shadow;
+    background-color: #F1FCFF;
+    display: none;
   }
 }
 

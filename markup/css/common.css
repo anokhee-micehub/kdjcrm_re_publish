@@ -76,7 +76,6 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  gap: 5px;
 }
 .subTitleBox_bt {
   display: -webkit-box;
@@ -228,6 +227,33 @@
   height: 10px;
   border: 1px solid #D2D2D2;
   border-radius: 50%;
+}
+
+.customToolTip {
+  position: relative;
+  font-size: 14px;
+  color: #727272;
+}
+.customToolTip:hover .customToolTip-inner {
+  display: block;
+}
+.customToolTip .customToolTip-inner {
+  position: absolute;
+  top: 23px;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  width: 180px;
+  height: auto;
+  padding: 10px 15px;
+  border-radius: 5px;
+  font-size: 12px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  -webkit-box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.1);
+          box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.1);
+  background-color: #F1FCFF;
+  display: none;
 }
 
 .subTitleBox-subTitle {

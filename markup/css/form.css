@@ -71,6 +71,9 @@
   padding-bottom: 10px;
   border-bottom: 1px dashed #ddd;
 }
+.box.innerBox > .subTitleBox.sectionTitle .subTitleBox_st {
+  gap: 5px;
+}
 
 .profileTabs {
   display: -webkit-box;
@@ -348,7 +351,7 @@
           box-sizing: border-box;
 }
 .infoBox .infoBox-inner_full {
-  grid-column: 1/span 2;
+  grid-column: 1/-1;
 }
 .infoBox .infoBox-inner_full_col {
   -webkit-box-orient: vertical;
@@ -736,6 +739,9 @@
 .infoBox .infoBox-inner .infoBox-info .inputBox .input_text.noInput:disabled {
   background-color: transparent;
 }
+.infoBox .infoBox-inner .infoBox-info .inputBox .input_text.noneBorder {
+  border: none;
+}
 .infoBox .infoBox-inner .infoBox-info .inputBox .input_date {
   padding-right: 10px;
 }
@@ -764,6 +770,33 @@
 .infoBox .infoBox-inner .infoBox-info .inputBox .radioBox:nth-child(1) {
   padding-left: 8px;
 }
+.infoBox .infoBox-inner .infoBox-info label[for=file] {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 30px;
+  padding: 10px;
+  margin-right: 5px;
+  border-radius: 3px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-size: 13px;
+  color: #fff;
+  cursor: pointer;
+}
+.infoBox .infoBox-inner .infoBox-info label[for=file] input {
+  display: none;
+}
+.infoBox .infoBox-inner .infoBox-info label[for=file] + .fileNameInner {
+  font-size: 13px;
+  color: #727272;
+}
 .infoBox .infoBox-inner .infoBox-info .inputBox_select {
   position: relative;
   max-width: 276px;
@@ -776,6 +809,7 @@
   right: 30px;
   content: "\f078";
   font-family: "Font Awesome 6 Pro";
+  pointer-events: none;
 }
 .infoBox .infoBox-inner .infoBox-info .inputBox_select:has(.select:disabled)::after {
   font-size: 0;
@@ -784,6 +818,19 @@
   -webkit-appearance: none;
      -moz-appearance: none;
           appearance: none;
+}
+.infoBox .infoBox-inner .infoBox-info.dayChk .inputBox_input {
+  width: 140px;
+  height: 36px;
+  padding-right: 8px;
+  border: 1px solid #D2D2D2;
+  border-radius: 3px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-size: 14px;
+}
+.infoBox .infoBox-inner .infoBox-info.dayChk .inputBox_input .input_text {
+  background-color: transparent;
 }
 .infoBox .infoBox-inner .infoBox-info_bt {
   display: -webkit-box;
@@ -913,6 +960,14 @@
       -ms-flex-align: center;
           align-items: center;
   gap: 3px;
+}
+.infoBox .dateSection-input .infoBox-info {
+  -webkit-box-flex: 0;
+      -ms-flex-positive: 0;
+          flex-grow: 0;
+}
+.infoBox .dateSection-input .infoBox-info .input_date {
+  width: 140px !important;
 }
 
 .cardWrap {
