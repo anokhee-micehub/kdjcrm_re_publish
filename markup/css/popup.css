@@ -4,6 +4,7 @@
 @ 모든 크기 단위는 고정적인 px을 사용했습니다. 
 @ 해당 범위에서만 사용되는 변수는 이곳에 따로 지정해도됩니다.
 */
+/************************ 팝업 전체 wrap ************************/
 .popupBox {
   position: fixed;
   top: 0;
@@ -18,6 +19,8 @@
   display: block;
 }
 
+/********************************************************/
+/************************ 팝업창 레이아웃 / 공통스타일링 ************************/
 .popupBox-contents {
   position: absolute;
   top: 50%;
@@ -34,11 +37,9 @@
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
 }
-
 .popupBox-contents_m {
   max-width: 740px;
 }
-
 .popupBox-contents_xl {
   min-height: calc(100% - 50px);
   z-index: 1;
@@ -63,3 +64,94 @@
     overflow-x: auto;
   }
 }
+
+/********************************************************/
+/************************ 팝업창용 내부 콘텐츠 ************************/
+.popup-title .subTitleBox {
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #D2D2D2;
+}
+.popup-title .close_popup {
+  color: #000;
+  font-size: 20px;
+}
+
+.popup-detail {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: stretch;
+      -ms-flex-align: stretch;
+          align-items: stretch;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 18px;
+}
+.popup-detail .popup-desc-btn {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 15px;
+  font-size: 14px;
+}
+.popup-detail .uploadFileBox-inputWrap {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 20px 10px;
+  margin-bottom: 15px;
+  background-color: #f6f6f6;
+  border-radius: 3px;
+}
+.popup-detail .uploadFileBox-inputWrap .label_file {
+  margin-right: 5px;
+}
+.popup-detail .uploadFileBox-inputWrap .getFileNameText {
+  font-size: 14px;
+}
+.popup-detail .uploadFileBox-inputWrap .btn:not(label) {
+  margin-left: auto;
+}
+.popup-detail .uploadFileListBox {
+  padding: 20px 10px;
+  border-radius: 3px;
+  background-color: #F3F7FD;
+}
+.popup-detail .uploadFileListBox .uploadFileListBox-item ~ .uploadFileListBox-item {
+  margin-top: 8px;
+}
+.popup-detail .uploadFileListBox .chip_excel {
+  padding: 5px;
+  margin-right: 5px;
+  border-radius: 3px;
+  color: #fff;
+  background-color: #107c41;
+}
+.popup-detail .uploadFileListBox .getFileNameText {
+  font-size: 13px;
+  color: #727272;
+}
+
+.popup-btnGroup {
+  text-align: center;
+}
+
+/********************************************************/

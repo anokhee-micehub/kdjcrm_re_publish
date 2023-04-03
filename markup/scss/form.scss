@@ -18,7 +18,6 @@ $infoBox-cate-height: 50px;
 $inputs-height: 30px;
 $inputs-padding: 10px;
 $day-inputs-width: 140px;
-$inputs-border: 1px solid #D2D2D2;
 $textarea-height: 100px;
 $select-max-width: 276px;
 $customSelect-box-height : 30px;
@@ -118,15 +117,15 @@ $arrowBtnsColors: (#F7B401, #F7B402, #F89E00, #F89E01, #FF9000, #FF9001, #FF6201
   }
   .cate_1,
   .commonDepthInner-textBox {
-    border-right: $inputs-border;
+    border-right: $common-border;
   }
 
   // 뎁스메뉴-헤더
   .lnb-header {
     display: grid;
     grid-template-columns: 200px 1fr;
-    border-top: $inputs-border;
-    border-bottom: $inputs-border;
+    border-top: $common-border;
+    border-bottom: $common-border;
     .cate {
       font-size: $t-body-m;
       font-weight: $bold;
@@ -154,14 +153,12 @@ $arrowBtnsColors: (#F7B401, #F7B402, #F89E00, #F89E01, #FF9000, #FF9001, #FF6201
     .depth_1_inner,
     .depth_2_inner,
     .depth_3_inner {
-      border-bottom: $inputs-border;
+      border-bottom: $common-border;
     }
     .commonDepthInner {
       display: grid;
       grid-template-columns: 200px 1fr;
       font-size: $t-body-m;
-    }
-    .openDepth {
     }
     .depthEm {
       font-weight: $bold;
@@ -333,7 +330,7 @@ $arrowBtnsColors: (#F7B401, #F7B402, #F89E00, #F89E01, #FF9000, #FF9001, #FF6201
   margin-bottom: 16px;
   border-radius: $common-inputs-border-radius;
   font-size: $t-body-s;
-  background-color: #F3F7FD;
+  background-color: $em-color;
 }
 /*********************************************/
 
@@ -345,11 +342,11 @@ $arrowBtnsColors: (#F7B401, #F7B402, #F89E00, #F89E01, #FF9000, #FF9001, #FF6201
 .infoBox {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  border-top: $inputs-border;
+  border-top: $common-border;
   // 기본 폼 라인
   .infoBox-inner {
     @include flex-box($jc:start);
-    border-bottom: $inputs-border;
+    border-bottom: $common-border;
     box-sizing: border-box;
     font-size: $t-body-s;
     color: $formText;
@@ -382,7 +379,7 @@ $arrowBtnsColors: (#F7B401, #F7B402, #F89E00, #F89E01, #FF9000, #FF9001, #FF6201
       background-color: $form-title-background;
       // 강조된 카테고리 제목
       &.em {
-        background-color: #F3F7FD;
+        background-color: $em-color;
       }
     }
     // 폼 세로정렬 - 검색/필터 영역
@@ -753,7 +750,7 @@ $arrowBtnsColors: (#F7B401, #F7B402, #F89E00, #F89E01, #FF9000, #FF9001, #FF6201
         width: $day-inputs-width;
         height: $inputs-height;
         padding-right: 8px;
-        border: $inputs-border;
+        border: $common-border;
         border-radius: $common-inputs-border-radius;
         box-sizing: border-box;
         font-size: $t-body-s;
@@ -1053,7 +1050,7 @@ $arrowBtnsColors: (#F7B401, #F7B402, #F89E00, #F89E01, #FF9000, #FF9001, #FF6201
         .input_text {
           @include inputsReset;
           @include wh(110px, 30px);
-          border: $inputs-border;
+          border: $common-border;
           border-radius: $common-inputs-border-radius;
         }
       }

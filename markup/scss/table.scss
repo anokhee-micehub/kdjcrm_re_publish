@@ -44,6 +44,13 @@ $th-background-color: #666666;
   td {
     font-size: $t-body-ms;
   }
+  .input_table {
+    height: 25px;
+    @include inputsReset;
+    border: $common-border;
+    border-radius: $common-inputs-border-radius;
+    box-sizing: border-box;
+  }
 }
 /********************************************************/
 

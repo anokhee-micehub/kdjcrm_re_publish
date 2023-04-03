@@ -8,6 +8,7 @@
 @ 해당 범위에서만 사용되는 변수는 이곳에 따로 지정해도됩니다.
 */
 
+/************************ 팝업 전체 wrap ************************/
 .popupBox {
   position: fixed;
   top: 0;
@@ -21,7 +22,9 @@
     display: block;
   }
 }
+/********************************************************/
 
+/************************ 팝업창 레이아웃 / 공통스타일링 ************************/
 .popupBox-contents {
   @include position-center;
   @include wh(100%, auto);
@@ -31,29 +34,100 @@
   border-radius: 24px;
   background-color: #fff;
   box-sizing: border-box;
-}
-
-.popupBox-contents_m {
-  max-width: 740px;
-}
-
-.popupBox-contents_xl {
-  min-height: calc(100% - 50px);
-  z-index: 1;
-  min-width: 1852px;
-  max-width: 1852px;
-  max-height: calc(100% - 50px);
-  @include responsive(1669) {
-    min-width: calc(100% - 100px);
-    max-width: calc(100% - 100px);
+  // 확장 - m사이즈 팝업
+  &_m {
+    max-width: 740px;
   }
-  .tableWrapBox {
-    min-width: 1724px;
-    padding: 0;
-    overflow-y: hidden;
-    overflow-x: hidden;
+  // 확장 - xl사이즈 팝업(캘린더에만 사용됩니다.)
+  &_xl {
+    min-height: calc(100% - 50px);
+    z-index: 1;
+    min-width: 1852px;
+    max-width: 1852px;
+    max-height: calc(100% - 50px);
     @include responsive(1669) {
-      overflow-x: auto;
+      min-width: calc(100% - 100px);
+      max-width: calc(100% - 100px);
+    }
+    .tableWrapBox {
+      min-width: 1724px;
+      padding: 0;
+      overflow-y: hidden;
+      overflow-x: hidden;
+      @include responsive(1669) {
+        overflow-x: auto;
+      }
     }
   }
 }
+/********************************************************/
+
+/************************ 팝업창용 내부 콘텐츠 ************************/
+
+// 타이틀
+.popup-title {
+  .subTitleBox {
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+    border-bottom: $common-border;
+  }
+  .close_popup {
+    color: $black;
+    font-size: $t-body-l;
+  }
+}
+
+// 상세
+.popup-detail {
+  @include flex-box($fd:column, $ai: stretch) {
+    gap: 18px;
+  }
+  // 일괄등록
+  .popup-desc-btn {
+    @include flex-box($jc:start) {
+      gap: 15px;
+    }
+    font-size: $t-body-s;
+  }
+  .uploadFileBox-inputWrap {
+    @include flex-box($jc:start);
+    padding: 20px 10px;
+    margin-bottom: 15px;
+    background-color: #f6f6f6;
+    border-radius: $common-inputs-border-radius;
+    .label_file {
+      margin-right: 5px;
+    }
+    .getFileNameText {
+      font-size: $t-body-s;
+    }
+    .btn:not(label) {
+      margin-left: auto;
+    }
+  }
+  .uploadFileListBox {
+    padding: 20px 10px;
+    border-radius: $common-inputs-border-radius;
+    background-color: $em-color;
+    .uploadFileListBox-item ~ .uploadFileListBox-item {
+      margin-top: 8px;
+    }
+    .chip_excel {
+      padding: 5px;
+      margin-right: 5px;
+      border-radius: $common-inputs-border-radius;
+      color: $white;
+      background-color: $button-excel-color;
+    }
+    .getFileNameText {
+      font-size: $t-body-ms;
+      color: $formText;
+    }
+  }
+}
+
+// 하단 버튼
+.popup-btnGroup {
+  text-align: center;
+}
+/********************************************************/

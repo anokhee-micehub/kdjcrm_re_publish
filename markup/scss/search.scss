@@ -113,6 +113,18 @@ $searchBox-padding: 20px 25px;
   }
 }
 
+// text + input
+.inputBox_calendar {
+  @include flex-box($jc:start);
+  .input_text {
+    @include inputsReset;
+    height: $inputs-height;
+    padding: $inputs-padding;
+    border-radius: $common-inputs-border-radius;
+    font-size: $t-body-ms;
+  }
+}
+
 // select
 .inputBox_select {
   position: relative;

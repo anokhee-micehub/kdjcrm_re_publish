@@ -108,6 +108,12 @@ body {
   cursor: pointer;
   border-radius: 3px;
   color: $white;
+  &_xxs {
+    @include wh($button-xxs-width, $button-xxs-height);
+    background-color: $button-xxs-default-color;
+    color: $black;
+    border-radius: 3px;
+  }
   &_s {
     &_del {
       padding: 5px;
@@ -152,11 +158,16 @@ body {
       background-color: $button-search-color;
     }
   }
-  &_xxs {
-    @include wh($button-xxs-width, $button-xxs-height);
-    background-color: $button-xxs-default-color;
-    color: $black;
-    border-radius: 3px;
+  &_l {
+    padding: 10px 5px;
+    &_reg {
+      min-width: 150px;
+      background-color: $button-primary-color;
+    }
+    &_cl {
+      min-width: 90px;
+      background-color: $button-cancel-color;
+    }
   }
   &_full {
     width: 100%;
@@ -168,8 +179,8 @@ body {
     &.ck-add-option {
       color: $formText;
       font-weight: $bold;
-      border: 1px solid #D2D2D2;
-      background-color: #F3F7FD;
+      border: $common-border;
+      background-color: $em-color;
     }
   }
   &_arrow {
@@ -240,6 +251,14 @@ label {
       border: 1px solid $btn2;
       border-radius: 50%;
     }
+  }
+}
+
+// 인풋-파일 기본설정
+.input_file {
+  display: none;
+  & + label {
+    @include inline-flex;
   }
 }
 
