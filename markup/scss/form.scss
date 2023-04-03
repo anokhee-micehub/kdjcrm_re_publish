@@ -14,8 +14,8 @@ $box-subTitle-margin-bottom: 20px;
 $sectionBox-subTitle-margin-bottom: 15px;
 $sectionBox-gap: 25px;
 $infoBox-cate-width: 125px;
-$infoBox-cate-height: 48px;
-$inputs-height: 36px;
+$infoBox-cate-height: 50px;
+$inputs-height: 30px;
 $inputs-padding: 10px;
 $day-inputs-width: 140px;
 $inputs-border: 1px solid #D2D2D2;
@@ -38,6 +38,10 @@ $arrowBtnsColors: (#F7B401, #F7B402, #F89E00, #F89E01, #FF9000, #FF9001, #FF6201
   @include flex-box($jc:between, $ai:start) {
     gap: $box-gap;
   }
+  // 속성확장
+  &.flex_jc_ct {
+    justify-content: center;
+  }
 }
 
 .detailBox-half {
@@ -46,7 +50,18 @@ $arrowBtnsColors: (#F7B401, #F7B402, #F89E00, #F89E01, #FF9000, #FF9001, #FF6201
   }
   flex: 1;
   max-width: 900px;
+  box-sizing: border-box;
+  // 속성확장
+  &.flex_jc_bt {
+    flex-direction: row;
+    justify-content: space-between;
+  }
 }
+
+.subTitleBox_st {
+  gap: 3px;
+}
+
 /*********************************************/
 
 /***************** 공통박스 *****************/
@@ -57,17 +72,105 @@ $arrowBtnsColors: (#F7B401, #F7B402, #F89E00, #F89E01, #FF9000, #FF9001, #FF6201
     box-sizing: border-box;
     & > .subTitleBox {
       margin-bottom: $box-subTitle-margin-bottom;
-      &.sectionTitle {
-        padding-bottom: 10px;
-        border-bottom: 1px dashed #ddd;
-        .subTitleBox_st {
-          gap: 5px;
+    }
+  }
+}
+
+.sectionTitle {
+  margin-bottom: $box-subTitle-margin-bottom;
+  padding-bottom: 10px;
+  border-bottom: 1px dashed #ddd;
+  .subTitleBox_st {
+    gap: 5px;
+  }
+}
+/*********************************************/
+
+
+/***************** 분류코드 3depth 토글메뉴 *****************/
+.mergeForm {
+  padding: $box-padding;
+  gap: 35px;
+  .mergeForm-inner {
+    flex: 1;
+    // 스크롤생성
+    &.scrollList {
+      max-height: 650px;
+      overflow-y: auto;
+      @include customScroll;
+    }
+    .sectionTitle {
+      margin-bottom: 20px;
+    }
+  }
+  .subTitleBox_st,
+  .commonDepthInner-btnBox {
+    gap: 5px;
+  }
+  // 뎁스메뉴 - 헤더,바디공통
+  .cate,
+  .commonDepthInner-textBox,
+  .commonDepthInner-btnBox {
+    @include flex-box($jc:start);
+    height: $infoBox-cate-height;
+    padding: $inputs-padding;
+    box-sizing: border-box;
+  }
+  .cate_1,
+  .commonDepthInner-textBox {
+    border-right: $inputs-border;
+  }
+
+  // 뎁스메뉴-헤더
+  .lnb-header {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    border-top: $inputs-border;
+    border-bottom: $inputs-border;
+    .cate {
+      font-size: $t-body-m;
+      font-weight: $bold;
+      background-color: $form-title-background;
+    }
+  }
+  // 뎁스메뉴-바디
+  .lnb-inner {
+    width: 100%;
+    .depth_1_inner .commonDepthInner-textBox,
+    .depth_2_inner .commonDepthInner-textBox {
+      &::before {
+        content: '\2b';
+        margin-right: 5px;
+        font-family: 'Font Awesome 6 Pro';
+        font-size: $t-body-m;
+        font-weight: $bold;
+      }
+      &.on {
+        &::before {
+          content: "\f068";
         }
       }
+    }
+    .depth_1_inner,
+    .depth_2_inner,
+    .depth_3_inner {
+      border-bottom: $inputs-border;
+    }
+    .commonDepthInner {
+      display: grid;
+      grid-template-columns: 200px 1fr;
+      font-size: $t-body-m;
+    }
+    .openDepth {
+    }
+    .depthEm {
+      font-weight: $bold;
+      color: $main;
     }
   }
 }
 /*********************************************/
+
 
 /***************** 고객정보 + 잠재 고객 상태 wrap *****************/
 .profileTabs {
@@ -248,8 +351,19 @@ $arrowBtnsColors: (#F7B401, #F7B402, #F89E00, #F89E01, #FF9000, #FF9001, #FF6201
     @include flex-box($jc:start);
     border-bottom: $inputs-border;
     box-sizing: border-box;
+    font-size: $t-body-s;
+    color: $formText;
     &_full { // 폼이 1줄을 전부 차지할 때
       grid-column: 1 / -1;
+      .infoBox-info {
+        .inputBox_select {
+          max-width: 256px;
+          min-width: 256px;
+          &::after {
+            right: 10px !important;
+          }
+        }
+      }
     }
     &_full_col { // 폼 세로정렬
       flex-direction: column;
@@ -266,6 +380,10 @@ $arrowBtnsColors: (#F7B401, #F7B402, #F89E00, #F89E01, #FF9000, #FF9001, #FF6201
       text-align: center;
       color: $formText;
       background-color: $form-title-background;
+      // 강조된 카테고리 제목
+      &.em {
+        background-color: #F3F7FD;
+      }
     }
     // 폼 세로정렬 - 검색/필터 영역
     .infoBox-cate_search {
@@ -502,8 +620,10 @@ $arrowBtnsColors: (#F7B401, #F7B402, #F89E00, #F89E01, #FF9000, #FF9001, #FF6201
     }
     // 폼 입력영역 - 기본
     .infoBox-info {
+      position: relative;
       flex-grow: 1;
       padding: 5px 8px 5px 8px;
+      // @include flex-box($jc:start);
       // 인풋요소들 공통 wrap
       .inputBox {
         @include flex-box($jc:start) {
@@ -540,6 +660,10 @@ $arrowBtnsColors: (#F7B401, #F7B402, #F89E00, #F89E01, #FF9000, #FF9001, #FF6201
           &.noneBorder {
             border: none;
           }
+        }
+        // 인풋-셀렉트박스 단독
+        .select {
+          padding-right: 35px;
         }
         // 인풋-날짜 단독
         .input_date {
@@ -591,7 +715,7 @@ $arrowBtnsColors: (#F7B401, #F7B402, #F89E00, #F89E01, #FF9000, #FF9001, #FF6201
       // 셀렉트박스 단독 wrap
       .inputBox_select {
         position: relative;
-        max-width: $select-max-width;
+        // max-width: $select-max-width;
         &::after {
           position: absolute;
           top: 50%;
@@ -609,6 +733,17 @@ $arrowBtnsColors: (#F7B401, #F7B402, #F89E00, #F89E01, #FF9000, #FF9001, #FF6201
         .select {
           appearance: none;
         }
+      }
+      // 삭제버튼
+      .btn_s_del {
+        @include position-center-y;
+        right: -7px;
+        display: none;
+      }
+      // 확장 - 세부영역 세로정렬
+      &.col {
+        @include flex-box($fd:column, $jc:start, $ai: stretch);
+        gap: 10px;
       }
     }
     // 인풋과 텍스트가 함께묶인 박스
@@ -770,6 +905,12 @@ $arrowBtnsColors: (#F7B401, #F7B402, #F89E00, #F89E01, #FF9000, #FF9001, #FF6201
       
     }
   }
+  // 인포박스에 삭제버튼 클래스가 추가되어야만 나타남
+  &.infoBox.addDelBtn {
+    .btn_s_del {
+      display: block;
+    }
+  }
   // 데이터가 연속으로 붙은 폼 라인
   .dateSection-input {
     .infoBox-info {
@@ -924,6 +1065,31 @@ $arrowBtnsColors: (#F7B401, #F7B402, #F89E00, #F89E01, #FF9000, #FF9001, #FF6201
         }
       }
     }
+  }
+}
+/*********************************************/
+
+/***************** 비품내부 인풋모음(이 영역은 지정범위가 정해져있어 수정을 권하지않습니다) *****************/
+.gridForm {
+  @include flex-box($jc:start) {
+    gap: 5px;
+  }
+  padding: $inputs-padding;
+  border-radius: $common-inputs-border-radius;
+  background-color: #ededed;
+  .label {
+    font-size: $t-body-xs;
+  }
+  .inputBox_select {
+    max-width: unset !important;
+    min-width: unset !important;
+    .select {
+      font-size: $t-body-ms !important;
+    }
+  }
+  .input_text {
+    width: 85px !important;
+    font-size: $t-body-ms !important;
   }
 }
 /*********************************************/

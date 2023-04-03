@@ -66,7 +66,7 @@
 
 .gnb_depth2 {
   position: absolute;
-  left: 50%;
+  left: 47%;
   -webkit-transform: translateX(-50%);
           transform: translateX(-50%);
   bottom: -91px;
@@ -108,12 +108,14 @@
           align-items: center;
   gap: 10px;
 }
-.header-userInfo .btn {
+.header-userInfo button {
   width: 34px;
   height: 34px;
   border-radius: 50%;
   color: #fff;
   background-color: #B4B4B4;
+  outline: none;
+  border: none;
 }
 
 /********************************************************/

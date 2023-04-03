@@ -34,6 +34,11 @@
           align-items: flex-start;
   gap: 18px;
 }
+.detailBox.flex_jc_ct {
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
 
 .detailBox-half {
   display: -webkit-box;
@@ -54,6 +59,21 @@
       -ms-flex: 1;
           flex: 1;
   max-width: 900px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+.detailBox-half.flex_jc_bt {
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.subTitleBox_st {
+  gap: 3px;
 }
 
 /*********************************************/
@@ -70,12 +90,109 @@
 .box.innerBox > .subTitleBox {
   margin-bottom: 20px;
 }
-.box.innerBox > .subTitleBox.sectionTitle {
+
+.sectionTitle {
+  margin-bottom: 20px;
   padding-bottom: 10px;
   border-bottom: 1px dashed #ddd;
 }
-.box.innerBox > .subTitleBox.sectionTitle .subTitleBox_st {
+.sectionTitle .subTitleBox_st {
   gap: 5px;
+}
+
+/*********************************************/
+/***************** 분류코드 3depth 토글메뉴 *****************/
+.mergeForm {
+  padding: 29px 32px;
+  gap: 35px;
+}
+.mergeForm .mergeForm-inner {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+.mergeForm .mergeForm-inner.scrollList {
+  max-height: 650px;
+  overflow-y: auto;
+  padding-right: 5px;
+}
+.mergeForm .mergeForm-inner.scrollList::-webkit-scrollbar {
+  width: 5px;
+}
+.mergeForm .mergeForm-inner.scrollList::-webkit-scrollbar-thumb {
+  background-color: #FF6202;
+  border-radius: 5px;
+}
+.mergeForm .mergeForm-inner.scrollList::-webkit-scrollbar-track {
+  background-color: #fff;
+}
+.mergeForm .mergeForm-inner .sectionTitle {
+  margin-bottom: 20px;
+}
+.mergeForm .subTitleBox_st,
+.mergeForm .commonDepthInner-btnBox {
+  gap: 5px;
+}
+.mergeForm .cate,
+.mergeForm .commonDepthInner-textBox,
+.mergeForm .commonDepthInner-btnBox {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 50px;
+  padding: 10px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+.mergeForm .cate_1,
+.mergeForm .commonDepthInner-textBox {
+  border-right: 1px solid #D2D2D2;
+}
+.mergeForm .lnb-header {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  border-top: 1px solid #D2D2D2;
+  border-bottom: 1px solid #D2D2D2;
+}
+.mergeForm .lnb-header .cate {
+  font-size: 16px;
+  font-weight: 700;
+  background-color: #f4f4f4;
+}
+.mergeForm .lnb-inner {
+  width: 100%;
+}
+.mergeForm .lnb-inner .depth_1_inner .commonDepthInner-textBox::before,
+.mergeForm .lnb-inner .depth_2_inner .commonDepthInner-textBox::before {
+  content: "+";
+  margin-right: 5px;
+  font-family: "Font Awesome 6 Pro";
+  font-size: 16px;
+  font-weight: 700;
+}
+.mergeForm .lnb-inner .depth_1_inner .commonDepthInner-textBox.on::before,
+.mergeForm .lnb-inner .depth_2_inner .commonDepthInner-textBox.on::before {
+  content: "\f068";
+}
+.mergeForm .lnb-inner .depth_1_inner,
+.mergeForm .lnb-inner .depth_2_inner,
+.mergeForm .lnb-inner .depth_3_inner {
+  border-bottom: 1px solid #D2D2D2;
+}
+.mergeForm .lnb-inner .commonDepthInner {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  font-size: 16px;
+}
+.mergeForm .lnb-inner .depthEm {
+  font-weight: 700;
+  color: #FF6202;
 }
 
 /*********************************************/
@@ -364,9 +481,18 @@
   border-bottom: 1px solid #D2D2D2;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
+  font-size: 14px;
+  color: #727272;
 }
 .infoBox .infoBox-inner_full {
   grid-column: 1/-1;
+}
+.infoBox .infoBox-inner_full .infoBox-info .inputBox_select {
+  max-width: 256px;
+  min-width: 256px;
+}
+.infoBox .infoBox-inner_full .infoBox-info .inputBox_select::after {
+  right: 10px !important;
 }
 .infoBox .infoBox-inner_full_col {
   -webkit-box-orient: vertical;
@@ -387,7 +513,7 @@
       -ms-flex-align: center;
           align-items: center;
   width: 125px;
-  height: 48px;
+  height: 50px;
   min-height: 100%;
   -ms-flex-negative: 0;
       flex-shrink: 0;
@@ -395,6 +521,9 @@
   text-align: center;
   color: #727272;
   background-color: #f4f4f4;
+}
+.infoBox .infoBox-inner .infoBox-cate.em {
+  background-color: #F3F7FD;
 }
 .infoBox .infoBox-inner .infoBox-cate_search {
   width: 100%;
@@ -706,6 +835,7 @@
   margin-top: 15px;
 }
 .infoBox .infoBox-inner .infoBox-info {
+  position: relative;
   -webkit-box-flex: 1;
       -ms-flex-positive: 1;
           flex-grow: 1;
@@ -732,7 +862,7 @@
           box-sizing: border-box;
   width: 100%;
   max-width: 256px;
-  height: 36px;
+  height: 30px;
   padding-left: 10px;
   border: 1px solid #D2D2D2;
   border-radius: 3px;
@@ -756,6 +886,9 @@
 }
 .infoBox .infoBox-inner .infoBox-info .inputBox .input_text.noneBorder {
   border: none;
+}
+.infoBox .infoBox-inner .infoBox-info .inputBox .select {
+  padding-right: 35px;
 }
 .infoBox .infoBox-inner .infoBox-info .inputBox .input_date {
   padding-right: 10px;
@@ -814,7 +947,6 @@
 }
 .infoBox .infoBox-inner .infoBox-info .inputBox_select {
   position: relative;
-  max-width: 276px;
 }
 .infoBox .infoBox-inner .infoBox-info .inputBox_select::after {
   position: absolute;
@@ -834,12 +966,36 @@
      -moz-appearance: none;
           appearance: none;
 }
+.infoBox .infoBox-inner .infoBox-info .btn_s_del {
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  right: -7px;
+  display: none;
+}
+.infoBox .infoBox-inner .infoBox-info.col {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: stretch;
+      -ms-flex-align: stretch;
+          align-items: stretch;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 10px;
+}
 .infoBox .infoBox-inner .infoBox-info.dayChk .inputBox_input {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
   width: 140px;
-  height: 36px;
+  height: 30px;
   padding-right: 8px;
   border: 1px solid #D2D2D2;
   border-radius: 3px;
@@ -1001,6 +1157,9 @@
       -ms-flex-align: center;
           align-items: center;
   gap: 3px;
+}
+.infoBox.infoBox.addDelBtn .btn_s_del {
+  display: block;
 }
 .infoBox .dateSection-input .infoBox-info {
   -webkit-box-flex: 0;
@@ -1183,6 +1342,38 @@
 }
 .infosTabBox-inner .tableWrapBox .table_form .totalBox td {
   color: #000;
+}
+
+/*********************************************/
+/***************** 비품내부 인풋모음(이 영역은 지정범위가 정해져있어 수정을 권하지않습니다) *****************/
+.gridForm {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 5px;
+  padding: 10px;
+  border-radius: 3px;
+  background-color: #ededed;
+}
+.gridForm .label {
+  font-size: 12px;
+}
+.gridForm .inputBox_select {
+  max-width: unset !important;
+  min-width: unset !important;
+}
+.gridForm .inputBox_select .select {
+  font-size: 13px !important;
+}
+.gridForm .input_text {
+  width: 85px !important;
+  font-size: 13px !important;
 }
 
 /*********************************************/

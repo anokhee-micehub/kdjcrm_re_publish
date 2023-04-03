@@ -58,7 +58,7 @@ $header-btn-color: #B4B4B4;
 
 .gnb_depth2 {
   position: absolute;
-  left: 50%;
+  left: 47%;
   transform: translateX(-50%);
   bottom: -91px;
   width: auto;
@@ -89,11 +89,13 @@ $header-btn-color: #B4B4B4;
   @include flex-box {
     gap: 10px;
   }
-  .btn {
+  button {
     @include wh(34px, 34px);
     border-radius: 50%;
     color: $white;
     background-color: $header-btn-color;
+    outline: none;
+    border: none;
   }
 }
 

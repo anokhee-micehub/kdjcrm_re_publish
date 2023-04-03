@@ -22,6 +22,7 @@
 .table th,
 .table td {
   height: 50px;
+  padding: 10px 5px;
   text-align: center;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;

@@ -108,6 +108,14 @@ body {
   cursor: pointer;
   border-radius: 3px;
   color: $white;
+  &_s {
+    &_del {
+      padding: 5px;
+      background-color: $button-del-color;
+      font-size: $t-body-xs;
+      font-weight: $light;
+    }
+  }
   &_m {
     height: $button-m-height;
     padding: $button-padding;
@@ -149,6 +157,20 @@ body {
     background-color: $button-xxs-default-color;
     color: $black;
     border-radius: 3px;
+  }
+  &_full {
+    width: 100%;
+    height: 50px;
+    padding: 10px;
+    font-size: $t-body-s;
+    box-sizing: border-box;
+    &.addForm,
+    &.ck-add-option {
+      color: $formText;
+      font-weight: $bold;
+      border: 1px solid #D2D2D2;
+      background-color: #F3F7FD;
+    }
   }
   &_arrow {
     @include wh(15px, 15px);
