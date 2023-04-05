@@ -77,7 +77,7 @@
 }
 
 /*********************************************/
-/***************** 공통박스 *****************/
+/***************** box공통css *****************/
 .box {
   -webkit-box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.1);
           box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.1);
@@ -460,6 +460,106 @@
 }
 
 /*********************************************/
+/***************** 폼에서 공통으로 쓰이는 인풋요소들(common에서 속성추가) *****************/
+.infoBox.noneBorder {
+  border: none;
+}
+.infoBox .input_text {
+  border: 1px solid #D2D2D2;
+  color: #727272;
+}
+.infoBox .input_text.noInput {
+  background-color: #D2D2D2;
+  pointer-events: none;
+}
+.infoBox .input_textarea {
+  width: 100%;
+  min-height: 120px;
+  padding: 5px;
+  border: 1px solid #D2D2D2;
+  color: #727272;
+}
+.infoBox .input_date {
+  border: 1px solid #D2D2D2;
+  color: #727272;
+}
+.infoBox .inputBox_select {
+  border: 1px solid #D2D2D2;
+}
+.infoBox .inputBox_select .select {
+  min-width: 210px;
+  max-width: 210px;
+  color: #727272;
+}
+.infoBox .input_text:not(.noInput):disabled,
+.infoBox .input_textarea:disabled,
+.infoBox .input_date:disabled {
+  border: none;
+  background-color: transparent;
+}
+
+.inputBox {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 8px;
+}
+.inputBox.flex_wrap {
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+.inputBox.full .input_text {
+  width: calc(100% - 10px);
+  max-width: unset;
+}
+
+label[for=file],
+.inputUpload {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 30px;
+  padding: 10px;
+  margin-right: 5px;
+  border-radius: 3px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-size: 13px;
+  color: #fff;
+  cursor: pointer;
+}
+label[for=file] input,
+.inputUpload input {
+  display: none;
+}
+label[for=file] + .fileNameInner,
+.inputUpload + .fileNameInner {
+  font-size: 13px;
+  color: #727272;
+}
+
+.btn_s_del {
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  right: 0;
+  display: none;
+}
+
+/*********************************************/
 /***************** 폼 각 입력칸 wrap *****************/
 .infoBox ~ .infoBox {
   margin-top: 15px;
@@ -491,7 +591,6 @@
 }
 .infoBox .infoBox-inner_full .infoBox-info .inputBox_select {
   max-width: 256px;
-  min-width: 256px;
 }
 .infoBox .infoBox-inner_full .infoBox-info .inputBox_select::after {
   right: 10px !important;
@@ -570,6 +669,7 @@
   outline: none;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
+  width: 85%;
   height: 100%;
   font-size: 14px;
 }
@@ -596,6 +696,7 @@
   border: 1px solid #D2D2D2;
   border-radius: 3px;
   background-color: #fff;
+  z-index: 1;
 }
 .infoBox .infoBox-inner .infoBox-cate_search .innerSearchBox .customSelectBox .customSelectBox-options .filterChkListBox {
   display: -webkit-box;
@@ -661,15 +762,6 @@
       -ms-flex-positive: 1;
           flex-grow: 1;
   height: 30px;
-  padding: 0 10px;
-  border: none;
-  outline: none;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-  border-radius: 3px;
-  border: 1px solid #D2D2D2;
-  font-size: 13px;
-  font-weight: 700;
 }
 .infoBox .infoBox-inner .infoBox-cate_search .innerSearchBox .customSelectBox3 .customSelectBox-options .btnsBox {
   display: -webkit-box;
@@ -713,10 +805,10 @@
   padding-top: 10px;
 }
 .infoBox .infoBox-inner .infoBox-cate_search .stickersBox .sticker {
-  padding: 7px 14px;
+  padding: 4px 14px;
   border: 1px solid #24b898;
   border-radius: 20px;
-  font-size: 14px;
+  font-size: 12px;
   font-weight: 400;
   color: #000;
 }
@@ -843,149 +935,6 @@
           flex-grow: 1;
   padding: 5px 8px 5px 8px;
 }
-.infoBox .infoBox-inner .infoBox-info .inputBox {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: flex-start;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  gap: 8px;
-}
-.infoBox .infoBox-inner .infoBox-info .inputBox.flex_wrap {
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-}
-.infoBox .infoBox-inner .infoBox-info .inputBox.full .input_text {
-  width: calc(100% - 10px);
-  max-width: unset;
-}
-.infoBox .infoBox-inner .infoBox-info .inputBox .input_text,
-.infoBox .infoBox-inner .infoBox-info .inputBox .input_date,
-.infoBox .infoBox-inner .infoBox-info .inputBox .select {
-  border: none;
-  outline: none;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-  width: 100%;
-  max-width: 256px;
-  height: 30px;
-  padding-left: 10px;
-  border: 1px solid #D2D2D2;
-  border-radius: 3px;
-  overflow: hidden;
-  box-sizing: border-box;
-  font-size: 14px;
-  color: #727272;
-}
-.infoBox .infoBox-inner .infoBox-info .inputBox .input_text:disabled,
-.infoBox .infoBox-inner .infoBox-info .inputBox .input_date:disabled,
-.infoBox .infoBox-inner .infoBox-info .inputBox .select:disabled {
-  border: none;
-  background-color: transparent;
-}
-.infoBox .infoBox-inner .infoBox-info .inputBox .input_text.noInput {
-  pointer-events: none;
-  background-color: #D2D2D2;
-}
-.infoBox .infoBox-inner .infoBox-info .inputBox .input_text.noInput:disabled {
-  background-color: transparent;
-}
-.infoBox .infoBox-inner .infoBox-info .inputBox .input_text.noneBorder {
-  border: none;
-}
-.infoBox .infoBox-inner .infoBox-info .inputBox .select {
-  max-width: 210px;
-  min-width: 210px;
-  padding-right: 35px;
-}
-.infoBox .infoBox-inner .infoBox-info .inputBox .input_date {
-  padding-right: 10px;
-}
-.infoBox .infoBox-inner .infoBox-info .inputBox .input_textarea {
-  border: none;
-  outline: none;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-  width: calc(100% - 6px);
-  height: 100px;
-  padding: 10px;
-  resize: none;
-  border: 1px solid #D2D2D2;
-  border-radius: 3px;
-  overflow: hidden;
-  box-sizing: border-box;
-}
-.infoBox .infoBox-inner .infoBox-info .inputBox .input_textarea:disabled {
-  border: none;
-  background-color: transparent;
-}
-.infoBox .infoBox-inner .infoBox-info .inputBox .radioBox {
-  font-size: 14px;
-  color: #727272;
-}
-.infoBox .infoBox-inner .infoBox-info label[for=file],
-.infoBox .infoBox-inner .infoBox-info .inputUpload {
-  display: -webkit-inline-box;
-  display: -ms-inline-flexbox;
-  display: inline-flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  height: 30px;
-  padding: 10px;
-  margin-right: 5px;
-  border-radius: 3px;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-  font-size: 13px;
-  color: #fff;
-  cursor: pointer;
-}
-.infoBox .infoBox-inner .infoBox-info label[for=file] input,
-.infoBox .infoBox-inner .infoBox-info .inputUpload input {
-  display: none;
-}
-.infoBox .infoBox-inner .infoBox-info label[for=file] + .fileNameInner,
-.infoBox .infoBox-inner .infoBox-info .inputUpload + .fileNameInner {
-  font-size: 13px;
-  color: #727272;
-}
-.infoBox .infoBox-inner .infoBox-info .inputBox_select {
-  position: relative;
-}
-.infoBox .infoBox-inner .infoBox-info .inputBox_select::after {
-  position: absolute;
-  top: 50%;
-  -webkit-transform: translateY(-50%);
-          transform: translateY(-50%);
-  left: 180px;
-  content: "\f078";
-  font-family: "Font Awesome 6 Pro";
-  pointer-events: none;
-}
-.infoBox .infoBox-inner .infoBox-info .inputBox_select:has(.select:disabled)::after {
-  font-size: 0;
-}
-.infoBox .infoBox-inner .infoBox-info .inputBox_select .select {
-  -webkit-appearance: none;
-     -moz-appearance: none;
-          appearance: none;
-}
-.infoBox .infoBox-inner .infoBox-info .btn_s_del {
-  position: absolute;
-  top: 50%;
-  -webkit-transform: translateY(-50%);
-          transform: translateY(-50%);
-  right: 0;
-  display: none;
-}
 .infoBox .infoBox-inner .infoBox-info.col {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1007,15 +956,16 @@
       -ms-flex-pack: justify;
           justify-content: space-between;
   width: 140px;
-  height: 30px;
+  height: 27px;
   padding-right: 8px;
   border: 1px solid #D2D2D2;
   border-radius: 3px;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-  font-size: 14px;
+  font-size: 13px;
 }
 .infoBox .infoBox-inner .infoBox-info.dayChk .inputBox_input .input_text {
+  border: none;
   width: calc(100% - 35px);
   background-color: transparent;
 }
@@ -1104,6 +1054,7 @@
   border: 1px solid #D2D2D2;
   border-radius: 3px;
   background-color: #fff;
+  z-index: 1;
 }
 .infoBox .infoBox-inner .infoBox-info_bt .customSelectBox .customSelectBox-btn_value.active + .customSelectBox-options .customSelectBox-btn_option ~ .customSelectBox-btn_option {
   margin-top: 5px;
@@ -1305,59 +1256,88 @@
 .infosTabBox-inner .tableWrapBox.scrollBox-x.large .table_form {
   width: 1600px;
 }
-.infosTabBox-inner .tableWrapBox .table_form {
+
+.table.table_form {
   margin-bottom: 0;
 }
-.infosTabBox-inner .tableWrapBox .table_form th,
-.infosTabBox-inner .tableWrapBox .table_form td {
+.table.table_form tr.chkCell {
+  background-color: rgba(255, 98, 2, 0.1);
+}
+.table.table_form th,
+.table.table_form td {
   border: 1px solid #D2D2D2;
 }
-.infosTabBox-inner .tableWrapBox .table_form th label,
-.infosTabBox-inner .tableWrapBox .table_form td label {
+.table.table_form th label,
+.table.table_form td label {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
 }
-.infosTabBox-inner .tableWrapBox .table_form th {
+.table.table_form th {
   background-color: #f4f4f4;
   color: #727272;
   font-weight: 700;
 }
-.infosTabBox-inner .tableWrapBox .table_form td {
+.table.table_form td {
   color: #727272;
 }
-.infosTabBox-inner .tableWrapBox .table_form td.ta_r {
+.table.table_form td.ta_r {
   padding-right: 10px;
   text-align: right;
 }
-.infosTabBox-inner .tableWrapBox .table_form td.ta_r:has(.input_text) {
+.table.table_form td.ta_r:has(.input_text) {
   text-align: center;
 }
-.infosTabBox-inner .tableWrapBox .table_form td.ta_r .input_text {
+.table.table_form td.ta_r .input_text {
   padding-right: 10px;
   text-align: right;
   color: #727272;
 }
-.infosTabBox-inner .tableWrapBox .table_form td .input_text {
-  border: none;
-  outline: none;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-  width: 110px;
-  height: 30px;
-  border: 1px solid #D2D2D2;
-  border-radius: 3px;
+.table.table_form td.textAlign_l {
+  text-align: left;
 }
-.infosTabBox-inner .tableWrapBox .table_form .totalBox {
+.table.table_form td.textAlign_l label {
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  padding-left: 5px;
+}
+.table.table_form td .input_text {
+  width: 110px;
+  height: 25px;
+  border: 1px solid #D2D2D2;
+}
+.table.table_form td .input_text.l {
+  width: auto;
+}
+.table.table_form td .input_text.xs {
+  width: 50px;
+}
+.table.table_form td .inputBox_select {
+  width: 100%;
+  border: 1px solid #D2D2D2;
+}
+.table.table_form td .inputBox_select .select {
+  width: 100%;
+}
+.table.table_form td .btn_border {
+  width: 25px;
+  height: 25px;
+  border: 1px solid #727272;
+  border-radius: 50%;
+  color: #727272;
+}
+.table.table_form .totalBox {
   font-weight: 700;
   background-color: #D2D2D2;
 }
-.infosTabBox-inner .tableWrapBox .table_form .totalBox td {
+.table.table_form .totalBox td {
   color: #000;
 }
 
 /*********************************************/
-/***************** 비품내부 인풋모음(이 영역은 지정범위가 정해져있어 수정을 권하지않습니다) *****************/
+/***************** 비품내부 인풋모음
+(이 영역은 지정범위가 정해져있어 수정을 권하지않습니다) *****************/
 .gridForm {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1386,6 +1366,139 @@
 .gridForm .input_text {
   width: 85px !important;
   font-size: 13px !important;
+}
+
+/*********************************************/
+/***************** 견적서발행시 푸터글(고정내용이라 묶음스타일링) *****************/
+.estFooterInfo .before_dash {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 5px;
+  font-size: 0.9333333333rem;
+}
+.estFooterInfo .before_dash::before {
+  content: "-";
+}
+.estFooterInfo li ~ li,
+.estFooterInfo .before_dash ~ .before_dash {
+  margin-top: 5px;
+}
+.estFooterInfo .pdl {
+  padding-left: 1.3333333333rem;
+}
+.estFooterInfo .top {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: stretch;
+      -ms-flex-align: stretch;
+          align-items: stretch;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 10px;
+  margin-bottom: 1.3333333333rem;
+}
+.estFooterInfo .bottom {
+  margin-bottom: 1.3333333333rem;
+}
+.estFooterInfo .bankNum {
+  padding: 1rem;
+  background-color: #EAF2FB;
+}
+.estFooterInfo .bankNum dt {
+  margin-bottom: 0.6666666667rem;
+  font-weight: 700;
+}
+.estFooterInfo .red {
+  font-size: 0.8666666667rem;
+  font-weight: 400;
+  color: #FF0202;
+}
+.estFooterInfo .writer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+.estFooterInfo .writer .flexbox {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 12.6666666667rem;
+}
+.estFooterInfo .writer .left {
+  display: inline-block;
+  width: 3.3333333333rem;
+}
+.estFooterInfo .writer .right {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  text-align: right;
+}
+.estFooterInfo .textWrap {
+  padding: 1rem;
+  margin-bottom: 2rem;
+  background-color: #F4F4F4;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+.estFooterInfo .textWrap .before_dash {
+  font-size: 0.8rem;
+}
+.estFooterInfo .textWrap dl dt {
+  margin-bottom: 5px;
+}
+.estFooterInfo .textWrap dl dd ~ dd {
+  margin-top: 5px;
+}
+.estFooterInfo .textWrap dl ~ dl {
+  margin-top: 5px;
+}
+.estFooterInfo .inputArea strong {
+  margin-right: 5px;
+}
+.estFooterInfo .inputArea input {
+  width: 16.6666666667rem;
+  height: 1.6666666667rem;
+  padding: 0 10px;
+  border: 1px solid #D2D2D2;
+  border-radius: 5px;
+  font-size: 0.9333333333rem;
+  font-weight: 400;
+  color: #727272;
+  outline: none;
+}
+.estFooterInfo + .btnWrap {
+  text-align: right;
+}
+.estFooterInfo + .btnWrap .btn {
+  height: 40px;
+}
+.estFooterInfo + .btnWrap .btn_m_primary {
+  padding: 0 2rem;
 }
 
 /*********************************************/

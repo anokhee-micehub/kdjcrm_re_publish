@@ -15,12 +15,11 @@ $sectionBox-subTitle-margin-bottom: 15px;
 $sectionBox-gap: 25px;
 $infoBox-cate-width: 125px;
 $infoBox-cate-height: 50px;
-$inputs-height: 30px;
+$inputWrap-height: 27px;
 $inputs-padding: 10px;
 $day-inputs-width: 140px;
-$textarea-height: 100px;
 $select-max-width: 276px;
-$customSelect-box-height : 30px;
+$customSelect-box-height: 30px;
 $card-contents-gap: 15px;
 $arrowBtns-height: 40px;
 $form-title-background: #f4f4f4;
@@ -63,7 +62,7 @@ $arrowBtnsColors: (#F7B401, #F7B402, #F89E00, #F89E01, #FF9000, #FF9001, #FF6201
 
 /*********************************************/
 
-/***************** 공통박스 *****************/
+/***************** box공통css *****************/
 .box {
   box-shadow: $common-box-shadow;
   &.innerBox {
@@ -338,6 +337,105 @@ $arrowBtnsColors: (#F7B401, #F7B402, #F89E00, #F89E01, #FF9000, #FF9001, #FF6201
 }
 /*********************************************/
 
+
+/***************** 폼에서 공통으로 쓰이는 인풋요소들(common에서 속성추가) *****************/
+
+// 폼전용 인풋요소들 infoBox안에서 정의해야합니다.
+// 상위요소의 스타일 확장으로 인한 재정의는 검색 후 해당 영역해서 합니다.
+.infoBox {
+  &.noneBorder {
+    border: none;
+  }
+  // input
+  .input_text {
+    border: $common-border;
+    color: $formText;
+    &.noInput {
+      background-color: $btn2;
+      pointer-events: none;
+    }
+  }
+  // textarea
+  .input_textarea {
+    width: 100%;
+    min-height: 120px;
+    padding: $common-input-padding;
+    border: $common-border;
+    color: $formText;
+  }
+
+  // date
+  .input_date {
+    border: $common-border;
+    color: $formText;
+  }
+
+  // select
+  .inputBox_select {
+    border: $common-border;
+    .select {
+      min-width: 210px;
+      max-width: 210px;
+      color: $formText;
+    }
+  }
+
+  // disabled 공통속성
+  .input_text:not(.noInput),
+  .input_textarea,
+  .input_date {
+    &:disabled {
+      border: none;
+      background-color: transparent;
+    }
+  }
+}
+
+// 인풋요소 래핑
+.inputBox {
+  @include flex-box($jc:start) {
+    gap: 8px;
+  }
+  // 스타일 확장
+  &.flex_wrap {
+    flex-wrap: wrap;
+  }
+  &.full {
+    .input_text {
+      width: calc(100% - 10px);
+      max-width: unset;
+    }
+  }
+}
+
+// 파일업로드
+label[for="file"],
+.inputUpload {
+  @include inline-flex;
+  height: 30px;
+  padding: $inputs-padding;
+  margin-right: 5px;
+  border-radius: $common-inputs-border-radius;
+  box-sizing: border-box;
+  font-size: $t-body-ms;
+  color: $white;
+  cursor: pointer;
+  input {
+    display: none;
+  }
+  & + .fileNameInner {
+    font-size: $t-body-ms;
+    color: $formText;
+  }
+}
+// 삭제버튼
+.btn_s_del {
+  @include position-center-y;
+  right: 0;
+  display: none;
+}
+/*********************************************/
+
 /***************** 폼 각 입력칸 wrap *****************/
 .infoBox ~ .infoBox {
   margin-top: $card-contents-gap;
@@ -359,7 +457,6 @@ $arrowBtnsColors: (#F7B401, #F7B402, #F89E00, #F89E01, #FF9000, #FF9001, #FF6201
       .infoBox-info {
         .inputBox_select {
           max-width: 256px;
-          min-width: 256px;
           &::after {
             right: 10px !important;
           }
@@ -408,6 +505,7 @@ $arrowBtnsColors: (#F7B401, #F7B402, #F89E00, #F89E01, #FF9000, #FF9001, #FF6201
           box-sizing: border-box;
           .input_text {
             @include inputsReset;
+            width: 85%;
             height: 100%;
             font-size: $t-body-s;
           }
@@ -437,6 +535,7 @@ $arrowBtnsColors: (#F7B401, #F7B402, #F89E00, #F89E01, #FF9000, #FF9001, #FF6201
             border: 1px solid $btn2;
             border-radius: $common-inputs-border-radius;
             background-color: #fff;
+            z-index: 1;
             .filterChkListBox {
               @include flex-box {
                 flex-wrap: wrap;
@@ -494,12 +593,6 @@ $arrowBtnsColors: (#F7B401, #F7B402, #F89E00, #F89E01, #FF9000, #FF9001, #FF6201
                 .input_date {
                   flex-grow: 1;
                   height: $customSelect-box-height;
-                  padding: 0 10px;
-                  @include inputsReset;
-                  border-radius: $common-inputs-border-radius;
-                  border: 1px solid $btn2;
-                  font-size: $t-body-ms;
-                  font-weight: $bold
                 }
               }
               .btnsBox {
@@ -533,10 +626,10 @@ $arrowBtnsColors: (#F7B401, #F7B402, #F89E00, #F89E01, #FF9000, #FF9001, #FF6201
           flex-wrap: wrap;
         }
         .sticker {
-          padding: 7px 14px;
+          padding: 4px 14px;
           border: 1px solid $button-primary-color;
           border-radius: 20px;
-          font-size: $t-body-s;
+          font-size: $t-body-xs;
           font-weight: $medium;
           color: $black;
           .btn {
@@ -625,135 +718,6 @@ $arrowBtnsColors: (#F7B401, #F7B402, #F89E00, #F89E01, #FF9000, #FF9001, #FF6201
       flex-grow: 1;
       padding: 5px 8px 5px 8px;
       // @include flex-box($jc:start);
-      // 인풋요소들 공통 wrap
-      .inputBox {
-        @include flex-box($jc:start) {
-          gap: 8px;
-        }
-        // 스타일 확장
-        &.flex_wrap {
-          flex-wrap: wrap;
-        }
-        &.full {
-          .input_text {
-            width: calc(100% - 10px);
-            max-width: unset;
-          }
-        }
-        // 공통요소
-        .input_text,
-        .input_date,
-        .select {
-          @include inputsReset;
-          width: 100%;
-          max-width: 256px;
-          height: $inputs-height;
-          padding-left: $inputs-padding;
-          border: 1px solid $btn2;
-          @include inputsBorderRadius();
-          box-sizing: border-box;
-          font-size: $t-body-s;
-          color: $formText;
-          &:disabled {
-            border: none;
-            background-color: transparent;
-          }
-        }
-        // 인풋-텍스트 단독
-        .input_text {
-          &.noInput {
-            pointer-events: none;
-            background-color: $btn2;
-            &:disabled {
-              background-color: transparent;
-            }
-          }
-          &.noneBorder {
-            border: none;
-          }
-        }
-        // 인풋-셀렉트박스 단독
-        .select {
-          max-width: 210px;
-          min-width: 210px;
-          padding-right: 35px;
-        }
-        // 인풋-날짜 단독
-        .input_date {
-          padding-right: $inputs-padding;
-        }
-        // 인풋-textarea 단독
-        .input_textarea {
-          @include inputsReset;
-          width: calc(100% - 6px);
-          height: $textarea-height;
-          padding: $inputs-padding;
-          resize: none;
-          border: 1px solid $btn2;
-          @include inputsBorderRadius();
-          box-sizing: border-box;
-          &:disabled {
-            border: none;
-            background-color: transparent;
-          }
-        }
-        // 인풋-라디오박스 단독
-        .radioBox {
-          font-size: $t-body-s;
-          color: $formText;
-          &:nth-child(1) {
-            // padding-left: 8px;
-          }
-        }
-      }
-      // 파일업로드
-      label[for="file"],
-      .inputUpload {
-        @include inline-flex;
-        height: 30px;
-        padding: $inputs-padding;
-        margin-right: 5px;
-        border-radius: $common-inputs-border-radius;
-        box-sizing: border-box;
-        font-size: $t-body-ms;
-        color: $white;
-        cursor: pointer;
-        input {
-          display: none;
-        }
-        & + .fileNameInner {
-          font-size: $t-body-ms;
-          color: $formText;
-        }
-      }
-      // 셀렉트박스 단독 wrap
-      .inputBox_select {
-        position: relative;
-        // max-width: $select-max-width;
-        &::after {
-          position: absolute;
-          top: 50%;
-          transform: translateY(-50%);
-          left: 180px;
-          content: '\f078';
-          font-family: 'Font Awesome 6 Pro';
-          pointer-events: none;
-        }
-        &:has(.select:disabled) {
-          &::after {
-            font-size: 0;
-          }
-        }
-        .select {
-          appearance: none;
-        }
-      }
-      // 삭제버튼
-      .btn_s_del {
-        @include position-center-y;
-        right: 0;
-        display: none;
-      }
       // 확장 - 세부영역 세로정렬
       &.col {
         @include flex-box($fd:column, $jc:start, $ai: stretch);
@@ -765,13 +729,14 @@ $arrowBtnsColors: (#F7B401, #F7B402, #F89E00, #F89E01, #FF9000, #FF9001, #FF6201
       .inputBox_input {
         justify-content: space-between;
         width: $day-inputs-width;
-        height: $inputs-height;
+        height: $inputWrap-height;
         padding-right: 8px;
         border: $common-border;
         border-radius: $common-inputs-border-radius;
         box-sizing: border-box;
-        font-size: $t-body-s;
+        font-size: $t-body-ms;
         .input_text {
+          border: none;
           width: calc(100% - 35px);
           background-color: transparent;
         }
@@ -782,8 +747,6 @@ $arrowBtnsColors: (#F7B401, #F7B402, #F89E00, #F89E01, #FF9000, #FF9001, #FF6201
       display: grid;
       grid-template-columns: repeat(5, 1fr);
       grid-template-rows: auto auto;
-      // justify-content: unset;
-      // align-items: unset;
       gap: 5px;
       .inputBox,
       .btn {
@@ -847,6 +810,7 @@ $arrowBtnsColors: (#F7B401, #F7B402, #F89E00, #F89E01, #FF9000, #FF9001, #FF6201
             border: 1px solid $btn2;
             border-radius: $common-inputs-border-radius;
             background-color: $white;
+            z-index: 1;
             .customSelectBox-btn_option ~ .customSelectBox-btn_option {
               margin-top: 5px;
             }
@@ -1036,54 +1000,85 @@ $arrowBtnsColors: (#F7B401, #F7B402, #F89E00, #F89E01, #FF9000, #FF9001, #FF6201
         width: 1600px;
       }
     }
-    .table_form {
-      margin-bottom: 0;
-      th,
-      td {
-        border: 1px solid $btn2;
-        label {
-          justify-content: center;
-        }
+  }
+}
+
+.table.table_form {
+  margin-bottom: 0;
+  tr {
+    &.chkCell {
+      background-color: rgba($main, 0.1);
+    }
+  }
+  th,
+  td {
+    border: 1px solid $btn2;
+    label {
+      justify-content: center;
+    }
+  }
+  th {
+    background-color: $form-title-background;
+    color: $formText;
+    font-weight: 700;
+  }
+  td {
+    color: $formText;
+    &.ta_r {
+      padding-right: 10px;
+      text-align: right;
+      &:has(.input_text) {
+        text-align: center;
       }
-      th {
-        background-color: $form-title-background;
+      .input_text {
+        padding-right: 10px;
+        text-align: right;
         color: $formText;
-        font-weight: 700;
       }
-      td {
-        color: $formText;
-        &.ta_r {
-          padding-right: 10px;
-          text-align: right;
-          &:has(.input_text) {
-            text-align: center;
-          }
-          .input_text {
-            padding-right: 10px;
-            text-align: right;
-            color: $formText;
-          }
-        }
-        .input_text {
-          @include inputsReset;
-          @include wh(110px, 30px);
-          border: $common-border;
-          border-radius: $common-inputs-border-radius;
-        }
+    }
+    &.textAlign_l {
+      text-align: left;
+      label {
+        justify-content: flex-start;
+        padding-left: 5px;
       }
-      .totalBox {
-        font-weight: $bold;
-        background-color: $btn2;
-        td {
-          color: $black;
-        }
+    }
+    .input_text {
+      @include wh(110px, 25px);
+      border: $common-border;
+      &.l {
+        width: auto;
       }
+      &.xs {
+        width: 50px;
+      }
+    }
+    .inputBox_select {
+      width: 100%;
+      border: $common-border;
+      .select {
+        width: 100%;
+      }
+    }
+    .btn_border {
+      @include wh(25px, 25px);
+      border: 1px solid $formText;
+      border-radius: 50%;
+      color: $formText;
+    }
+  }
+  .totalBox {
+    font-weight: $bold;
+    background-color: $btn2;
+    td {
+      color: $black;
     }
   }
 }
 /*********************************************/
 
-/***************** 비품내부 인풋모음(이 영역은 지정범위가 정해져있어 수정을 권하지않습니다) *****************/
+/***************** 비품내부 인풋모음
+(이 영역은 지정범위가 정해져있어 수정을 권하지않습니다) *****************/
 .gridForm {
   @include flex-box($jc:start) {
     gap: 5px;
@@ -1104,6 +1099,119 @@ $arrowBtnsColors: (#F7B401, #F7B402, #F89E00, #F89E01, #FF9000, #FF9001, #FF6201
   .input_text {
     width: 85px !important;
     font-size: $t-body-ms !important;
+  }
+}
+/*********************************************/
+
+/***************** 견적서발행시 푸터글(고정내용이라 묶음스타일링) *****************/
+.estFooterInfo {
+  // 공통영역
+  .before_dash {
+    position: relative;
+    display: flex;
+    gap: 5px;
+    font-size: rem(14px);
+    &::before {
+      content: '-';
+    }
+  }
+  li ~ li,
+  .before_dash ~ .before_dash {
+    margin-top: 5px;
+  }
+  .pdl {
+    padding-left: rem(20px);
+  }
+  // 상단
+  .top {
+    @include flex-box($fd: column, $ai: stretch) {
+      gap: 10px;
+    }
+    margin-bottom: rem(20px);
+  }
+  // 하단
+  .bottom {
+    margin-bottom: rem(20px);
+  }
+  // 계좌번호
+  .bankNum {
+    padding: rem(15px);
+    background-color: #EAF2FB;
+    dt {
+      margin-bottom: rem(10px);
+      font-weight: 700;
+    }
+  }
+  // 주의사항
+  .red {
+    font-size: rem(13px);
+    font-weight: 400;
+    color: #FF0202;
+    
+  }
+  // 작성자
+  .writer {
+    @include flex-box($fd: column, $ai: end);
+    .flexbox {
+      @include flex-box($jc:start);
+      width: rem(190px);
+    }
+    .left {
+      display: inline-block;
+      width: rem(50px);
+    }
+    .right {
+      flex: 1;
+      text-align: right;
+    }
+  }
+  // 하단 장문박스
+  .textWrap {
+    padding: rem(15px);
+    margin-bottom: rem(30px);
+    background-color: #F4F4F4;
+    font-size: rem(12px);
+    font-weight: 500;
+    .before_dash {
+      font-size: rem(12px);
+    }
+    dl {
+      dt {
+        margin-bottom: 5px;
+      }
+      dd ~ dd {
+        margin-top: 5px;
+      }
+    }
+    dl ~ dl {
+      margin-top: 5px;
+    }
+  }
+  // 이메일 입력 박스
+  .inputArea {
+    strong {
+      margin-right: 5px;
+    }
+    input {
+      @include wh(rem(250px), rem(25px));
+      padding: 0 10px;
+      border: 1px solid #D2D2D2;
+      border-radius: 5px;
+      font-size: rem(14px);
+      font-weight: 400;
+      color: #727272;
+      outline: none;
+    }
+  }
+  // 버튼그룹
+  & + .btnWrap {
+    text-align: right;
+    .btn {
+      height: 40px;
+      &_m_primary {
+        padding: 0 rem(30px);
+      }
+    }
   }
 }
 /*********************************************/

@@ -1560,7 +1560,7 @@
   font-weight: 300;
 }
 .btn_m {
-  height: 30px;
+  height: 28px;
   padding: 0 15px;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
@@ -1637,6 +1637,106 @@
   text-align: center;
   background-color: #edeff1;
   color: #666666;
+}
+
+.input_text {
+  border: none;
+  outline: none;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  height: 27px;
+  padding-left: 5px;
+  box-sizing: border-box;
+  border-radius: 3px;
+  font-size: 13px;
+}
+
+.input_textarea {
+  border: none;
+  outline: none;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding-left: 5px;
+  box-sizing: border-box;
+  border-radius: 3px;
+  font-size: 13px;
+  resize: none;
+}
+
+.input_date {
+  border: none;
+  outline: none;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  height: 27px;
+  padding: 0 5px;
+  box-sizing: border-box;
+  border-radius: 3px;
+  font-size: 13px;
+}
+
+.inputBox_select {
+  position: relative;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  height: 27px;
+  background-color: #fff;
+  border-radius: 3px;
+}
+.inputBox_select::after {
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  right: 10px;
+  content: "\f078";
+  font-family: "Font Awesome 6 Pro";
+  pointer-events: none;
+}
+.inputBox_select:has(.select:disabled) {
+  border: none;
+}
+.inputBox_select:has(.select:disabled)::after {
+  font-size: 0;
+}
+.inputBox_select .select {
+  border: none;
+  outline: none;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 0 5px;
+  padding-right: 40px;
+  font-size: 13px;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+}
+
+.timeSelect {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 3px;
+  font-size: 13px;
+  color: #727272;
+}
+.timeSelect select {
+  border: none;
+  outline: none;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  height: 27px;
+  border: 1px solid #D2D2D2;
+  font-size: 13px;
+  border-radius: 3px;
+  color: #727272;
 }
 
 label:has(.input_checkbox) {

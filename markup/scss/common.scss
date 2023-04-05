@@ -12,7 +12,7 @@ $page-layout-gap: 31px;
 $content-layout-gap: 21px;
 $button-padding: 0 15px;
 $button-search-width: 150px;
-$button-m-height: 30px;
+$button-m-height: 28px;
 $button-xxs-width: 23px;
 $button-xxs-height: 23px;
 $box-border-radius: 10px;
@@ -196,6 +196,84 @@ body {
     text-align: center;
     background-color: #edeff1;
     color: #666666;
+  }
+}
+
+// input
+.input_text {
+  @include inputsReset;
+  height: $common-input-height;
+  padding-left: $common-input-padding;
+  box-sizing: border-box;
+  border-radius: $common-inputs-border-radius;
+  font-size: $t-body-ms;
+}
+
+// textarea
+.input_textarea {
+  @include inputsReset;
+  padding-left: $common-input-padding;
+  box-sizing: border-box;
+  border-radius: $common-inputs-border-radius;
+  font-size: $t-body-ms;
+  resize: none;
+}
+
+// date
+.input_date {
+  @include inputsReset;
+  height: $common-input-height;
+  padding: 0 $common-input-padding;
+  box-sizing: border-box;
+  border-radius: $common-inputs-border-radius;
+  font-size: $t-body-ms;
+}
+
+// select
+.inputBox_select {
+  position: relative;
+  width: fit-content;
+  height: $common-input-height;
+  background-color: $white;
+  border-radius: $common-inputs-border-radius;
+  &::after {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 10px;
+    content: '\f078';
+    font-family: 'Font Awesome 6 Pro';
+    pointer-events: none;
+  }
+  &:has(.select:disabled) {
+    border: none;
+    &::after {
+      font-size: 0;
+    }
+  }
+  .select {
+    @include inputsReset;
+    padding: 0 $common-input-padding;
+    padding-right: 40px;
+    font-size: $t-body-ms;
+    appearance: none;
+  }
+}
+
+// 시간선택 select
+.timeSelect {
+  @include flex-box($jc:start) {
+    gap: 3px;
+  }
+  font-size: $t-body-ms;
+  color: $formText;
+  select {
+    @include inputsReset;
+    height: $common-input-height;
+    border: $common-border;
+    font-size: $t-body-ms;
+    border-radius: $common-inputs-border-radius;
+    color: $formText;
   }
 }
 

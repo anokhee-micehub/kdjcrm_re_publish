@@ -162,3 +162,26 @@ $flex: (
   border-radius: 3px;
   overflow: hidden;
 }
+
+// 셀렉트박스wrap 기본초기화
+@mixin customInputSelectReset() {
+  position: relative;
+  // max-width: $select-max-width;
+  &::after {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 180px;
+    content: '\f078';
+    font-family: 'Font Awesome 6 Pro';
+    pointer-events: none;
+  }
+  &:has(.select:disabled) {
+    &::after {
+      font-size: 0;
+    }
+  }
+  .select {
+    appearance: none;
+  }
+}

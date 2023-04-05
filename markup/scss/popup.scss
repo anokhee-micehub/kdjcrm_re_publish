@@ -85,6 +85,7 @@ $popup-item-gap : 15px;
     gap: 18px;
   }
   max-height: calc(100vh - 329px);
+  padding-right: 7px;
   // @include customScroll;
   overflow-y: auto;
   // 팝업창 설명란
@@ -96,6 +97,10 @@ $popup-item-gap : 15px;
     font-size: $t-body-m;
     &:not(:first-child) {
       margin-top: $popup-item-gap;
+    }
+    // 속성확장
+    &.flex_jc_bt {
+      @include flex-box($jc:between);
     }
   }
   // 폼끼리의 간격
@@ -117,7 +122,7 @@ $popup-item-gap : 15px;
       // 일반 하프 폼
       .infoBox-info {
         .inputBox_select {
-          width: 100%;
+          // width: 100%;
           .select {
             padding-top: 0;
             padding-bottom: 0;
@@ -137,6 +142,7 @@ $popup-item-gap : 15px;
   // 단계버튼
   .tabWrapBox {
     .arrowBtns {
+      white-space: nowrap;
       font-size: $t-body-xs;
     }
   }
@@ -148,11 +154,91 @@ $popup-item-gap : 15px;
     }
   }
 
+  // 비품 검색,필터박스
+  .infoBox {
+    .infoBox-inner {
+      .infoBox-cate_search {
+        margin-top: -10px;
+        .innerSearchBox {
+          .customSelectBox2 {
+            .customSelectBox-options {
+              min-width: max-content;
+              .filterChkListBox {
+                justify-content: flex-start;
+                .filterChkListBox-inner {
+                  &:nth-child(1) {
+                    border: none;
+                  }
+                  width: 100%;
+                  max-height: 200px;
+                  overflow-y: auto;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  // 단계버튼
+  .arrowBtns {
+    &:first-child:nth-last-child(3),
+    &:first-child:nth-last-child(3) ~ .arrowBtns {
+      clip-path: polygon(0% 0%, 96% 0%, 100% 50%, 96% 100%, 0% 100%);
+    }
+  }
+
   // 커스텀툴팁
   .customToolTip {
+    &.inPopup {
+      .customToolTip-inner {
+        width: max-content;
+        top: 22px;
+        left: -20px;
+        &.textAlign_l {
+          text-align: left;
+        }
+        .listDesc {
+          font-weight: $light;
+          &::before {
+            content: 'ㆍ';
+            font-weight: $bold;
+          }
+          .pd15 {
+            padding-left: 15px;
+          }
+        }
+      }
+    }
     .customToolTip-inner {
       top: -70px;
     }
+  }
+
+  // table래핑
+  .tableWrapBox {
+    padding: 0;
+    &.scroll {
+      flex-shrink: 0;
+      max-height: 250px;
+      border-top: $common-border;
+      border-bottom: $common-border;
+    }
+    &_tab {
+      display: none;
+      &.isActive {
+        display: block;
+      }
+    }
+  }
+
+  // 권한 체크 영역
+  .chkAreaBox {
+    @include flex-box;
+    min-height: 320px;
+    font-size: $t-body-m;
+    background-color: $em-color;
   }
 
   /**** 팝업창 - 일괄등록 ****/

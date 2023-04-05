@@ -93,6 +93,7 @@
           flex-direction: column;
   gap: 18px;
   max-height: calc(100vh - 329px);
+  padding-right: 7px;
   overflow-y: auto;
   /**** 팝업창 - 일괄등록 ****/
   /************************/
@@ -110,6 +111,17 @@
 .popup-detail .popupDetailTitle:not(:first-child) {
   margin-top: 15px;
 }
+.popup-detail .popupDetailTitle.flex_jc_bt {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
 .popup-detail .infoBox ~ .infoBox {
   margin-top: 0;
 }
@@ -120,9 +132,6 @@
 }
 .popup-detail .infoBox .infoBox-inner_full.dateSection .infoBox-info .input_date {
   width: 140px;
-}
-.popup-detail .infoBox .infoBox-inner .infoBox-info .inputBox_select {
-  width: 100%;
 }
 .popup-detail .infoBox .infoBox-inner .infoBox-info .inputBox_select .select {
   padding-top: 0;
@@ -135,6 +144,7 @@
   color: #FF6202;
 }
 .popup-detail .tabWrapBox .arrowBtns {
+  white-space: nowrap;
   font-size: 12px;
 }
 .popup-detail .flex_col_st_sr {
@@ -153,8 +163,83 @@
           flex-direction: column;
   gap: 15px;
 }
+.popup-detail .infoBox .infoBox-inner .infoBox-cate_search {
+  margin-top: -10px;
+}
+.popup-detail .infoBox .infoBox-inner .infoBox-cate_search .innerSearchBox .customSelectBox2 .customSelectBox-options {
+  min-width: -webkit-max-content;
+  min-width: -moz-max-content;
+  min-width: max-content;
+}
+.popup-detail .infoBox .infoBox-inner .infoBox-cate_search .innerSearchBox .customSelectBox2 .customSelectBox-options .filterChkListBox {
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+}
+.popup-detail .infoBox .infoBox-inner .infoBox-cate_search .innerSearchBox .customSelectBox2 .customSelectBox-options .filterChkListBox .filterChkListBox-inner {
+  width: 100%;
+  max-height: 200px;
+  overflow-y: auto;
+}
+.popup-detail .infoBox .infoBox-inner .infoBox-cate_search .innerSearchBox .customSelectBox2 .customSelectBox-options .filterChkListBox .filterChkListBox-inner:nth-child(1) {
+  border: none;
+}
+.popup-detail .arrowBtns:first-child:nth-last-child(3), .popup-detail .arrowBtns:first-child:nth-last-child(3) ~ .arrowBtns {
+  -webkit-clip-path: polygon(0% 0%, 96% 0%, 100% 50%, 96% 100%, 0% 100%);
+          clip-path: polygon(0% 0%, 96% 0%, 100% 50%, 96% 100%, 0% 100%);
+}
+.popup-detail .customToolTip.inPopup .customToolTip-inner {
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  top: 22px;
+  left: -20px;
+}
+.popup-detail .customToolTip.inPopup .customToolTip-inner.textAlign_l {
+  text-align: left;
+}
+.popup-detail .customToolTip.inPopup .customToolTip-inner .listDesc {
+  font-weight: 300;
+}
+.popup-detail .customToolTip.inPopup .customToolTip-inner .listDesc::before {
+  content: "ㆍ";
+  font-weight: 700;
+}
+.popup-detail .customToolTip.inPopup .customToolTip-inner .listDesc .pd15 {
+  padding-left: 15px;
+}
 .popup-detail .customToolTip .customToolTip-inner {
   top: -70px;
+}
+.popup-detail .tableWrapBox {
+  padding: 0;
+}
+.popup-detail .tableWrapBox.scroll {
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+  max-height: 250px;
+  border-top: 1px solid #D2D2D2;
+  border-bottom: 1px solid #D2D2D2;
+}
+.popup-detail .tableWrapBox_tab {
+  display: none;
+}
+.popup-detail .tableWrapBox_tab.isActive {
+  display: block;
+}
+.popup-detail .chkAreaBox {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  min-height: 320px;
+  font-size: 16px;
+  background-color: #F3F7FD;
 }
 .popup-detail .popup-desc-btn {
   display: -webkit-box;
