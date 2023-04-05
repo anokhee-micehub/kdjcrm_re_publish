@@ -129,6 +129,12 @@ body {
     font-size: $t-body-ms;
     &_primary {
       background-color: $button-primary-color;
+      &_full {
+        flex: 1;
+        padding: 10px 0;
+        font-size: $t-body-s;
+        font-weight: $bold;
+      }
     }
     &_secondary {
       background-color: $button-secondary-color;
@@ -283,6 +289,7 @@ label {
     box-shadow: $common-box-shadow;
     background-color: #F1FCFF;
     display: none;
+    z-index: 1;
   }
 }
 

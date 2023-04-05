@@ -1569,6 +1569,14 @@
 .btn_m_primary {
   background-color: #24b898;
 }
+.btn_m_primary_full {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  padding: 10px 0;
+  font-size: 14px;
+  font-weight: 700;
+}
 .btn_m_secondary {
   background-color: #0aa07f;
 }
@@ -1746,6 +1754,7 @@ label:has(.input_checkbox) .checkboxChk {
           box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.1);
   background-color: #F1FCFF;
   display: none;
+  z-index: 1;
 }
 
 .subTitleBox-subTitle {

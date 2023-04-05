@@ -8,6 +8,8 @@
 @ 해당 범위에서만 사용되는 변수는 이곳에 따로 지정해도됩니다.
 */
 
+$popup-item-gap : 15px;
+
 /************************ 팝업 전체 wrap ************************/
 .popupBox {
   position: fixed;
@@ -28,7 +30,7 @@
 .popupBox-contents {
   @include position-center;
   @include wh(100%, auto);
-  max-width: 930px;
+  max-width: 950px;
   max-height: calc(100vh - 100px);
   padding: 42px 58px;
   border-radius: 24px;
@@ -79,10 +81,81 @@
 
 // 상세
 .popup-detail {
-  @include flex-box($fd:column, $ai: stretch) {
+  @include flex-box($fd:column,$jc: start, $ai: stretch) {
     gap: 18px;
   }
-  // 일괄등록
+  max-height: calc(100vh - 329px);
+  // @include customScroll;
+  overflow-y: auto;
+  // 팝업창 설명란
+  .popup-desc {
+    font-size: $t-body-s;
+  }
+  // 타이틀
+  .popupDetailTitle {
+    font-size: $t-body-m;
+    &:not(:first-child) {
+      margin-top: $popup-item-gap;
+    }
+  }
+  // 폼끼리의 간격
+  .infoBox ~ .infoBox {
+    margin-top: 0;
+  }
+  // 인풋요소들
+  .infoBox {
+    .infoBox-inner {
+      // 1줄짜리 폼
+      &_full.dateSection {
+        .infoBox-info {
+          flex-grow: 0;
+          .input_date {
+            width: 140px;
+          }
+        }
+      }
+      // 일반 하프 폼
+      .infoBox-info {
+        .inputBox_select {
+          width: 100%;
+          .select {
+            padding-top: 0;
+            padding-bottom: 0;
+          }
+        }
+        .btn_s_del {
+          right: 18px;
+        }
+      }
+    }
+  }
+  // 강조글씨
+  .em {
+    color: $main;
+  }
+
+  // 단계버튼
+  .tabWrapBox {
+    .arrowBtns {
+      font-size: $t-body-xs;
+    }
+  }
+
+  // flex-세로정렬
+  .flex_col_st_sr {
+    @include flex-box($fd:column, $jc:start, $ai: stretch) {
+      gap: $popup-item-gap;
+    }
+  }
+
+  // 커스텀툴팁
+  .customToolTip {
+    .customToolTip-inner {
+      top: -70px;
+    }
+  }
+
+  /**** 팝업창 - 일괄등록 ****/
   .popup-desc-btn {
     @include flex-box($jc:start) {
       gap: 15px;
@@ -124,6 +197,83 @@
       color: $formText;
     }
   }
+  /************************/
+  
+  /**** 팝업창 - 개별등록step2 ****/
+  .searchGroupBox {
+    .inputBox {
+      .input_text {
+        min-width: 300px;
+        border: $common-border;
+      }
+    }
+    .resBox {
+      margin-top: $popup-item-gap;
+      .resBox-inner {
+        padding: 10px;
+      }
+      .noRes {
+        font-size: $t-body-s;
+      }
+      .isRes {
+        @include flex-box($fd:column, $jc:start, $ai:stretch);
+        width: 100%;
+        height: 200px;
+        padding: 10px;
+        overflow-y: auto;
+        .isRes-item {
+          padding: 5px 10px;
+          border-radius: 0;
+          font-size: $t-body-m;
+          font-weight: $light;
+          text-align: left;
+          color: $black;
+          &::before {
+            content: '-';
+            margin-right: 5px;
+          }
+          &.isActive {
+            color: $white;
+            background-color: $main;
+          }
+        }
+      }
+      background-color: #eee;
+      .resBox-inner_res {
+        @include flex-box;
+        min-height: 180px;
+        box-sizing: border-box;
+      }
+      .resBox-inner_input {
+        padding: 10px;
+        border-top: $common-border;
+        .input_text {
+          width: 100%;
+        }
+      }
+    }
+  }
+  /************************/
+
+  
+  /**** 팝업창 - 대관업무등록 ****/
+  .rentInfoBox {
+    display: none;
+    &.isActive {
+      display: flex;
+    }
+  }
+  .rentInfoChangeBtns {
+    .btn {
+      background-color: $disable;
+      color: $formText;
+      &.isActive {
+        background-color: $main;
+        color: $white;
+      }
+    }
+  }
+  /************************/
 }
 
 // 하단 버튼

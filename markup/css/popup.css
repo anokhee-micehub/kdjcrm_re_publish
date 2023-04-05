@@ -29,7 +29,7 @@
           transform: translate(-50%, -50%);
   width: 100%;
   height: auto;
-  max-width: 930px;
+  max-width: 950px;
   max-height: calc(100vh - 100px);
   padding: 42px 58px;
   border-radius: 24px;
@@ -81,9 +81,9 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
   -webkit-box-align: stretch;
       -ms-flex-align: stretch;
           align-items: stretch;
@@ -92,6 +92,69 @@
       -ms-flex-direction: column;
           flex-direction: column;
   gap: 18px;
+  max-height: calc(100vh - 329px);
+  overflow-y: auto;
+  /**** 팝업창 - 일괄등록 ****/
+  /************************/
+  /**** 팝업창 - 개별등록step2 ****/
+  /************************/
+  /**** 팝업창 - 대관업무등록 ****/
+  /************************/
+}
+.popup-detail .popup-desc {
+  font-size: 14px;
+}
+.popup-detail .popupDetailTitle {
+  font-size: 16px;
+}
+.popup-detail .popupDetailTitle:not(:first-child) {
+  margin-top: 15px;
+}
+.popup-detail .infoBox ~ .infoBox {
+  margin-top: 0;
+}
+.popup-detail .infoBox .infoBox-inner_full.dateSection .infoBox-info {
+  -webkit-box-flex: 0;
+      -ms-flex-positive: 0;
+          flex-grow: 0;
+}
+.popup-detail .infoBox .infoBox-inner_full.dateSection .infoBox-info .input_date {
+  width: 140px;
+}
+.popup-detail .infoBox .infoBox-inner .infoBox-info .inputBox_select {
+  width: 100%;
+}
+.popup-detail .infoBox .infoBox-inner .infoBox-info .inputBox_select .select {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+.popup-detail .infoBox .infoBox-inner .infoBox-info .btn_s_del {
+  right: 18px;
+}
+.popup-detail .em {
+  color: #FF6202;
+}
+.popup-detail .tabWrapBox .arrowBtns {
+  font-size: 12px;
+}
+.popup-detail .flex_col_st_sr {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: stretch;
+      -ms-flex-align: stretch;
+          align-items: stretch;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 15px;
+}
+.popup-detail .customToolTip .customToolTip-inner {
+  top: -70px;
 }
 .popup-detail .popup-desc-btn {
   display: -webkit-box;
@@ -148,6 +211,92 @@
 .popup-detail .uploadFileListBox .getFileNameText {
   font-size: 13px;
   color: #727272;
+}
+.popup-detail .searchGroupBox .inputBox .input_text {
+  min-width: 300px;
+  border: 1px solid #D2D2D2;
+}
+.popup-detail .searchGroupBox .resBox {
+  margin-top: 15px;
+  background-color: #eee;
+}
+.popup-detail .searchGroupBox .resBox .resBox-inner {
+  padding: 10px;
+}
+.popup-detail .searchGroupBox .resBox .noRes {
+  font-size: 14px;
+}
+.popup-detail .searchGroupBox .resBox .isRes {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: stretch;
+      -ms-flex-align: stretch;
+          align-items: stretch;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 100%;
+  height: 200px;
+  padding: 10px;
+  overflow-y: auto;
+}
+.popup-detail .searchGroupBox .resBox .isRes .isRes-item {
+  padding: 5px 10px;
+  border-radius: 0;
+  font-size: 16px;
+  font-weight: 300;
+  text-align: left;
+  color: #000;
+}
+.popup-detail .searchGroupBox .resBox .isRes .isRes-item::before {
+  content: "-";
+  margin-right: 5px;
+}
+.popup-detail .searchGroupBox .resBox .isRes .isRes-item.isActive {
+  color: #fff;
+  background-color: #FF6202;
+}
+.popup-detail .searchGroupBox .resBox .resBox-inner_res {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  min-height: 180px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+.popup-detail .searchGroupBox .resBox .resBox-inner_input {
+  padding: 10px;
+  border-top: 1px solid #D2D2D2;
+}
+.popup-detail .searchGroupBox .resBox .resBox-inner_input .input_text {
+  width: 100%;
+}
+.popup-detail .rentInfoBox {
+  display: none;
+}
+.popup-detail .rentInfoBox.isActive {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+.popup-detail .rentInfoChangeBtns .btn {
+  background-color: #f4f4f4;
+  color: #727272;
+}
+.popup-detail .rentInfoChangeBtns .btn.isActive {
+  background-color: #FF6202;
+  color: #fff;
 }
 
 .popup-btnGroup {

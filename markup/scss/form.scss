@@ -73,16 +73,16 @@ $arrowBtnsColors: (#F7B401, #F7B402, #F89E00, #F89E01, #FF9000, #FF9001, #FF6201
       margin-bottom: $box-subTitle-margin-bottom;
     }
   }
-}
-
-.sectionTitle {
-  margin-bottom: $box-subTitle-margin-bottom;
-  padding-bottom: 10px;
-  border-bottom: 1px dashed #ddd;
-  .subTitleBox_st {
-    gap: 5px;
+  .sectionTitle {
+    margin-bottom: $box-subTitle-margin-bottom;
+    padding-bottom: 10px;
+    border-bottom: 1px dashed #ddd;
+    .subTitleBox_st {
+      gap: 5px;
+    }
   }
 }
+
 /*********************************************/
 
 
@@ -232,54 +232,7 @@ $arrowBtnsColors: (#F7B401, #F7B402, #F89E00, #F89E01, #FF9000, #FF9001, #FF6201
       color: $formText;
     }
   }
-  .tabWrapBox {
-    @include flex-box($jc: start) {
-      gap: 5px;
-    }
-    // 뒤 버튼 2개는 쉐입이 달라짐
-    &.lastIssue {
-      .arrowBtns {
-        &:nth-last-child(-n+2) {
-          border-radius: 3px !important;
-          clip-path: polygon(0% 0%, 100% 0%, 100% 50%, 100% 100%, 0% 100%) !important;
-        } 
-      }
-    }
-    // 뒤 버튼 3개는 쉐입이 달라짐
-    &.lastIssue3 {
-      .arrowBtns {
-        &:nth-last-child(-n+3) {
-          border-radius: 3px !important;
-          clip-path: polygon(0% 0%, 100% 0%, 100% 50%, 100% 100%, 0% 100%) !important;
-        } 
-      }
-    }
-    .arrowBtns {
-      flex: 1;
-      height: $arrowBtns-height;
-      box-sizing: border-box;
-      font-size: $t-body-s;
-      font-weight: bold;
-      color: $white;
-      clip-path: polygon(90% 0%, 100% 50%, 90% 100%, 0% 100%, 0 51%, 0% 0%);
-      // 버튼 컬러 각각 배경색 지정반복문
-      @each $color in $arrowBtnsColors {
-        $idx : index($arrowBtnsColors, $color);
-        &:nth-child(#{$idx}) {
-          color: #fff;
-          background-color: $color;
-        }
-      }
-      &.disable {
-        color: $formText;
-        background-color: #ececec;
-      }
-      &:first-child:nth-last-child(3),
-      &:first-child:nth-last-child(3) ~ .arrowBtns {
-        clip-path: polygon(0% 0%, 98% 0%, 100% 50%, 98% 100%, 0% 100%);
-      }
-    }
-  }
+  
   .textBox {
     @include flex-box($fd: column, $ai: start) {
       gap: 3px;
@@ -301,6 +254,57 @@ $arrowBtnsColors: (#F7B401, #F7B402, #F89E00, #F89E01, #FF9000, #FF9001, #FF6201
           padding-right: 5px;
         }
       }
+    }
+  }
+}
+/*********************************************/
+
+/***************** 여러페이지에서 사용되는 단계 버튼 *****************/
+.tabWrapBox {
+  @include flex-box($jc: start) {
+    gap: 5px;
+  }
+  // 뒤 버튼 2개는 쉐입이 달라짐
+  &.lastIssue {
+    .arrowBtns {
+      &:nth-last-child(-n+2) {
+        border-radius: 3px !important;
+        clip-path: polygon(0% 0%, 100% 0%, 100% 50%, 100% 100%, 0% 100%) !important;
+      } 
+    }
+  }
+  // 뒤 버튼 3개는 쉐입이 달라짐
+  &.lastIssue3 {
+    .arrowBtns {
+      &:nth-last-child(-n+3) {
+        border-radius: 3px !important;
+        clip-path: polygon(0% 0%, 100% 0%, 100% 50%, 100% 100%, 0% 100%) !important;
+      } 
+    }
+  }
+  .arrowBtns {
+    flex: 1;
+    height: $arrowBtns-height;
+    box-sizing: border-box;
+    font-size: $t-body-s;
+    font-weight: bold;
+    color: $white;
+    clip-path: polygon(90% 0%, 100% 50%, 90% 100%, 0% 100%, 0 51%, 0% 0%);
+    // 버튼 컬러 각각 배경색 지정반복문
+    @each $color in $arrowBtnsColors {
+      $idx : index($arrowBtnsColors, $color);
+      &:nth-child(#{$idx}) {
+        color: #fff;
+        background-color: $color;
+      }
+    }
+    &.disable {
+      color: $formText;
+      background-color: #ececec;
+    }
+    &:first-child:nth-last-child(3),
+    &:first-child:nth-last-child(3) ~ .arrowBtns {
+      clip-path: polygon(0% 0%, 98% 0%, 100% 50%, 98% 100%, 0% 100%);
     }
   }
 }
@@ -626,6 +630,16 @@ $arrowBtnsColors: (#F7B401, #F7B402, #F89E00, #F89E01, #FF9000, #FF9001, #FF6201
         @include flex-box($jc:start) {
           gap: 8px;
         }
+        // 스타일 확장
+        &.flex_wrap {
+          flex-wrap: wrap;
+        }
+        &.full {
+          .input_text {
+            width: calc(100% - 10px);
+            max-width: unset;
+          }
+        }
         // 공통요소
         .input_text,
         .input_date,
@@ -660,6 +674,8 @@ $arrowBtnsColors: (#F7B401, #F7B402, #F89E00, #F89E01, #FF9000, #FF9001, #FF6201
         }
         // 인풋-셀렉트박스 단독
         .select {
+          max-width: 210px;
+          min-width: 210px;
           padding-right: 35px;
         }
         // 인풋-날짜 단독
@@ -686,12 +702,13 @@ $arrowBtnsColors: (#F7B401, #F7B402, #F89E00, #F89E01, #FF9000, #FF9001, #FF6201
           font-size: $t-body-s;
           color: $formText;
           &:nth-child(1) {
-            padding-left: 8px;
+            // padding-left: 8px;
           }
         }
       }
       // 파일업로드
-      label[for="file"] {
+      label[for="file"],
+      .inputUpload {
         @include inline-flex;
         height: 30px;
         padding: $inputs-padding;
@@ -717,7 +734,7 @@ $arrowBtnsColors: (#F7B401, #F7B402, #F89E00, #F89E01, #FF9000, #FF9001, #FF6201
           position: absolute;
           top: 50%;
           transform: translateY(-50%);
-          right: 30px;
+          left: 180px;
           content: '\f078';
           font-family: 'Font Awesome 6 Pro';
           pointer-events: none;
@@ -734,7 +751,7 @@ $arrowBtnsColors: (#F7B401, #F7B402, #F89E00, #F89E01, #FF9000, #FF9001, #FF6201
       // 삭제버튼
       .btn_s_del {
         @include position-center-y;
-        right: -7px;
+        right: 0;
         display: none;
       }
       // 확장 - 세부영역 세로정렬
