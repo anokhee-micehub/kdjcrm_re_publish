@@ -72,6 +72,12 @@ $popup-item-gap : 15px;
     padding-bottom: 20px;
     margin-bottom: 20px;
     border-bottom: $common-border;
+    // 속성확장
+    &.subTitleBox_unset {
+      justify-content: flex-end;
+      border-bottom: none;
+      padding-bottom: 0;
+    }
   }
   .close_popup {
     color: $black;

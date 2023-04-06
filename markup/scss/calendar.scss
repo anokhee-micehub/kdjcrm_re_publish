@@ -8,49 +8,6 @@
 @ 해당 범위에서만 사용되는 변수는 이곳에 따로 지정해도됩니다.
 */
 
-.tableWrapBox {
-  * {
-    box-sizing: border-box;
-  }
-  overflow-x: hidden;
-  // 회의실 폰트컬러 단독지정
-  &.tab2 {
-    .eventBox-desc, 
-    .eventBox-date {
-      color: #000;
-    }
-  }
-}
-
-.calScrollArea {
-  overflow-y: scroll;
-  overflow-x: hidden;
-  height: calc(100vh - 387px);
-  padding-right: 2px;
-  &::-webkit-scrollbar {
-    width: 10px;
-  }
-  &::-webkit-scrollbar-thumb {
-    background-color: $main;
-    border-radius: 5px;
-  }
-  &::-webkit-scrollbar-track {
-    background-color: #fff;
-  }
-}
-
-.popupBox-contents_xl {
-  min-height: calc(100% - 50px);
-  .popup-detail {
-    max-height: calc(100vh - 220px);
-  }
-}
-
-.captionBox {
-  @include flex-box($jc: end) {
-    gap: 10px;
-  }
-}
 // 전시장
 $ex_ye: #FFD748; // 홍보
 $ex_pk: #FF6DCE; // 문의
@@ -65,8 +22,65 @@ $me_pk: #FFCCFF; // 학술회의
 $me_sk: #FFCC99; // 주관회의
 $me_gn: #99CC00; // 연회
 
-$disabled : #ededed;
+$disabled : #ededed; // 사용안함
 
+/***************** 검색박스와, 캘린더를 감싼래핑 *****************/
+.tableWrapBox {
+  * {
+    box-sizing: border-box;
+  }
+  overflow-x: hidden;
+  // 회의실 폰트컬러 단독지정
+  &.tab2 {
+    .eventBox-desc, 
+    .eventBox-date {
+      color: #000;
+    }
+  }
+}
+
+/*********************************************/
+
+/***************** 캘린더 스크롤 *****************/
+.calScrollArea {
+  overflow-y: scroll;
+  overflow-x: hidden;
+  height: calc(100vh - 401px);
+  // padding-left: 3px;
+  // padding-right: 3px;
+  // &::-webkit-scrollbar {
+  //   width: 10px;
+  // }
+  // &::-webkit-scrollbar-thumb {
+  //   background-color: $main;
+  //   border-radius: 5px;
+  // }
+  // &::-webkit-scrollbar-track {
+  //   background-color: #fff;
+  // }
+}
+/*********************************************/
+
+/***************** 캘린더 크기제한 *****************/
+.popupBox-contents_xl {
+  min-height: calc(100% - 50px);
+  .popup-detail {
+    max-height: calc(100vh - 220px);
+  }
+}
+/*********************************************/
+
+
+/***************** 행사별 타입 *****************/
+.captionBox {
+  @include flex-box($jc: end) {
+    gap: 10px;
+  }
+}
+/*********************************************/
+
+
+/***************** 행사별 타입, 컬러 지정 *****************/
 $colorChips_ex : ($ex_ye, $ex_pk, $ex_bl, $ex_gn, $ex_rd, $ex_gy);
 @each $color in $colorChips_ex {
   $idx : index($colorChips_ex, $color);
@@ -96,7 +110,10 @@ $colorChips_me : ($me_ln, $me_pk, $me_sk, $me_gn);
   @include wh(15px, 15px);
   border-radius: 50%;
 }
+/*********************************************/
 
+
+/***************** 행사별 위치값, 크기 지정 *****************/
 .commonGrid {
   position: relative;
   border-top: 1px solid #EBEBEB;
@@ -293,3 +310,4 @@ $colorChips_me : ($me_ln, $me_pk, $me_sk, $me_gn);
     top: 100px;
   }
 }
+/*********************************************/

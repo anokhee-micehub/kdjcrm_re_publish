@@ -1774,6 +1774,7 @@ label:has(.input_checkbox) .checkboxChk {
   width: 10px;
   height: 10px;
   border: 1px solid #D2D2D2;
+  background-color: #fff;
 }
 
 .radioBox label {
