@@ -805,7 +805,7 @@ label[for=file] + .fileNameInner,
   padding-top: 10px;
 }
 .infoBox .infoBox-inner .infoBox-cate_search .stickersBox .sticker {
-  padding: 4px 14px;
+  padding: 4px 10px;
   border: 1px solid #24b898;
   border-radius: 20px;
   font-size: 12px;
@@ -813,6 +813,8 @@ label[for=file] + .fileNameInner,
   color: #000;
 }
 .infoBox .infoBox-inner .infoBox-cate_search .stickersBox .sticker .btn {
+  padding-left: 0;
+  padding-right: 2px;
   vertical-align: baseline;
   color: #000;
 }
@@ -987,6 +989,9 @@ label[for=file] + .fileNameInner,
 }
 .infoBox .infoBox-inner .infoBox-info.ly_grid .inputBox:nth-child(4) {
   grid-column: 3/-1;
+}
+.infoBox .infoBox-inner .infoBox-info.ly_grid .inputBox:nth-child(3) .input_text, .infoBox .infoBox-inner .infoBox-info.ly_grid .inputBox:nth-child(4) .input_text {
+  width: 100%;
 }
 .infoBox .infoBox-inner .infoBox-info.ly_grid .inputBox .input_text {
   max-width: unset;
